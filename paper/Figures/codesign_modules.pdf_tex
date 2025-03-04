@@ -1,0 +1,117 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'codesign_modules.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{462.04724409bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.43558282)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.01020301,0.24805231){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(a)} drive-train design problem\end{tabular}}}}%
+    \put(0.01136245,0.38267388){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{functionality}\end{tabular}}}}%
+    \put(0.06325055,0.41579669){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{F}$\end{tabular}}}}%
+    \put(0.02979748,0.34276899){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}speed\end{tabular}}}}%
+    \put(0.03112641,0.3000888){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}torque\end{tabular}}}}%
+    \put(0.1610027,0.34418391){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{exec}\end{tabular}}}}%
+    \put(0.24917126,0.41579669){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{I}$\end{tabular}}}}%
+    \put(0.16922814,0.38264789){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{implementations}\end{tabular}}}}%
+    \put(0.32035137,0.34530019){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{eval}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{codesign_modules.pdf}}%
+    \put(0.36885999,0.32319673){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0.4022096,0.41579669){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{R}$\end{tabular}}}}%
+    \put(0.36611131,0.38171295){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{resources}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{codesign_modules.pdf}}%
+    \put(0.5282234,0.24921191){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(b)} link-dimensioning problem\end{tabular}}}}%
+    \put(0.53014552,0.37803611){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{functionality}\end{tabular}}}}%
+    \put(0.58203364,0.41115891){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{F}$\end{tabular}}}}%
+    \put(0.53362385,0.31900047){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}load bearing\end{tabular}}}}%
+    \put(0.68627866,0.33954614){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{exec}\end{tabular}}}}%
+    \put(0.76795439,0.41115891){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{I}$\end{tabular}}}}%
+    \put(0.68801125,0.37801011){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{implementations}\end{tabular}}}}%
+    \put(0.83913446,0.34066241){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{eval}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{codesign_modules.pdf}}%
+    \put(0.88969273,0.33293916){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}act. torque\end{tabular}}}}%
+    \put(0.9209927,0.41115891){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{R}$\end{tabular}}}}%
+    \put(0.88489443,0.37707518){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{resources}\end{tabular}}}}%
+    \put(0.01020301,0.0031793){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(c)} joint-design problem\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{codesign_modules.pdf}}%
+    \put(0.01136245,0.16701868){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{functionality}\end{tabular}}}}%
+    \put(0.06325055,0.20014148){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{F}$\end{tabular}}}}%
+    \put(0.0330439,0.12711379){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}range\end{tabular}}}}%
+    \put(0.03437283,0.08443348){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}speed\end{tabular}}}}%
+    \put(0.1610027,0.12852871){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{exec}\end{tabular}}}}%
+    \put(0.24917126,0.20014148){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{I}$\end{tabular}}}}%
+    \put(0.16922814,0.16699268){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{implementations}\end{tabular}}}}%
+    \put(0.32035137,0.12964498){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{eval}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{codesign_modules.pdf}}%
+    \put(0.36885999,0.10754152){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0.4022096,0.20014148){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{R}$\end{tabular}}}}%
+    \put(0.36611131,0.16605775){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{resources}\end{tabular}}}}%
+    \put(0.5282234,0.00315331){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(d)} kinematic-structure design problem\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{codesign_modules.pdf}}%
+    \put(0.88733918,0.3081965){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0.53014552,0.16701868){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{functionality}\end{tabular}}}}%
+    \put(0.58203364,0.20014148){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{F}$\end{tabular}}}}%
+    \put(0.5304354,0.12160628){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}platform...\end{tabular}}}}%
+    \put(0.66568364,0.12964498){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{exec}\end{tabular}}}}%
+    \put(0.76795439,0.20014148){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{I}$\end{tabular}}}}%
+    \put(0.68801125,0.16699268){\color[rgb]{0.83529412,0.46666667,0.01960784}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{implementations}\end{tabular}}}}%
+    \put(0.81316309,0.12964498){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{eval}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{codesign_modules.pdf}}%
+    \put(0.8645412,0.130252){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}act. torque\end{tabular}}}}%
+    \put(0.9209927,0.20014148){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{R}$\end{tabular}}}}%
+    \put(0.88489443,0.16605775){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{resources}\end{tabular}}}}%
+    \put(0.8645412,0.09898754){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}act. speed\end{tabular}}}}%
+    \put(0.86477496,0.06840491){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}load bearing\end{tabular}}}}%
+    \put(0.86593066,0.03808827){\color[rgb]{0.55294118,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}joint range\end{tabular}}}}%
+    \put(0.53362385,0.04645183){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}... payload\end{tabular}}}}%
+    \put(0.53063661,0.08403222){\color[rgb]{0.09411765,0.49803922,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}... velocity\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{codesign_modules.pdf}}%
+  \end{picture}%
+\endgroup%

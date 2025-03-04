@@ -1,0 +1,399 @@
+%
+%
+%
+
+\label{sec:app_handlingpkm}
+
+Further results for the case study of Section~\ref{sec:eval_handlingfreerotation} are given below.
+Sketches of each possible resulting structure are shown in Figures	\ref{fig:handlingpkm_robots_3T0R_rev1}--\ref{fig:handlingpkm_robots_3T1R_pris} for redundant and prismatic actuation and for 3T0R and 3T1R motion.
+%
+The kinematic parameters are selected from the \propername{Pareto} diagrams in Figure~\ref{fig:handlingpkm_pareto} based on an equal weight for both criteria, normalized to the best-found value of each criterion.
+The corresponding parameters are given in Tables~\ref{tab:handlingpkm_results_pris} and~\ref{tab:handlingpkm_results_pris_dh} for prismatic and Tables~\ref{tab:handlingpkm_results_rev} and~\ref{tab:handlingpkm_results_rev_dh} for revolute actuation.
+
+\vspace{-6pt}
+\begin{figure}[H] %
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{./Figures/handlingpkm_robots_3T0R_rev.pdf_tex}
+    \input{./Figures/handlingpkm_robots_3T0R_rev2.pdf_tex}
+  \end{adjustwidth}
+  \caption{Visualization %
+    %
+    of \emph{3T0R} parallel robots for the handling task with \emph{revolute} actuation. Markers are consistent with Figure~\ref{fig:handlingpkm_pareto}.}
+  \label{fig:handlingpkm_robots_3T0R_rev1}
+\end{figure}
+
+%
+%
+  %
+  %
+  %
+  %
+%
+%
+%
+\vspace{-6pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{./Figures/handlingpkm_robots_3T1R_rev.pdf_tex}
+  \end{adjustwidth}
+  \caption[Handling task: Visualization of 3T1R parallel robots with revolute actuation]{Visualization of \emph{3T1R} parallel robots for the handling task with \emph{revolute} actuation.}
+  \label{fig:handlingpkm_robots_3T1R_rev}
+\end{figure}
+
+\vspace{-6pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{./Figures/handlingpkm_robots_3T0R_pris.pdf_tex}
+  \end{adjustwidth}
+  \caption[Handling task: Visualization of 3T0R parallel robots with prismatic actuation]{Visualization of \emph{3T0R} parallel robots for the handling task with \emph{prismatic} actuation. Markers are consistent with Figure~\ref{fig:handlingpkm_pareto}. Continued in Figure~\ref{fig:handlingpkm_robots_3T0R_pris2}.}
+  \label{fig:handlingpkm_robots_3T0R_pris1}
+\end{figure}
+
+\vspace{-6pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{./Figures/handlingpkm_robots_3T0R_pris2.pdf_tex}
+  \end{adjustwidth}
+  \caption[Handling task: Visualization of 3T0R parallel robots with prismatic actuation (p.~2)]{Visualization of \emph{3T0R} parallel robots (part~2), continuation of Figure~\ref{fig:handlingpkm_robots_3T0R_pris1}.}
+  \label{fig:handlingpkm_robots_3T0R_pris2}
+\end{figure}
+
+\vspace{-6pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{./Figures/handlingpkm_robots_3T1R_pris.pdf_tex}
+  \end{adjustwidth}
+  \caption[Handling task: Visualization of 3T1R parallel robots with prismatic actuation]{Visualization of \emph{3T1R} parallel robots for the handling task with \emph{prismatic} actuation.}
+  \label{fig:handlingpkm_robots_3T1R_pris}
+\end{figure}
+
+\vspace{-10pt}
+
+\begin{table}[H]
+  \caption{Summary of the handling robot results (part 1, prismatic actuation)}
+  \label{tab:handlingpkm_results_pris}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{7}{c}{\textbf{Performance}} & \multicolumn{5}{c}{\textbf{Kinematic Parameters}} \\
+      \midrule
+      & \multicolumn{1}{r}{coll.} & \multicolumn{1}{r}{inst.spc.} & \multicolumn{1}{r}{footprt.}  & \multicolumn{1}{r}{power} & \multicolumn{1}{r}{force} & \multicolumn{1}{r}{velo.} & \multicolumn{1}{r}{cond.} &  \multicolumn{1}{c}{$n$} &
+      \multicolumn{1}{c}{$r_\mathrm{b}$}  & \multicolumn{1}{c}{$\gamma_\mathrm{b}$} & \multicolumn{1}{c}{$r_\mathrm{p}$}  & \multicolumn{1}{c}{$\gamma_\mathrm{p}$} \\
+      3T0R: & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{m$^3$} & \multicolumn{1}{c}{m$^2$} & \multicolumn{1}{c}{W} & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{m/s} & \multicolumn{1}{c}{} & & \multicolumn{1}{c}{mm} &  \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} &  \multicolumn{1}{c}{deg}  \\
+      \midrule %
+      %
+      \input{Tables/handlingpkm_tab_details_prismatic_3T0R.tex} \\
+      \midrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+
+
+\begin{table}[H]\ContinuedFloat
+  \caption[Handling task: Summary of the results (prismatic actuation)]{\emph{Cont.}}
+%
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{7}{c}{\textbf{Performance}} & \multicolumn{5}{c}{\textbf{Kinematic Parameters}} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_prismatic_3T0R_Cont.tex} \\
+      \midrule
+      3T1R: & \multicolumn{7}{r}{} & \multicolumn{5}{r}{} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_prismatic_3T1R.tex}\\
+      \midrule
+      \cite{PrauseChaCor2015}: & \multicolumn{7}{l}{} & \multicolumn{5}{c}{From reference} \\ %
+      \midrule
+      \input{Tables/handlingpkm_tab_details_prismatic_Ref.tex}\\
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+\vspace{-12pt}
+
+\begin{table}[H]
+  \centering
+  \caption{Summary of the handling robot results (continuation of Table~\ref{tab:handlingpkm_results_pris}, leg-chain parameters).}
+%
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering %
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{11}{c}{\textbf{Leg-Chain Kinematic Parameters}} \\
+      \midrule
+      & \multicolumn{1}{c}{$\alpha_{2}$} &		\multicolumn{1}{c}{$a_{2}$} & \multicolumn{1}{c}{$d_{2}$}
+      & \multicolumn{1}{c}{$\alpha_{3}$} & \multicolumn{1}{c}{$a_{3}$} & \multicolumn{1}{c}{$d_{3}$} 
+      & \multicolumn{1}{c}{$\alpha_{4}$} & \multicolumn{1}{c}{$a_{4}$} & \multicolumn{1}{c}{$d_{4}$} &
+      \multicolumn{1}{c}{$a_{5}$} & \multicolumn{1}{c}{$d_{5}$}  \\						
+      3T0R: & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm}& \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm}  \\
+      \midrule %
+      \input{Tables/handlingpkm_tab_details_prismatic_3T0R_dh.tex} \\ %
+      \midrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+
+\begin{table}[H]\ContinuedFloat
+  \centering
+  \caption{\emph{Cont.}} %
+  \label{tab:handlingpkm_results_pris_dh}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering %
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{11}{c}{\textbf{Leg-Chain Kinematic Parameters}} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_prismatic_3T0R_dh_Cont.tex}\\ %
+      \midrule
+      3T1R: & \multicolumn{11}{c}{} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_prismatic_3T1R_dh.tex}\\
+      \midrule
+      From \cite{PrauseChaCor2015}: & \multicolumn{11}{c}{Kinematic parameters from reference} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_prismatic_Ref_dh.tex}\\
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+
+\vspace{-12pt}
+
+
+\begin{table}[H]
+  \tablesize{\fontsize{9}{9}\selectfont}
+  \caption[Handling task: Summary of the results (revolute actuation)]{Summary of the handling robot results (part 2, revolute actuation).}
+  \label{tab:handlingpkm_results_rev}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{7}{c}{\textbf{Performance}} & \multicolumn{5}{c}{\textbf{Kinematic Parameters}} \\
+      \midrule
+      & \multicolumn{1}{r}{coll.} & \multicolumn{1}{r}{inst.spc.} & \multicolumn{1}{r}{footprt.}  & \multicolumn{1}{r}{power} & \multicolumn{1}{r}{torque} & \multicolumn{1}{r}{velo.} & \multicolumn{1}{r}{cond.} &  \multicolumn{1}{c}{$n$} &
+      \multicolumn{1}{c}{$r_\mathrm{b}$}  & \multicolumn{1}{c}{$\gamma_\mathrm{b}$} & \multicolumn{1}{c}{$r_\mathrm{p}$}  & \multicolumn{1}{c}{$\gamma_\mathrm{p}$} \\
+      3T0R: & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{m$^3$} & \multicolumn{1}{c}{m$^2$} & \multicolumn{1}{c}{W} & \multicolumn{1}{c}{Nm} & \multicolumn{1}{c}{deg/s} & \multicolumn{1}{c}{} & & \multicolumn{1}{c}{mm} &  \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} &  \multicolumn{1}{c}{deg}  \\
+      \midrule %
+      %
+      \input{Tables/handlingpkm_tab_details_revolute_3T0R.tex}\\ %
+      \midrule
+      3T1R: & \multicolumn{7}{r}{} & \multicolumn{5}{r}{} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_revolute_3T1R.tex}\\ %
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+\begin{table}[H]
+  \caption[Handling task: Summary of the results (leg chain kinematic parameters, revolute actuation)]{\textls[-15]{Summary of the handling robot results (part 2 continuation of Table~\ref{tab:handlingpkm_results_rev}, leg chain parameters).}}
+  \label{tab:handlingpkm_results_rev_dh}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{11}{c}{\textbf{Leg-chain kinematic parameters}} \\
+      \midrule
+      & \multicolumn{1}{c}{$\alpha_{2}$} &		\multicolumn{1}{c}{$a_{2}$} & \multicolumn{1}{c}{$d_{2}$}
+      & \multicolumn{1}{c}{$\alpha_{3}$} & \multicolumn{1}{c}{$a_{3}$} & \multicolumn{1}{c}{$d_{3}$} 
+      & \multicolumn{1}{c}{$\alpha_{4}$} & \multicolumn{1}{c}{$a_{4}$} & \multicolumn{1}{c}{$d_{4}$} &
+      \multicolumn{1}{c}{$a_{5}$} & \multicolumn{1}{c}{$d_{5}$}  \\						
+      3T0R: & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm}& \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm}  \\
+      \midrule %
+      \input{Tables/handlingpkm_tab_details_revolute_3T0R_dh.tex}\\
+      \midrule
+      3T1R: & \multicolumn{11}{c}{} \\
+      \midrule
+      \input{Tables/handlingpkm_tab_details_revolute_3T1R_dh.tex}\\
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+
+%
+
+The \propername{Pareto} diagram in Figure~\ref{fig:handlingpkm_pareto_prismatic_onlypoints} 
+%
+corresponds to the one in Figure~\ref{fig:handlingpkm_pareto}a.
+It is based on the optimization only using the 27 reference points, not the reference trajectory with \mbox{4851 samples}.
+Thereby, the results are based on the same assumptions as the study in \cite{PrauseChaCor2015}.
+
+%
+%
+%
+%
+%
+
+For a direct comparison with \cite{PrauseChaCor2015}, sketches of the optimal results from the paper are given in Figure~\ref{fig:handlingpkm_robots_reference}.
+Especially for 3-\underline{P}UU (Figure \ref{fig:handlingpkm_robots_reference}b), 3-\underline{C}RU (Figure \ref{fig:handlingpkm_robots_reference}c), and 3-\underline{C}UR (Figure \ref{fig:handlingpkm_robots_reference}d), large structures have been found by \cite{PrauseChaCor2015} that are outperformed by the results of this replication of the study.
+%
+The box plots from the paper (Figure~\ref{fig:handlingpkm_boxplot_PrauseChaCor2015}b,d,e) are compared to the reproduction by the proposed synthesis toolchain (in Figure~\ref{fig:handlingpkm_boxplot_PrauseChaCor2015}a,c,e) for different criteria, as explained in Section~\ref{sec:eval_handling_results}.
+
+%
+The following pages give different performance maps for the resolution of the functional redundancy of the 3T1R parallel robots within the handling task.
+Each page contains the maps of all robots for one heat-map criterion.
+The always identical trajectory comes from the dimensional synthesis, where the minimization of actuator force or torque was selected as the IK objective. %
+The robots with prismatic actuation are given at the top \mbox{(Figures~\ref{fig:handlingpkm_perfmaps_multi_actforce_pris}, ~\ref{fig:handlingpkm_perfmaps_multi_poserr_pris}}, and~\ref{fig:handlingpkm_perfmaps_multi_condikjac_pris}), and with revolute actuation at the bottom of the pages \mbox{(Figures~\ref{fig:handlingpkm_perfmaps_multi_actforce_rev}, ~\ref{fig:handlingpkm_perfmaps_multi_poserr_rev}, and~\ref{fig:handlingpkm_perfmaps_multi_condikjac_rev})}.
+The actuator-force/torque maps (Figures~\ref{fig:handlingpkm_perfmaps_multi_actforce_pris} and~\ref{fig:handlingpkm_perfmaps_multi_actforce_rev}) show the ability of the redundancy resolution to minimize the actuator forces by avoiding areas of high required force (dark colors). %
+For most structures, however, the force necessary in the reachable orientations is relatively uniform.
+The limitation of the end-effector precision to \SI{500}{\micro\metre} %
+is only influencing the 3T1R PRs with prismatic actuation, as is visible in Figure~\ref{fig:handlingpkm_perfmaps_multi_poserr_pris}.
+The error is much lower for revolute actuation in Figure~\ref{fig:handlingpkm_perfmaps_multi_poserr_rev}. %
+Since the position error is proportional to the assumed encoder accuracy, principally better precision of the revolute actuation cannot be concluded, as a strictly equivalent selection of encoders was not subject to the case study. %
+The heat maps in Figures~\ref{fig:handlingpkm_perfmaps_multi_condikjac_pris} and~\ref{fig:handlingpkm_perfmaps_multi_condikjac_rev} show the condition number of the full inverse-kinematics matrix (``IK \propername{Jacobian}'', see \cite{SchapplerTapOrt2019c}, connected to the IK singularities within the workspace of 3T1R PRs, especially with revolute actuation. %
+%
+%
+
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \includegraphics{Figures/handlingpkm_pareto_actforce_installspace_groups_onlypoints_prismatic.pdf}
+  \end{adjustwidth}
+  \caption[Handling task: \propername{Pareto} fronts for robots with prismatic actuation using only 27 reference points]{\propername{Pareto} fronts for robots with prismatic actuation using only 27 reference points.}%
+\label{fig:handlingpkm_pareto_prismatic_onlypoints}
+\end{figure}
+
+
+\begin{figure}[H]
+%
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \graphicspath{{Figures}}
+  \input{./Figures/handlingpkm_robots_reference.pdf_tex}
+\end{adjustwidth}
+%
+\caption{\hl{Visualization} %
+  %
+  of the 3T0R parallel robots with parameters from \cite{PrauseChaCor2015}, listed in the bottom of Tables~\ref{tab:handlingpkm_results_pris}~and~\ref{tab:handlingpkm_results_pris_dh}.}
+\label{fig:handlingpkm_robots_reference}
+\end{figure}
+
+\begin{figure}[H]
+\vspace{0.1cm} %
+\begin{adjustwidth}{-\extralength}{0cm}
+  %
+  \begin{overpic}
+    {Figures/boxplots_handlingpkm/handlingpkm_boxplot_actforce_PrauseChaCor2015_collcheck1.pdf}
+    \put(110,0){\includegraphics[width=8.2cm]{Figures/boxplots_handlingpkm/PrauseChaCor2015_Fig5.png}}
+    \put(0,0){\textbf{(a)}}
+    \put(110,0){\textbf{(b)}}
+  \end{overpic} \\[0.5cm]
+  \begin{overpic}
+    {Figures/boxplots_handlingpkm/handlingpkm_boxplot_poserr_PrauseChaCor2015_collcheck1.pdf}
+    \put(110,0){\includegraphics[height=4.9cm]{Figures/boxplots_handlingpkm/PrauseChaCor2015_Fig9.png}}
+    \put(0,0){\textbf{(c)}}
+    \put(110,0){\textbf{(d)}}
+  \end{overpic} \\[0.5cm]
+  \begin{overpic}
+    {Figures/boxplots_handlingpkm/handlingpkm_boxplot_dexterity_PrauseChaCor2015_collcheck1.pdf}
+    \put(110,0){\includegraphics[height=4.9cm]{Figures/boxplots_handlingpkm/PrauseChaCor2015_Fig10.png}}
+    \put(0,0){\textbf{(e)}}
+    \put(110,0){\textbf{(f)}}
+  \end{overpic} \\[0.15cm]
+\end{adjustwidth}
+%
+\caption{Distribution of actuator force (\textbf{a},\textbf{b}), position error/precision (\textbf{c},\textbf{d}), and dexterity (\textbf{e},\textbf{f}) as performance criterion computed with parameters from Table~4 of \cite{PrauseChaCor2015} with this paper's implementation (left side) in comparison to the {original} results obtained from \cite{PrauseChaCor2015} (right side, with structures for comparison in red)}
+\label{fig:handlingpkm_boxplot_PrauseChaCor2015}
+%
+\end{figure}
+
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+%
+
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics{Figures/handlingpkm_perfmaps_default_prismatic_multi_actforce_maxactforce.pdf}
+\end{adjustwidth}
+\caption{Performance
+  maps for the prismatic-actuation parallel robots of Figure~\ref{fig:handlingpkm_robots_3T1R_pris} with maximum actuator force as IK objective and heat-map criterion. For marker legend, see below in Figure~\ref{fig:handlingpkm_perfmaps_multi_actforce_rev}.}
+\label{fig:handlingpkm_perfmaps_multi_actforce_pris}
+\end{figure}
+
+\vspace{-12pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics{Figures/handlingpkm_perfmaps_default_revolute_multi_actforce_maxactforce.pdf}
+\end{adjustwidth}
+\caption{Performance
+  maps for the  revolute-actuation parallel robots of Figure~\ref{fig:handlingpkm_robots_3T1R_rev} with maximum actuator torque as IK objective and heat-map criterion.}
+\label{fig:handlingpkm_perfmaps_multi_actforce_rev}
+\end{figure}
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics{Figures/handlingpkm_perfmaps_default_prismatic_multi_positionerror_maxactforce.pdf}
+\end{adjustwidth}
+\caption{Performance
+  maps for the prismatic-actuation parallel robots of Figure~\ref{fig:handlingpkm_robots_3T1R_pris} with position error (precision) as heat-map criterion and trajectory from Figure~\ref{fig:handlingpkm_perfmaps_multi_actforce_pris}. For marker legend, see below in Figure~\ref{fig:handlingpkm_perfmaps_multi_poserr_rev}.}
+\label{fig:handlingpkm_perfmaps_multi_poserr_pris}
+\end{figure}
+
+\vspace{-12pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics{Figures/handlingpkm_perfmaps_default_revolute_multi_positionerror_maxactforce.pdf}
+\end{adjustwidth}
+\caption{Performance
+  maps for the revolute-actuation parallel robots of Figure~\ref{fig:handlingpkm_robots_3T1R_rev} with position error as heat-map criterion and trajectory from Figure~\ref{fig:handlingpkm_perfmaps_multi_actforce_rev}. Color scale is different than in Figure~\ref{fig:handlingpkm_perfmaps_multi_poserr_pris}~above.}
+\label{fig:handlingpkm_perfmaps_multi_poserr_rev}
+\end{figure} 
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics{Figures/handlingpkm_perfmaps_default_prismatic_multi_cond_ikjac_maxactforce.pdf}
+\end{adjustwidth}
+\caption{Performance
+  maps for the prismatic-actuation parallel robots of Figure~\ref{fig:handlingpkm_robots_3T1R_pris} with IK-\propername{Jacobian} condition number as heat-map criterion and trajectory from Figure~\ref{fig:handlingpkm_perfmaps_multi_actforce_pris}. For marker legend, see below in Figure~\ref{fig:handlingpkm_perfmaps_multi_condikjac_rev}.}
+\label{fig:handlingpkm_perfmaps_multi_condikjac_pris}
+\end{figure} 
+
+\vspace{-12pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics{Figures/handlingpkm_perfmaps_default_revolute_multi_cond_ikjac_maxactforce.pdf}
+\end{adjustwidth}
+\caption{Performance
+  maps for the revolute-actuation parallel robots of Figure~\ref{fig:handlingpkm_robots_3T1R_rev} with IK-\propername{Jacobian} condition number as heat-map criterion and trajectory from Figure~\ref{fig:handlingpkm_perfmaps_multi_actforce_rev}. Color scale is different than in Figure~\ref{fig:handlingpkm_perfmaps_multi_condikjac_pris} above.}
+\label{fig:handlingpkm_perfmaps_multi_condikjac_rev}
+\end{figure} 

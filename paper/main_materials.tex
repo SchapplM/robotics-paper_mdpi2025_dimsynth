@@ -1,0 +1,394 @@
+%
+%
+%
+
+\label{sec:materials}
+%
+%
+
+
+The algorithm structure developed in the following considers the high computational requirements within the combined robot synthesis, which arise from the repetition of the synthesis for many different architectures.
+It is necessary to perform a design optimization to compare different implementations of different architectures.
+%
+As a general assumption, in a cascaded (bilevel) optimization, the inner optimization loop needs to converge to its optimum before evaluating the outer loop.
+%
+The single cascaded optimization loops are the combined synthesis for \emph{all} robots {from a previously performed structural synthesis,} the dimensional synthesis {of \emph{one} robot} detailed next, the design optimization (Section~\ref{sec:dimsynth_desopt}), and the nullspace optimization of redundant degrees of freedom (Sections~\ref{sec:dimsynth_assemblymode}--\ref{sec:dimsynth_taskred}).
+A decoupling of the single optimization problems is attempted to reduce the complexity and computational effort of the co-design problem introduced in Section~\ref{sec:relatedwork}, Figure~\ref{fig:codesign_problem}. %
+In the following sections, the dimensional-synthesis optimization problem is elaborated in detail regarding the overall scheme in Section~\ref{sec:ds_optscheme} and the definition of constraints, objectives, and optimization variable{s} in Section~\ref{sec:ds_constraints_objectives_variables}, {summarized in Figure~\ref{fig:optimization_flowchart_summary}.}
+%
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{./Figures/optimization_flowchart_summary.pdf_tex}
+  \end{adjustwidth}
+  \caption{\hl{Flowchart} %
+    %
+    diagram summarizing the dimensional-synthesis optimization problem.}%
+\label{fig:optimization_flowchart_summary}
+\end{figure}
+
+Parts of the concept have been previously published in preliminary form in the conference articles \cite{SchapplerOrt2020} (Sections~\ref{sec:ds_optscheme} and~\ref{sec:ds_constraints_objectives_variables}), \cite{SchapplerJahRaaOrt2022} (Sections~\ref{sec:dimsynth_desopt} and~\ref{sec:dimsynth_assemblymode}), \cite{SchapplerTapOrt2019b} (Section~\ref{sec:dyn_reg_dimsynth}), and~\cite{Schappler2022_ARK3T1R} (Section~\ref{sec:dimsynth_taskred}).
+Concepts regarding the kinematics model and methods for redundancy resolution from \cite{SchapplerTapOrt2019c} (summarized in Section~\ref{sec:ds_parrob_preliminaries}) and \cite{Schappler2023_ICINCOLNEE} are used within the algorithm on a lower level and referred to but are not necessary for comprehension.
+
+
+%
+
+\subsection{Optimization Problem, Hierarchical Constraints, and Optimization Scheme}
+\label{sec:ds_optscheme}
+
+%
+Within the dimensional synthesis, a set of robot kinematic parameters $\bm{p}$ is optimized to obtain an optimal solution $\bm{p}_{\mathrm{opt}}$ in a single-objective optimization (SOO) or a set of \propername{Pareto}\hl{-}optimal solutions %
+$\{\bm{p}_{\mathrm{opt},1},\dots,\bm{p}_{\mathrm{opt},n_\mathrm{Pareto}}\}$ in a multi-objective optimization (MOO).
+
+Both SO and MO optimizations were implemented and tested using either the \textsc{Matlab} global optimization toolbox \cite{MatlabGOT} or the MO particle swarm optimization (PSO) algorithm from \cite{Martinez2019}.
+The term ``particle'' is used synonymously for the parameter vector $\bm{p}$ and ``fitness'' for the optimization function $f$ since the PSO proved {better results than the genetic algorithm (see Figure~\ref{fig:lufipkm_ga_vs_pso} in Appendix~\ref{sec:app_lufipkm})} and is used throughout this paper.
+
+\subsubsection{{Optimization Problem}}
+
+The optimization is written as a minimization, following the standard convention for the SO problem
+\begin{equation}
+\bm{p}_{\mathrm{opt}} = \argmin_{\bm{p} \in P} f(\bm{p}),
+\end{equation}
+where $P$ is the set of permissible parameter values.
+The set of MO solutions $P_{\mathrm{opt}}$ for $n_\mathrm{obj}$ objectives is defined by
+\begin{equation} 
+%
+f_i (\bm{p}) \geq f_i(\bm{p}_{\mathrm{opt},j})
+\quad \forall \enskip i \in \{1,\dots,n_\mathrm{obj}\}
+\enskip \text{and}\enskip 
+\forall \enskip \bm{p} \in P \setminus P_{\mathrm{opt}} 
+\quad \text{with} \quad
+\bm{p}_{\mathrm{opt},j} \in P_{\mathrm{opt}} \subset P.
+%
+\end{equation}
+
+
+
+\subsubsection{{Hierarchical Constraints}}
+
+Many parameter combinations do not present a valid solution since they violate some of the several constraints that have to be met to obtain a feasible parallel robot.
+As the computation time is the bottleneck in the optimization process, the chosen way of \emph{handling the constraints} is to abort the processing of a particle once one of the constraints is not met.
+This procedure is already sketched in \cite{TarkianPerOelFen2011} in the example of one constraint and in \cite{Ramirez2018} regarding several constraints with constant penalties regardless of their degree of violation.
+Following \cite{Ramirez2018}, the penalty terms $v_i$ are defined hierarchically according to the infeasibility of the solution with
+%
+\begin{equation}
+v_1(\bm{p})>v_2(\bm{p})>\dots>z(\bm{p}),
+\end{equation}
+%
+where $z$ represents the objective function, and $v_i$ is the penalty term for the constraint $i$, checked in the order of ascending index $i$.
+For example, geometric infeasibility (leg chains are too short to connect to the moving platform) is more severe than a joint-limit violation, which leads to $v_\mathrm{leglength} > v_\mathrm{jointrange}$.
+%
+The {SO} \emph{fitness function} {implements the abortion upon constraint violation by piece-wise definition in an if-else manner,} extending the concept of ``expanded objective function'' of \cite{Jordehi2015} as
+%
+\begin{equation}
+f(\bm{p})
+=
+\begin{cases} 
+  v_1(\bm{p}) & \text{if constraint 1 is violated} \\
+  v_2(\bm{p}) & \text{(else) if constraint 2 is violated and constraint 1 is not} \\
+  \vdots & \vdots \\
+  z(\bm{p}) & \text{(else) if no constraint is violated}.
+\end{cases}
+\end{equation}
+
+The %
+%
+approach adapts the \emph{static-penalty approach} \cite{Jordehi2015}, which is termed ``\emph{hierarchical constraints}'' here due to the constraints' ordered values.
+The terms ``fitness function'' $f$ and ``objective function'' $z$ are distinguished since the former also includes the constraints' penalties $v_i$ in the chosen approach.
+
+
+
+
+As an extension to \cite{Ramirez2018}, the \emph{degree of violation of the constraint} increases the \emph{penalty}, which requires each constraint to have a dedicated interval $v_{i,\mathrm{min}} \leq v_i < v_{i,\mathrm{max}}$ without intersection with the penalties of other constraints.
+For example, if for one particle $\bm{p}_1$, the legs are shorter than for another particle $\bm{p}_2$ and, in both cases, the platform cannot be reached, $v_\mathrm{leglength}(\bm{p}_1) > v_\mathrm{leglength}(\bm{p}_2)$ holds to have a higher penalty for the first case.
+The degree of violation $\rho>0$ in this case is $\rho(\bm{p}_1)>\rho(\bm{p}_2)$.
+It is normalized to obtain the constraint penalties $v_i$ with the function
+%
+\begin{equation}
+v_i(\rho) = v_{i,\mathrm{min}} + f_\mathrm{norm}(\rho) \cdot (v_{i,\mathrm{max}}-v_{i,\mathrm{min}})
+\quad \text{with} \quad
+f_\mathrm{norm}(\rho) = \frac{2}{\pi} \mathrm{arctan}\left(\frac{\rho}{ \rho_{\mathrm{scale}}}\right).
+%
+%
+\label{equ:fnorm}
+\end{equation}
+
+Since
+it is not always possible to determine the upper limit of $\rho$ for any parameter value~$\bm{p}$, the saturation of (\ref{equ:fnorm}) ensures that each constraint penalty $v_i$ stays within the dedicated range. %
+The scaling $\rho_{\mathrm{scale}}$ adjusts the range of the values of $\rho$, which lie in the saturation of $f_\mathrm{norm} \approx 1$.
+If the upper limit of $\rho$ is known, e.g., $\rho_\mathrm{max}=1$ for 100\% of points failed, linear scaling is used instead in (\ref{equ:fnorm}) with $f_\mathrm{norm,lin}(\rho)=\rho/\rho_\mathrm{max}$.
+The performance criteria $c$ within the objective function $z$ undergo a similar normalization $z=f_\mathrm{norm}(c)$ to ensure they stay within the interval $0 \leq z < z_{\mathrm{max}}$.
+
+
+\subsubsection{{Optimization Scheme}}
+
+The overall flow chart of the optimization is  depicted in Figure~\ref{fig:optimization_flowchart_basic}, with examples of some constraints for parallel robots.
+%
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \graphicspath{{Figures}}
+  \input{./Figures/optimization_flowchart_basic.pdf_tex}
+\end{adjustwidth}
+\caption[Flowchart of PSO and structure of the fitness function with hierarchical constraints]{Flowchart diagram of the particle swarm optimization and the structure of the fitness function with hierarchical constraints. Mod. from \cite{SchapplerOrt2020}.}
+\label{fig:optimization_flowchart_basic}
+\end{figure}
+%
+The constraints are computed for reference points and a reference trajectory in the robot workspace, and the objectives are also based on the reference trajectory.
+Therefore, the inverse kinematics (IK) need to be solved after the geometric plausibility check.
+An investigation of the complete robot workspace by geometric derivation (like in \cite{Daake2012}) or discretization is out of scope due to the high computational effort in the general case. This aligns with the argumentation of \cite{Kirchner2000} (p. 151) that disadvantageous positions (regarding achievable tilting angles) are located at the border of the workspace, and assessing them is sufficient for synthesis. The task, including reference points and trajectory, is expressed in the world frame $\ks{\indks{W}}$. Since the robot base position can be optimized, {the task} has to be transformed to the robot base frame $\ks{0}$ for every particle %
+as part of the block ``model update''. %
+Additionally, dynamics parameters (e.g., link mass) are set based on the updated kinematic parameters (e.g., link length) and a simplified geometric model using hollow cylinders for the links. The constraints and the objective function are explained in more detail in the following sections.
+
+In the case of an MOO with $n_\mathrm{obj}$ objectives, the procedure stays the same, and since only one violated constraint $i$ is computed, ${\bm{f}=[v_i,\dots,v_i]^\transp}$ is set for constraint violation, and ${\bm{f}=[z_1,z_2,...,z_{n_\mathrm{obj}}]^\transp}$ in case of no violation.
+In most cases, $n_\mathrm{obj}=2$ or $n_\mathrm{obj}=3$ is used to obtain two- or three-dimensional \propername{Pareto} fronts, which can still be inspected manually and visualized.
+To be able to change the criteria after the optimization, all possible criteria have to be used in the optimization (i.e., $n_\mathrm{obj}>3$), and then multiple 2D or 3D diagrams are created from the \propername{Pareto}\hl{-}dominant particles regarding the selected criteria. %
+%
+
+\subsection{Constraints, Objectives, and Optimization Variables}
+\label{sec:ds_constraints_objectives_variables}
+%
+%
+%
+Constraints are checked in a hierarchical order from severe violations of plausibility to violations of more detailed limits regarding a possible practical implementation.
+The enumeration of constraints is {given in Section~\ref{sec:ds_constraints} for later reference.}
+%
+%
+%
+%
+Once all constraints are met, the objective function is computed.
+Several performance criteria are available from the state of the art on parallel robots \cite{Merlet2006} and parallel\hl{-}robot synthesis~\cite{Krefft2006}. %
+The objective function should be chosen based on physical criteria independent of the specific robot structure.
+Otherwise, comparing different structures is not feasible, cf.~\cite{Krefft2006} (p. 175 ff).
+A list of possible objective functions is given in Section~\ref{sec:ds_objective}.
+%
+%
+%
+%
+To reduce the nonlinearity of the fitness function $f$ with respect to the optimization parameters $\bm{p}$, a conversion between optimization parameters and physical kinematic parameters $\bm{p}_\mathrm{kin}$ of the robot is performed.
+The concept primarily aims to reduce the coupling between parameters, which allows changing one parameter without losing the validity of the structure.
+The kinematic parameters subject to optimization {are discussed in detail in the following Subsection~\ref{sec:dimsynth_optvars}.}
+
+
+\input{main_materials_optvars.tex}
+\input{main_materials_constraints.tex}
+\input{main_materials_objectives.tex}
+
+\subsection{Design Optimization}
+\label{sec:dimsynth_desopt}
+
+In some cases, a combined synthesis only leads to feasible results if one or more of the subsequent design-optimization problems of Section~\ref{sec:ds_soa_despar} {is} solved for every particle within the dimensional optimization.
+The optimization scheme from Figure~\ref{fig:optimization_flowchart_basic} is extended, as shown in Figure~\ref{fig:optimization_flowchart_desopt}.
+A cascaded structure is chosen, motivated by the examination of \propername{Censi}'s co-design framework of Figure~\ref{fig:codesign_problem}, which shows the dependency of the \linebreak optimization variables.
+
+The phases of checking points-based constraints (numbers~\ref{itm:constr_geom1}--\ref{itm:constr_workspacecoll} in Section~\ref{sec:ds_constraints}) and trajectory-based constraints (\ref{itm:constr_iktraj}--\ref{itm:constr_jac_traj}) are separated in the detailed box for the fitness function.
+The design optimization {in the lower part of Figure~\ref{fig:optimization_flowchart_desopt}} corresponds to constraint~\ref{itm:constr_desopt} in Section~\ref{sec:ds_constraints}, and the ``force limits'' are exemplary for constraints~\ref{itm:constr_materialstress} and~\ref{itm:constr_obj}.
+Furthermore, a loop for initial values for the trajectory is added, corresponding to the robot's assembly modes {(see Section~\ref{sec:dimsynth_taskred}).}
+
+\vspace{-6pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\graphicspath{{Figures/}}
+\input{./Figures/optimization_flowchart_desopt.pdf_tex}
+\end{adjustwidth}
+\caption{Extended dimensional-synthesis scheme with design optimization (Section~\ref{sec:dimsynth_desopt}) and loop over assembly modes (see Section~\ref{sec:dimsynth_taskred}), mod. from \cite{SchapplerJahRaaOrt2022} (there published under \href{http://creativecommons.org/licenses/by/4.0/}{CC-BY License})} %
+%
+\label{fig:optimization_flowchart_desopt}
+\end{figure}
+
+\subsubsection{Structure of the Design-Optimization Problem}
+
+The design optimization consists of several sub-problems that can be combined into one optimization, as introduced in Section~\ref{sec:ds_soa_despar}.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+The \emph{link-design problem} gains importance if a lightweight (objective \ref{itm:obj_mass} in Section~\ref{sec:ds_objective}) or stiff structure (objective~\ref{itm:obj_stiffness}) is required.
+It is further relevant if dynamics are high (possibly combined with objective~\ref{itm:obj_maxactforce}) or if material stress is considered (constraint \ref{itm:constr_materialstress}), e.g., due to high payloads.
+If link-design optimization is {involved,} internal forces have to be regarded (via constraint \ref{itm:constr_materialstress} or objective \ref{itm:obj_materialstress}).
+In most cases with small or medium payloads, a pre-defined moderate link dimensioning is sufficient and does not strongly influence the overall mass and dynamics when comparing parallel robots.
+%
+The continuous optimization parameters are diameter $d_\mathrm{link}$ and strength $e_\mathrm{link}$ of hollow cylinders used for the links.
+The diameter is limited by the self-collision constraint \ref{itm:constr_selfcoll}, checked within the design optimization with a memory to avoid redundant checks if a larger diameter already succeeded.
+The strength is limited by the diameter when the hollow cylinder is filled.
+If a catalog of semi-finished parts (e.g., aluminum tubes) is regarded, not all continuous diameters and wall thicknesses are available, and a discrete design problem arises.
+When choosing the same dimensioning for all links, only two continuous parameters are subject to optimization.
+%
+
+The \emph{drive-train selection problem} is mainly relevant if actuators are not mounted at the base, and their mass influences the overall dynamics.
+In the case of base-mounted drives, the design optimization specifically helps sort out dimensional parameters for which no suitable drives are available.
+The same effect is possible in principle by performing a \propername{Pareto} optimization with objectives actuator force and speed (numbers \ref{itm:obj_maxactforce} and \ref{itm:obj_maxactvelo}) or by setting thresholds for force and speed as constraints (\ref{itm:constr_obj} and \ref{itm:constr_velo}).
+One discrete optimization parameter is sufficient for selecting existing gearbox--motor combinations for a symmetric parallel robot.
+Two discrete variables are optimized if the motor and gearbox are chosen~separately.
+
+The \emph{passive-joint design problem} also has little impact on the overall mass and dynamics of the parallel robot.
+Its primary purpose is sorting out infeasible solutions for which no passive joints are available. 
+This can also be achieved approximately by the corresponding joint-range constraints number \ref{itm:constr_jointrange} and \ref{itm:constr_jointrange_traj} or by optimizing the joint-range objective~\ref{itm:obj_jointrange} and only selecting solutions from the \propername{Pareto} front below a specific value.
+%
+The number of discrete variables for a symmetric robot (for catalog selection) corresponds to the number of universal and spherical joints, at most two, due to the number of joint DoFs.
+Revolute joints are assumed to provide infinite rotation, and a selection only has to be performed based on required bearing forces and tilting moments if internal forces are high enough to create relevant restrictions.
+Using fork joints would encounter this at the price of limiting the possible joint range.
+
+If only continuous variables are optimized, the standard implementation of the \emph{single-objective PSO} is chosen within this work as the \emph{optimization algorithm for design optimization}.
+However, the GA could be used as well.
+Using MOO is impractical since selecting from the \propername{Pareto} front of design solutions would be necessary to continue with the outer loop of dimensional synthesis optimization.
+{If} a mixed discrete--continuous problem has to be solved, e.g., due to consideration of the drive train, the PSO does not offer a dedicated approach other than rounding the design variables. %
+Instead, a problem-specific modification of the genetic algorithm or a discrete algorithm like the Complex-RD could be used \cite{PetterssonAndKru2005}, which was, however, not investigated further in this work.
+
+The design-optimization problem is structured with \emph{hierarchical constraints} as the dimensional synthesis.
+First, the feasibility of the parameters {$\bm{p}_{\mathrm{des.opt.}}$} is checked to avoid, e.g., a wall thickness greater than the hollow cylinder's radius (for link design).
+Then, after an updated computation of the actuator and internal force dynamics with the new design parameters, the material stress is checked similar to constraint~\ref{itm:constr_materialstress} from Section~\ref{sec:ds_constraints}.
+Further constraints are task-based thresholds on the mass, actuator force, or stiffness, like constraint~\ref{itm:constr_obj} from Section~\ref{sec:ds_constraints}.
+
+Similarly, the possible \emph{objectives} are those from Section~\ref{sec:ds_objective}, which vary with the design parameters: mass (no.~\ref{itm:obj_mass}), energy (no.~\ref{itm:obj_energy}), power (no.~\ref{itm:obj_power}), actuator force (no.~\ref{itm:obj_maxactforce}), stiffness (no.~\ref{itm:obj_stiffness}), or material stress (no.~\ref{itm:obj_materialstress}).
+The objective functions are checked in the order above for congruence with the objective(s) of the dimensional synthesis, and the first match is selected as the SO criterion for the design optimization.
+Thereby, the order of objectives within the MOO in the dimensional synthesis presents a prioritization and changes not only the visualization of the \propername{Pareto} diagram.
+
+The selected approach corresponds to the nested strategy of bilevel optimization \cite{SinhaMalDeb2017}, where the upper level (dimensional synthesis) and the lower level (design optimization) are both solved with evolutionary algorithms.
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+
+
+\subsubsection{Dynamics Regressor Form Within the Design Optimization}
+\label{sec:dyn_reg_dimsynth}
+
+Figure~\ref{fig:optimization_flowchart_desopt} shows the design optimization's dependency on the robot's inverse dynamics.
+%
+The dynamics should be implemented as efficiently as possible to reduce the computational costs of the overall optimization.
+%
+One method to improve the computation time spent on inverse-dynamics calculations is to exploit the linearity of the dynamics equation with respect to the dynamics parameters, which is introduced in \cite{SchapplerTapOrt2019b}.
+With the regressor form, it is possible to split the dynamics calculation into two steps: Calculating the regressor $\bm{\varPhi}_{\mathrm{a}}$ and multiplying the regressor matrix with the dynamics parameter vector~$\bm{p}_{\mathrm{dyn}}$.
+%
+
+Under certain assumptions, the dynamics calculation in the design-optimization process can then be performed with the second step.
+The first step can be \hl{done} outside the optimization loop since the regressor matrix depends on the robot's kinematics, which stay the same in the inner loop within this work. %
+
+The approach is sketched in Figure~\ref{fig:optimization_flowchart_desopt_plin} in a simplified block diagram with the computed terms and parameters as signal lines and computation steps as blocks.
+The internal forces can be calculated in the same way.
+\vspace{-6pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\graphicspath{{Figures/}}
+\input{./Figures/optimization_flowchart_desopt_plin.pdf_tex}
+\end{adjustwidth}
+\caption{Block diagram of extending the existing optimization scheme (\textbf{a}) by the dynamics regressor form (\textbf{b}), mod. from \cite{SchapplerTapOrt2019b}. The dynamics parameters $\bm{p}_{\mathrm{dyn}}$ may be in inertial- or base-parameter form.}
+\label{fig:optimization_flowchart_desopt_plin}
+\end{figure}
+%
+This approach does not allow {the use of} point-to-point cycle time as a performance measure, as investigated by \cite{PetterssonAndKru2005,PetterssonOel2009,TarkianPerOelFen2011}. %
+%
+%
+%
+
+
+
+\subsection{{Discrete Redundancy: Assembly Modes}}
+\label{sec:dimsynth_assemblymode}
+
+The inverse-kinematics problem contains \emph{discrete redundancies} due to different possible configurations of the parallel robot's leg chains, also called \emph{assembly modes} \cite{Merlet2006}, or---in certain conditions---working modes \cite{RevelesWenoth2016}, as the mode may also change after the assembly. %
+The evaluation of a particle within the dimensional synthesis has to regard all possible assembly modes to avoid discarding a particle due to self-collisions or installation-space violations, which only result from looking at the ``wrong'' mode.
+A general selection of only the ``right'' mode is impossible in a combined synthesis since there is no prior knowledge of all the robot structures.
+%
+%
+The assembly modes are regarded by randomly generating initial values for the gradient-based IK and testing the point constraints \ref{itm:constr_ik_succ}--\ref{itm:constr_workspacecoll} of Section~\ref{sec:ds_constraints} on them, as shown by the corresponding loops in Figure~\ref{fig:optimization_flowchart_desopt}.
+%
+
+\subsection{{Continuous (Functional) Redundancy}}
+\label{sec:dimsynth_taskred}
+
+A \emph{continuous redundancy} common for parallel robots is the \emph{functional redundancy} of full-mobility manipulators (3T3R) in tasks with rotationally symmetric tools (3T2R) \cite{SchapplerTapOrt2019c} or of 3T1R parallel robots in 3T0R tasks with arbitrary planar rotation \cite{Schappler2022_ARK3T1R}, {as elaborated in  Section~\ref{sec:ds_parrob_preliminaries}.}
+However, the following approach also holds for intrinsic redundancy.
+With the same argumentation as for the discrete assembly modes, the redundant degree of freedom must also be regarded within the dimensional synthesis.
+
+\subsubsection{{Optimization Structure for Dimensional Synthesis and Redundancy Resolution}}
+%
+Due to the observed strong influence of motion-related constraints and the more straightforward implementation, a sampling-based approach is preferred over the gradient-based approach favored in \cite{Dinev2023} for the bilevel optimization problem of dimensional synthesis (there termed design) and motion planning.
+A discretization within the reference trajectory is not feasible due to the continuous nature and high computational requirements since redundancy resolution needs to be performed for every particle within the optimization.
+Therefore, the redundancy resolution by optimization is performed either by nullspace projection \cite{SchapplerOrt2021} or by global optimization using dynamic programming \cite{Schappler2023_ICINCOLNEE}.
+This can be regarded as another optimization loop within the dimensional synthesis but before the design optimization.
+If there is an interaction of design optimization and redundancy resolution, an iterative approach can be used.
+The necessity depends on the chosen objectives, and the topic remains out of this paper's scope.
+
+The redundancy resolution is placed within the dimensional-synthesis algorithm as shown in Figure~\ref{fig:optimization_flowchart_taskred}.
+
+\vspace{-3pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\graphicspath{{./Figures/}}
+\input{./Figures/optimization_flowchart_taskred.pdf_tex}
+\end{adjustwidth}
+\caption{Dimensional synthesis scheme with functional redundancy. Mod. from \cite{Schappler2022_ARK3T1R}.}
+\label{fig:optimization_flowchart_taskred}
+\end{figure}
+%
+First, it is used to generate more solutions to the position-level inverse kinematics for the reference points (based on the assembly-mode iterations) with the approach presented in \cite{SchapplerTapOrt2019c}.
+These solutions then deliver optimal initial configurations for the trajectory inverse-kinematics algorithm.
+There, the methods from \cite{Schappler2023_ICINCOLNEE} are used to obtain optimal performance characteristics during the reference trajectory.
+In the concept of \cite{SinhaMalDeb2017}, this trajectory approach corresponds to the ``optimistic version'' of the bilevel optimization problem solved by a nested evolutionary algorithm (PSO) at the upper level and a classical algorithm at the lower level.
+Although ref. \cite{SinhaMalDeb2017} states the nested strategy to be computationally expensive in general, the existence of an efficient problem-specific lower-level optimization favors the~approach.
+
+\subsubsection{{Selection of the Objective Function}}
+%
+Similar to the cascading of dimensional synthesis and design optimization, the \emph{objective function of the dimensional synthesis and the redundancy optimization} should be the same to allow for each particle to reach its maximum performance.
+Thereby, the best convergence of the dimensional optimization can be expected.
+The objectives of the redundancy resolution that have been implemented, as detailed in \cite{Schappler2023_ICINCOLNEE}, are
+
+\begin{enumerate}
+\item \label{itm:ikobj_jointlim} the soft (parabolic) joint-limit criterion from \cite{SchapplerTapOrt2019c} (equation~44), %
+%
+\item \label{itm:ikobj_jac} the \propername{Jacobian} condition number as part of the singularity criterion \cite{Schappler2023_ICINCOLNEE} (equation~17), %
+\item \label{itm:ikobj_colldist} the self-collision-distance criterion of \cite{Schappler2023_ICINCOLNEE} (equation~18) using a parabolic function,
+\item \label{itm:ikobj_instspc} a similar parabolic installation-space criterion,
+\item \label{itm:ikobj_actvelo} the minimum actuator speed, and
+\item \label{itm:ikobj_actforce} the minimum actuator force or torque.
+\end{enumerate}
+
+
+\subsubsection{{Redundancy Resolution and Limits of the Robot}}
+%
+
+Hard (hyperbolic) criteria for joint limits, singularities, collisions, and installation-space violations are active and overrule the soft criteria in case of a constraint violation in the IK.
+%
+%
+%
+As a simple heuristic, the \propername{Jacobian} condition number (IK objective~\ref{itm:ikobj_jac}) is optimized for the reference points unless a joint-limit, self-collision, or installation-space constraint is violated in the first iteration without optimization.
+In that case, the corresponding IK objective~\ref{itm:ikobj_jointlim}, \ref{itm:ikobj_colldist}, or \ref{itm:ikobj_instspc} from the list above avoids the constraint violation in another iteration.
+The same holds if the synthesis objective already is one of these (numbers \ref{itm:obj_colldist}, \ref{itm:obj_installspace}, or \ref{itm:obj_jointrange} in Section~\ref{sec:dimsynth_optvars}).
+In trajectory optimization, the same principle is pursued.
+Since the correlation of the \propername{Jacobian} condition number to the physical criteria is at most weak \cite{Merlet2006}, a moderate activation threshold (of 250, empirically determined) is used for the condition-number criterion, which leads to a free motion (with minimal position change or acceleration) in most cases.
+
+
+\subsubsection{{On the Necessity of Global Optimization over the Trajectory}}
+%
+When the dimensional synthesis energy objective (number \ref{itm:obj_energy}) is optimized, the energy consumption during the trajectory can be used as a global criterion for the redundancy resolution. %
+In this case, the design optimization would also need to be performed before the redundancy resolution to consider feasible dynamics parameters. 
+A nullspace-projection approach for the trajectory IK is not suitable for this objective since established methods for reducing energy consumption show that a complete trajectory has to be regarded to optimally transfer between potential and kinetic energy, and local optimization thereof, e.g., via joint torques, is not constructive \cite{HansenOeltMeiOrt2012}. 
+A similar argumentation can be used for the objective of minimizing the actuator torques (number \ref{itm:obj_maxactforce}) in case of significant dynamics effects through the relation of inertial and gravitational forces.
+
+\subsection{Summary}
+
+The presented synthesis framework can be used for structural \emph{and} dimensional synthesis, which is another justification for the name ``combined structural and dimensional synthesis''.
+Application examples for the synthesis framework are presented in the following sections~\ref{sec:eval_water} and~\ref{sec:eval_handlingfreerotation}.
+%
+These case studies cover the first part of the design procedure of parallel robots as summarized by \cite{Merlet2006} (chapter~11) with the steps of structural synthesis, modeling, and geometrical (dimensional) synthesis.
+This provides a profound qualitative comparison of the different structures, which is quantitative regarding the level of abstraction.
+Subsequently, mechanical design must be considered apart from geometric parameters.
+Therefore, the combined structural and dimensional synthesis is only the first step toward creating a working prototype.

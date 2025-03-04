@@ -1,0 +1,82 @@
+%
+%
+%
+
+
+
+\subsubsection{Objective Function}
+\label{sec:ds_objective}
+
+
+
+The objectives investigated primarily are
+\begin{enumerate}
+  \item \label{itm:obj_poserr} maximum position error (precision) of the tool center point, cf.~\cite{Merlet2006a},
+  \item \label{itm:obj_maxactforce} maximum actuator force (in the case of the same type of actuators),
+  \item \label{itm:obj_maxactvelo} maximum actuator velocity (similar to number~\ref*{itm:obj_maxactforce}),
+  \item \label{itm:obj_power} maximum actuators' rated power as a product of maximum motor torque and speed,
+  \item \label{itm:obj_energy} energy consumption during the reference trajectory (cf.~\cite{SchapplerOrt2020}),
+  \item \label{itm:obj_stiffness} stiffness of the end-effector platform,
+  \item \label{itm:obj_mass} mass of the structure assuming hollow cylinders and a solid platform plate. %
+\end{enumerate}
+
+Criteria %
+%
+\ref*{itm:obj_maxactforce} and \ref*{itm:obj_maxactvelo} can be used directly for dimensioning drives since, in combination, they present a speed-torque diagram.
+If different structures with prismatic and revolute actuation should be compared, the power criterion (no. \ref*{itm:obj_power}) may support finding motors with small dimensioning.
+These criteria are advantageous if no automated drive-train optimization is performed. %
+Criteria \ref*{itm:obj_poserr}, \ref*{itm:obj_energy}, \ref*{itm:obj_stiffness}, or \ref*{itm:obj_mass} should be used according to the task requirements.
+The {maximum} trajectory value for criteria \ref*{itm:obj_poserr}, \ref*{itm:obj_maxactforce}, \ref*{itm:obj_maxactvelo}, or \ref*{itm:obj_power} is minimized in the optimization.
+To maximize the mechanical stiffness with criterion~\ref*{itm:obj_stiffness}, the largest compliance eigenvalue (from the inverse translational stiffness matrix over the trajectory, by the model from \cite{Krefft2006} (p.\,49\,ff) is minimized.
+
+Some criteria are designed as indirect measures for the ability to build up a working prototype, such as
+\begin{enumerate}
+  \setcounter{enumi}{7}
+  \item \label{itm:obj_materialstress} material stress (internal forces in relation to the material's yield strength; see~\cite{SchapplerOrt2020}),
+  \item \label{itm:obj_linklength} length of the links (summed over all leg chains),
+  \item \label{itm:obj_colldist} maximization of the smallest collision distance during reference motion (cf. constraint~\ref{itm:constr_selfcoll}),
+  \item \label{itm:obj_installspace} installation-space volume from a convex volume containing all joint positions throughout the trajectory, obtained by the alpha-shape algorithm \cite{MatlabAS},
+  \item \label{itm:obj_footprint} footprint, i.e., the floor area taken by the robot projected from the points of the installation space, using the alpha-shape algorithm \cite{MatlabAS}, and
+  \item \label{itm:obj_jointrange} used joint-coordinate range in relation to the maximum allowed joint range. If absolute position limits are given, they can also be used for the criterion.
+\end{enumerate}
+
+\newpage %
+Most %
+%
+of these criteria, like \ref*{itm:obj_materialstress}, \ref*{itm:obj_colldist}, \ref*{itm:obj_installspace}, and \ref*{itm:obj_jointrange}, are also suited as constraints, but using them as objectives may shift the solution towards a desired direction in the design space.
+When, e.g., minimizing the material stress (no.~\ref*{itm:obj_materialstress}), the link dimensioning will likely not pose a problem, and relatively low internal forces can be expected.
+An optimization for short links (no.~\ref*{itm:obj_linklength}) is likely also to produce a compact solution, similar to the optimization for small installation-space volume (no.~\ref*{itm:obj_installspace}) or footprint area (no.~\ref*{itm:obj_footprint}).
+Searching for the largest collision distance (no. \ref*{itm:obj_colldist}) will produce solutions that are more likely to be easily assembled, will be less dangerous in human--robot collaboration \cite{MohammadSeeSch2024}, and will not suffer from self-collision if parameters are changed.
+Some of these objectives may also conflict, e.g., a large collision distance may produce a robot with a large installation space.
+
+When performing a structural synthesis with the framework, the single objective is
+\begin{enumerate}
+  \setcounter{enumi}{13}
+  \item \label{itm:obj_rankjacobian} the rank deficiency of the manipulator \propername{Jacobian}.
+\end{enumerate}
+
+Other objectives present more mathematical than physical values, such as
+\begin{enumerate}
+  \setcounter{enumi}{14}
+  \item \label{itm:obj_condition} maximum condition number of the manipulator \propername{Jacobian},
+  \item \label{itm:obj_manip} manipulability (based on the \propername{Jacobian}, \cite{Merlet2006a}),
+  \item \label{itm:obj_singval} smallest singular value of the \propername{Jacobian}.
+\end{enumerate}
+%
+
+%
+
+%
+
+The correlation of the \propername{Jacobian} condition number (objective~\ref*{itm:obj_condition}) with physical performance criteria (e.g., position-error objective~\ref*{itm:obj_poserr}) is questionable \cite{Merlet2006a}.
+Manipulability (no.~\ref*{itm:obj_manip}) and single singular values (no.~\ref*{itm:obj_singval}) are criteria specific to every structure but are used for optimization within the synthesis or the redundancy resolution by some authors.
+To summarize, comparing different robots or even robots with different types of actuation by their \propername{Jacobian} matrices is not feasible.
+%
+However, objectives \ref*{itm:obj_condition}--\ref*{itm:obj_singval} can still be used to produce sufficiently dimensioned academic examples or as a first iteration to explore the solution space for a dimensional synthesis.
+Optimizing the average (``global'') condition number within the synthesis is not promising, as stated in \cite{JamwalHusXie2015}, since single near-singular poses have a strong influence.
+In contrast, singular poses have no effect when optimizing the \emph{minimum} condition number, as in \cite{SuDuaZhe2001}.
+A better alternative presents the use of the maximum condition number (objective~\ref*{itm:obj_condition}) within the given reference points or workspace.
+
+Again, the specific implementation of the objectives is omitted at this point, and the reader is referred to the fundamental textbooks referenced above and the open-source implementation  %
+%
+\cite{GitHub_StructDimSynth} within the ydirectory \texttt{dimsynth/fitness} (files \texttt{cds\_obj\_...}).

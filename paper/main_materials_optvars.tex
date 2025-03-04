@@ -1,0 +1,145 @@
+%
+%
+%
+
+
+\subsubsection{Optimization Variables}
+\label{sec:dimsynth_optvars}
+
+
+The optimization variables in the dimensional synthesis affect the geometry of the parallel robot, shown exemplarily in Figure~\ref{fig:def_structural_entities}. Only parallel robots with identical leg chains are considered with coupling joints on the fixed base and moving platform that are set symmetrically on a circle circumference with radius $r_\mathrm{b}$.
+The parameters for the base-coupling joints are summarized in Table~\ref{tab:basejointparams}.
+The platform-coupling joints follow the same order with parameters using the index ``p'' instead of ``b.''
+%
+%
+%
+The direction of the coupling joint's axis of rotation or translation is selected according to geometric principles, which are also commonly found in existing robot structures in the literature.
+The main principles are shown in Figure~\ref{fig:coupling_base_fig1} as vertical (v), tangential (t), radial (r), or conical (c) with respect to the base plane.
+%
+%
+\nocite{FrindtKreHes2010} %
+\nocite{SchuetzBudRaaHes2011} %
+\nocite{HuangLiDin2012} %
+\nocite{StechertFra2007} %
+
+
+\begin{figure}[H] %
+  \graphicspath{{./Figures/}}
+  \input{./Figures/def_structural_entities.pdf_tex}
+  \caption{Parallel robot with annotation of geometric structural entities. Mod. from \cite{FrindtKreHes2010}.}
+  \label{fig:def_structural_entities}
+\end{figure} 
+
+\input{./Tables/basejointparams.tex}
+
+Six-DoF robots are usually built with a \emph{pairwise alignment} of the base-coupling joint, as shown in Figure~\ref{fig:coupling_base_fig2}.
+%
+In this case, the coupling\hl{-}joint pair centers are aligned on a regular triangle, and the joint pairs are set around the angle bisector with a given distance $d_\mathrm{b}$.
+Likewise, a circle with a radius $r_\mathrm{b}$ can be used for the joint center definition \cite{SchuetzBudRaaHes2011},
+cf. \mbox{Figure~\ref{fig:coupling_base_fig2}c.}
+Alternatively, a geometric description with two parameters by the joint positions' radius and an angle offset is possible, cf.~\cite{SuDuaZhe2001} and \cite{Daake2012} %
+%
+(p.\,70).
+A distinction of a pairwise alignment to the previous modes is noted by capital letters, i.e., V for vertical, R for radial, T for tangential, and C for conical.
+The axes of the joint pairs are parallel (oriented at the regular triangle).
+Therefore, the conical alignment ``C'' geometrically corresponds to a pyramid.
+%
+
+\vspace{-6pt}
+\begin{figure}[H]
+  %
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures/}}
+    \input{./Figures/coupling_base_fig1.pdf_tex}
+  \end{adjustwidth}
+  \caption{Geometric principles for circular alignments of the base-coupling joint with given coupling joint frame (the blue $z$-axis corresponds to first joint axis): (\textbf{a}) \underline{v}ertical %
+    %
+    (mod. from [Figure 9.10g] in~\cite{KongGos2007}), (\textbf{b}) \underline{t}angential (mod. from [Figure 9.14] in~\cite{HuangLiDin2012}), (\textbf{c}) \underline{r}adial (mod. from \cite{StechertFra2007}), (\textbf{d}) \underline{c}onical ([Figure~9.10f] in~\cite{KongGos2007}).} %
+\label{fig:coupling_base_fig1}
+\end{figure}
+
+\vspace{-9pt}
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \graphicspath{{Figures/}}
+  \input{./Figures/coupling_base_fig2.pdf_tex}
+\end{adjustwidth}
+\caption{Geometric principles for pairwise circular alignments of the base-coupling joint with given coupling joint frames: (\textbf{a}) \underline{V}ertical (mod. from [Figure 2f] in \cite{FrindtKreHes2010}), (\textbf{b}) \underline{T}angential (mod. from [Figure~2a] in  \cite{FrindtKreHes2010}), (\textbf{c}) \underline{R}adial (top view on base), (\textbf{d}) \underline{C}onical/pyramidal (source: Daniel Ramirez, LUH;~mod).}%
+\label{fig:coupling_base_fig2}
+\end{figure}
+
+
+%
+The parameter in the optimization parameters $\bm{p}$ without direct correspondence in the physical kinematic parameters $\bm{p}_\mathrm{kin}$ is
+\begin{enumerate}
+\item \label{itm:param_scale}  the scaling parameter $p_\mathrm{scale}$, which increases the size of the whole robot (platform and legs) without changing its overall kinematics characteristics.%
+\end{enumerate}
+%
+%
+
+The %
+%
+optimization parameters corresponding to the \emph{base and platform} are
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \label{itm:param_basescale} the base scaling parameter $p_\mathrm{b}$, giving the base radius by $r_\mathrm{b}=p_\mathrm{scale} p_\mathrm{b}$,
+\item \label{itm:param_plfscale} the platform scaling parameter $p_\mathrm{plfscale}$ that sets the moving-platform radius relative to the base by $r_\mathrm{p}=p_\mathrm{plfscale} r_\mathrm{b}$,
+\item \label{itm:param_basepairdist} the base-coupling\hl{-}joint pair-distance scaling parameter $p_\mathrm{bpdscale}$, giving the distance\\ $d_\mathrm{b}=p_\mathrm{bpdscale} r_\mathrm{b}$ of the joint pairs, in case of the alignments V, T, R, or C, %
+\item \label{itm:param_platformpairdist} the similar pair-distance scaling parameter $p_\mathrm{ppdscale}$ with $d_\mathrm{p}=r_\mathrm{p} p_\mathrm{ppdscale}$ for the moving platform for platform-coupling\hl{-}joint alignments V, T, and R,
+\item \label{itm:param_baseangle} the elevation $\gamma_\mathrm{b}$ of the base-coupling joint, in case of a conical or pyramidal alignment of the first joint axis of the leg chains (alignments c and C), and
+\item \label{itm:param_platformangle} the angle inclination $\gamma_\mathrm{p}$ for platform-coupling\hl{-}joint alignment c. %
+\end{enumerate}
+%
+The %
+%
+angular parameters \ref*{itm:param_baseangle} and \ref*{itm:param_platformangle} %
+%
+are optimized without scaling since their range of values is limited within \SI{\pm 90}{\degree}.
+If limits are given for the base or platform radius, the scaling of parameters \ref*{itm:param_basescale} or \ref*{itm:param_plfscale} is omitted, and the physical values are optimized directly as $r_\mathrm{b}=p_\mathrm{b}$ or $r_\mathrm{p}=p_\mathrm{p}$ with a new parameter $p_\mathrm{p}$ instead of $p_\mathrm{plfscale}$.
+
+For the \emph{leg chains}, the \emph{kinematic parameters} to optimize are $a_{i,\mathrm{DH}}$, $d_{i,\mathrm{DH}}$, $\alpha_{i,\mathrm{DH}}$, and $\theta_{i,\mathrm{DH}}$, in the modified \propername{Denavit}--\propername{Hartenberg} (DH) notation from Khalil \cite{KhalilDom2002}. %
+Regarding optimization holds:
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item \label{itm:param_leglength} The leg-length parameters are scaled  by $a_{i,\mathrm{DH}}=p_\mathrm{scale} p_{a_i}$ and $d_{i,\mathrm{DH}}=p_\mathrm{scale} p_{d_i}$, and  %
+\item \label{itm:param_legangle} the leg-angle parameters are optimized directly by $\alpha_{i,\mathrm{DH}}=p_{\alpha_i}$ and $\theta_{i,\mathrm{DH}}=p_{\theta_i}$.
+\end{enumerate}
+%
+The %
+%
+number of kinematic parameters $\bm{p}_\mathrm{DH}=[p_{a_1},p_{d_1},p_{\alpha_1},p_{\theta_1},\dots,p_{a_n},p_{d_n},p_{\alpha_n},p_{\theta_n}]^\transp$ varies depending on the leg chain (with $n$ joints). %
+%
+The parameters $a_{1,\mathrm{DH}}$ and $d_{1,\mathrm{DH}}$ are removed from the optimization and set to zero since they are redundant with the base size or base $z$ position $r_{\mathrm{b},z}$, depending on the joint alignment.
+This also holds for the $a_{2,\mathrm{DH}}$ and $d_{2,\mathrm{DH}}$ parameters if the first joint is prismatic.
+If a prismatic joint $i$ is within the leg chain, a lift cylinder is assumed for technical realization (see constraint~\ref*{itm:constr_prismaticcylinder}) with a direct connection between the previous and the next joint, without a lever arm, resulting in $a_{i-1,\mathrm{DH}}=a_{i+1,\mathrm{DH}}=d_{i+1,\mathrm{DH}}=0$. %
+%
+For some parameters $\alpha_{i,\mathrm{DH}}$ or $\theta_{i,\mathrm{DH}}$, only constant values of \SI{0}{\degree} or \SI{90}{\degree} can be set as a result of the structural synthesis. %
+Otherwise, angles are optimized continuously from \SI{-90}{\degree} to \SI{+90}{\degree}.
+To be able to reproduce results with the parameter models from the literature, perpendicular connections between the joints (by $d_{i,\mathrm{DH}}=0$) and without skew joint-ax\hl{e}s alignments (by rounding $p_{\alpha_i}$ to  $\alpha_{i,\mathrm{DH}} \in \{0, \pm{}\SI{90}{\degree}\}$) can be enforced. %
+
+The \emph{relative position and orientation of robot} (base frame $\ks{\indks{0}}$) and task within the world frame $\ks{\indks{W}}$ are optimized by
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item \label{itm:param_basepos} the base position $\rovec{\indks{W}}{0}{=}[r_{\mathrm{b},x},r_{\mathrm{b},y},r_{\mathrm{b},z}]^\transp$ and
+\item \label{itm:param_baseori} the base orientation, expressed as $\rotmat{\indks{W}}{0}{=}\bm{R}([\varphi_{\mathrm{b},x},\varphi_{\mathrm{b},y},\varphi_{\mathrm{b},z}]^\transp)$ using a rotation matrix $\bm{R}$ obtained from intrinsic $X$-$Y'$-$Z''$ \propername{Euler} angles.
+\end{enumerate}
+Depending on the robot's DoFs and the settings, some parameters remain constant, e.g., the base tilting angles $\varphi_{\mathrm{b},y}$ and $\varphi_{\mathrm{b},z}$ in the case of a translational 3T0R parallel robot.
+Similarly, an \emph{additional end-effector transformation} between the platform frame $\ks{\indks{P}}$ (located in the middle of the moving platform) and the end-effector frame  $\ks{\indks{E}}$ with the tool center point as origin is optimized by
+\begin{enumerate}
+\setcounter{enumi}{11}
+\item \label{itm:param_eepos} the end-effector position $\rovec{\indks{P}}{\indks{E}}{=}[r_{\mathrm{p},x},r_{\mathrm{p},y},r_{\mathrm{p},z}]^\transp$ relative to the platform frame and
+\item \label{itm:param_eeori} the end-effector orientation expressed as $\rotmat{\indks{P}}{\indks{E}}{=}\bm{R}([\varphi_{\mathrm{p},x},\varphi_{\mathrm{p},y},\varphi_{\mathrm{p},z}]^\transp)$.
+\end{enumerate}
+%
+Again, %
+%
+some of these parameters can remain constant or can be omitted. %
+%
+If an existing commercially available robot is optimized for a given task, only parameters \ref*{itm:param_basepos}--\ref*{itm:param_eeori} have to be optimized.
+The optimization of a complex kinematic structure leads to a high number of more than ten parameters.
+The total vector of (possible) optimization parameters is
+\begin{equation}
+\bm{p}=[p_\mathrm{scale}, p_\mathrm{b}, p_\mathrm{plfscale}, p_\mathrm{bpdscale}, p_\mathrm{ppdscale}, \gamma_\mathrm{b}, \gamma_\mathrm{p}, \bm{p}_\mathrm{DH}^\transp, r_{\mathrm{b},x}, \dots, \varphi_{\mathrm{b},z}, r_{\mathrm{p},x}, \dots, \varphi_{\mathrm{p},z}]^\transp.
+\end{equation}

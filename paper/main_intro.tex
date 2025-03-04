@@ -1,0 +1,642 @@
+%
+%
+%
+\label{sec:relatedwork}
+
+%
+%
+
+
+The literature relevant to the dimensional robot synthesis is discussed in the following subsections.
+First, preliminaries regarding the kinematics modeling of parallel robots are introduced in Section~\ref{sec:ds_parrob_preliminaries}.
+The proposed framework of hierarchical optimization from Section~\ref{sec:materials} structures the remaining text.
+%
+%
+It is separated into an overview of approaches for the robot-synthesis problem in general in Sections~\ref{sec:ds_soa_design}--%
+\ref{sec:ds_combstructgeomsynth}, followed by the optimization of kinematic parameters (Section~\ref{sec:ds_soa_kinpar}), other design parameters (Section~\ref{sec:ds_soa_despar}), and robot motion (Section~\ref{sec:ds_soa_motionplanning}).
+%
+Optimization methods are discussed in Section~\ref{sec:ds_soa_optim} regarding their usability within the different optimization problems of the robot synthesis.
+%
+%
+%
+%
+%
+
+\subsection{Preliminaries on Parallel Robots: Functional Redundancy and Kinematic Constraints}
+\label{sec:ds_parrob_preliminaries}
+
+
+
+%
+
+%
+
+For a robot manipulator, \emph{intrinsic redundancy} exists if the joint space has a higher dimension than the operational space. %
+\emph{Functional redundancy} is defined as an operational-space dimension higher than the task-space and the joint-space dimension \cite{ConkurBuc1997,SciaviccoSicVilOri2009,HuoBar2008,LegerAng2016}. %
+%
+%
+Both forms of redundancy are combined under the term ``kinematic redundancy'' \cite{SciaviccoSicVilOri2009} (p. 88).
+%
+
+
+
+The occurrence of functional redundancy is illustrated in Table~\ref{tab:task_vs_robot_dof}, where the most relevant spatial robot operational-space degrees of freedom (in rows; ``robot DoF'') and task-space DoFs (in columns; ``task DoF'') are combined in a matrix, and the cells show the effect on the degree of functional redundancy $n_\mathrm{R}$. %
+In some tasks, $n_\mathrm{C}$ additional constraints have to be defined, which implicitly corresponds to the definition of coordinates.
+
+
+\begin{table}[H]
+  \newcommand{\no}{{\color{red}$\boldsymbol\times$}}
+  \caption[Overview of combinations of robot end-effector DoFs and task DoFs]{\hl{Overview} %
+  %
+   %
+   %
+    of combinations of robot end-effector DoFs (rows) and task DoFs (columns) with the degree of redundancy $n_\mathrm{R}$ \hl{(highlighted in blue)} and number of resulting constraints $n_\mathrm{C}$. If not given, $n_\mathrm{R}~{=}~0$ or $n_\mathrm{C}~{=}~0$ holds. Naming of tasks f.l.t.r.: rotation fixed (3T0R); {only} planar rotation {that is} arbitrary (3T0*R); only planar rotation {that is} defined (3T1R), pointing (3T2R); free motion in space (3T3R). The symbol ``\no'' marks impossibility \hl{and row and column headings use bold font}.}
+  \label{tab:task_vs_robot_dof}
+  %
+    \begin{tabularx}{\textwidth}{lCcCCC} 
+      \toprule
+      \textbf{Task DoFs} $\rightarrow$ & \textbf{3T0R}  & \textbf{3T0*R} & \textbf{3T1R}  & \textbf{3T2R}  & \textbf{3T3R}  \\ 
+      \midrule
+      \textbf{Robot DoFs} \hl{$\downarrow$} %
+      %
+      & \textbf{(Rot. Fix.)}&\textbf{(Rot. Arbitr.)} & \textbf{(Rot. Def.)} & \textbf{(Pointing)} & \textbf{(Free)} \\
+      \midrule
+      \hl{\textbf{3T0R}} %
+      %
+      (3)  & $n_\mathrm{R}~{=}~0$ & $n_\mathrm{R}~{=}~0$ &  \no & \no & \no  \\
+      \hl{\textbf{3T0*R}} (3)  & \no & $n_\mathrm{R}~{=}~0$ &  \no & \no & \no  \\
+      \hl{\textbf{3T1R}} (4)  & $n_\mathrm{C}~{=}~1$ & \textcolor{blue}{$n_\mathrm{R}~{=}~1$} & $n_\mathrm{R}~{=}~0$ & \no & \no \\
+      \hl{ \textbf{3T2R}} (5)  & $n_\mathrm{C}~{=}~2$ & $n_\mathrm{C}~{=}~2$ & $n_\mathrm{C}~{=}~1$  & $n_\mathrm{R}~{=}~0$ &  \no \\
+      \hl{\textbf{3T3R}} (6)  & $n_\mathrm{C}~{=}~3$ & $n_\mathrm{C}{=}2$; \textcolor{blue}{$n_\mathrm{R}~{=}~1$} & $n_\mathrm{C}~{=}~2$  &  \textcolor{blue}{$n_\mathrm{R}~{=}~1$} & $n_\mathrm{R}~{=}~0$ \\
+      \bottomrule
+    \end{tabularx}
+    %
+\end{table}
+
+Redundancy for \emph{parallel robots} has been extensively studied for the aspects of \emph{kinematic redundancy} (additional joints in a leg chain) or \emph{actuation redundancy} (additional actuators or actuated leg chains) \cite{LucesMilBen2017,GosselinSch2018}.
+\emph{Functional redundancy} for parallel robots (more platform DoFs than required by the task) is distinguished since parallel robots are characterized by the platform DoFs as minimal coordinates, unlike serial robots, characterized by the joint DoFs.
+Functional redundancy is addressed less in the literature and is not mentioned in the otherwise extensive review articles \cite{LucesMilBen2017,GosselinSch2018} on redundancy for parallel robots.
+%
+In the following, one degree of functional redundancy is assumed, corresponding to the tool rotation in machining tasks (3T2R). %
+Some references show the possibility of improving the performance and avoiding limits by exploiting functional redundancy, such as for a planar 3-\underline{R}RR %
+%
+robot \cite{AlbaGomezWenPam2005,KotlarskiDoHeiOrt2010,AgarwalNasBan2016,GaoCheGaoXia2019}, for a 6-\underline{P}US \cite{OenWan2007} and 6-U\underline{P}S robot \cite{MerletPerDan2000,OenWan2007,Schappler2023_ICINCOLNEE}, and a combination of two~three-DoF parallel robots \cite{CorinaldiAngCal2016}.
+The %
+%
+notation for parallel robots includes the number of identical leg chains and the type of their joints counted from the base: revolute (R),  prismatic (P), universal (U), and spherical (S). Underlining denotes an actuated joint.
+In total, the possible improvement can be assumed to extend to all parallel robots since they are susceptible to singularities, joint limitations, and/or self-collisions. %
+%
+
+
+A general approach for a kinematics model of parallel robots is reported in introductory textbooks~\cite{Merlet2006,Gogu2008,BriotKha2015}. %
+The considered parallel robot consists of $m$ legs with $n_i$ joint coordinates %
+%
+$\bm{q}_i$ each, connected at a moving platform.
+Additionally to the active joints $\bm{q}_{\mathrm{a},i}$, explicitly all passive joints $\bm{q}_{\mathrm{p},i}$, including the platform-coupling joints, are part of the coordinates $\bm{q}_i$ of leg~$i$.
+All $n_{\bm{q}}$ joint coordinates of the parallel robot are stacked in the vector $\bm{q}=[\bm{q}_1^\transp,\dots,\bm{q}_m^\transp]^\transp$, and all $n_{\bm{q}_\mathrm{a}}$ active joints are assembled in the vector $\bm{q}_\mathrm{a}=[q_{\mathrm{a},1},\dots,q_{\mathrm{a},m}]^\transp$. %
+
+A sketch of the assembly of the robot's leg chains (corresponding to solving the inverse-kinematics problem) is depicted in Figure~\ref{fig:kinematic_constraints}a with the necessary coordinate systems for kinematic modeling adapted from \cite{BriotKha2015}, including a robot base frame $\ks{0}$, leg-chain base frames $\ks{\indks{A}_i}$, and cut coupling-joint frames $\ks{\indks{C}_i}$ at the end of the leg chains.
+The desired pose of the moving-platform frame $\ks{\indks{D}}$ is expressed with the minimal coordinates $\bm{x}$. %
+
+%
+
+The relation between joint coordinates $\bm{q}$ and platform coordinates $\bm{x}$ is established with the kinematic-constraint equations, for which, most commonly, the vector loop 
+\begin{equation}
+  \vecRes_{\mathrm{t},i}(\bm{q}_i,\bm{x}) %
+  = 
+  - \ortvek{0}{r}{}{\point{A}_i\point{B}_i}(\bm{x}) + \ortvek{0}{r}{}{\point{A}_i\point{C}_i}(\bm{q}_i)
+  \overset{!}{=}\vec{0}	
+  \label{equ:kinconstrAB}
+\end{equation}
+between the position of the platform-coupling point $\point{B}_i$ relative to the base-coupling point $\point{A}_i$ is used for each leg chain $i$ \cite{Merlet2006}. If the inverse-kinematics problem is solved with $\vecRes=\bm{0}$, the differential kinematics of the parallel robot are calculated with the time derivative
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d}t} \vecRes(\bm{q}_\mathrm{a},\bm{x})
+  =
+  \vecRes_{\partial \bm{q}_\mathrm{a}} \dot{\bm{q}}_\mathrm{a}
+  +
+  \vecRes_{\partial \bm{x}} \dot{\bm{x}}
+  \overset{!}{=}
+  \bm{0}, \quad \quad
+  \dvec{q}_\mathrm{a}=-\vecRes_{\partial \bm{q}_\mathrm{a}}^{-1} \vecRes_{\partial \bm{x}}\dot{\bm{x}} = {\bm{J}}^{-1}\dot{\bm{x}}
+  \quad
+  \text{with}
+  \quad
+  \vecRes_{\partial \bm{x}}=\frac{\partial \vecRes}{\partial \bm{x}}.
+  %
+  \label{equ:constr_qa_diff}
+\end{equation}
+The %
+%
+passive-joint coordinates $\bm{q}_{\mathrm{p}}$ do not occur since they were eliminated in a previous step and a minimal set of constraints $\vecRes$ is defined out of the $\vecRes_{\mathrm{t},i}$ of (\ref{equ:kinconstrAB}).
+
+%
+  %
+  %
+  %
+  %
+  %
+  %
+
+As is discussed in more detail in the author's previous work \cite{SchapplerTapOrt2019c}, the constraints (\ref{equ:kinconstrAB}) cannot be used in the case of functional redundancy and have to be replaced by the kinematic constraints $\vecResR^\transp
+=
+\begin{bmatrix}
+  \vecResR_1^\transp &
+  \vecRes_2^\transp &
+  \cdots &
+  \vecRes_m^\transp
+\end{bmatrix}$
+sketched in Figure~\ref{fig:kinematic_constraints}b.
+The first leg chain is defined as the leading leg chain, and its constraints $\vecResR_1$ are defined by the position and $z$-axis of $\ks{\indks{E}}$, corresponding to the tool center point and the tool axis, not to the full end-effector rotation. %
+The second and further (following) leg chains with $\vecRes_{2 \cdots m}$ are defined relative to the first chain.
+Furthermore, all the legs' constraints include a rotational component expressed with Euler angles.
+
+\vspace{-9pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures/}}
+    \input{./Figures/PKM_kinematics.pdf_tex}
+  \end{adjustwidth}
+  \caption{Sketch %
+    %
+    %
+    of the general parallel-robot kinematics for the conventional approach (\textbf{a}) and the modified model for functional redundancy with different definitions for first and following leg chains~(\textbf{b}). Constraints are denoted by $\vecRes$ for the full set or by $\vecResR$ if a component related to the redundant coordinate was removed.}
+  \label{fig:kinematic_constraints}
+\end{figure}
+
+
+\subsection{\hl{Requirements-Oriented} Development Process} %
+\label{sec:ds_soa_design}
+
+The methods for designing a parallel\hl{-}robot manipulator to a prototype degree can be obtained from the general design process for mechatronic systems, e.g., visualized by the \emph{V-model} within the updated German standard VDI 2206:2021 \cite{VDI2206}.
+The central aspect of this model is collecting lists of requirements, which can be structured in different ways, e.g., hierarchically, as summarized in \cite{MaierEzhFadSum2007}.
+This \emph{\hl{requirements-oriented} development process} is explained in \cite{StechertFra2009} in the example of parallel robots.
+The scheme includes many experts and departments working together within the iterations in the design process.
+For providing an optimized kinematic structure of the parallel robot, the work of \cite{Krefft2006} is referenced.
+Dynamics and control are named as separate fields to incorporate a functional robot design.
+
+The use of catalogs to structure expert knowledge is further detailed in \cite{StechertFraVie2010}.
+The module-based approach within \cite{Frindt2001} presents a basis for the overall structural synthesis of parallel robots.
+The evaluation of constructional elements of parallel robots by \cite{Neugebauer2006} \hl{(chapter~6)} %
+%
+is an example of the view of \emph{design and construction} \cite{StechertFra2009}, which is necessary to realize a working prototype.
+
+
+
+\subsection{Co-Design Formalism}
+\label{sec:ds_codesign}
+
+Another more mathematical approach for including different modular design problems into a systematic design process of any system is formalized by \propername{Censi} in \cite{Censi2015} within the \emph{theory of co-design}.
+The design constraints imposed by the selection and dimensioning of subsystems are included in the overall design problem by a tuple of \emph{implementation space} (e.g., selection of the motor for a robot), \emph{functionality space} (torque and speed provided by the motor), and \emph{resource space} (mass, cost, input voltage/current of the motor).
+The co-design problem can be expressed by a graph.
+Its solution is given as a \propername{Pareto} front and represents the proposed implementations by the optimization algorithm.
+The design of a kinematic structure of a parallel robot within this framework can be seen as a design problem where the implementation consists of structural and dimensional synthesis.
+It is connected with other design problems, such as the link-dimensioning problem, the joint-construction/selection problem, and the drive-train-selection problem within the parallel\hl{-}robot co-design problem.
+The single design problems are summarized in Figure~\ref{fig:codesign_modules}.
+
+\vspace{-3pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{Figures/codesign_modules.pdf_tex}
+  \end{adjustwidth}
+  \caption{Single design problems within the parallel\hl{-}robot synthesis in the notation of \cite{Censi2015}.}  %
+  %
+  \label{fig:codesign_modules}
+\end{figure}
+
+
+Without \emph{recursive co-design constraints}, the parallel\hl{-}robot design problem can be expressed hierarchically, where implementing the kinematic-structure design problem defines the actuator torque, actuator speed, passive joint range, and load bearing as required resources.
+%
+They correspond to the functionalities provided by the drive train, the passive joints, and the link dimensioning.
+The single design problems can be connected similarly to the example in \cite{Censi2015}, as shown in Figure~\ref{fig:codesign_problem}, using \propername{Censi}'s graphical notation, which should not be confused with a signal flow diagram or flow chart.
+The $\preccurlyeq$ %
+%
+sign for \emph{partially ordered sets} means that, e.g., a kinematic structure requires \emph{at least} a given actuator torque to provide the functionality of the platform payload.
+The recursive constraint is included by considering that the implementation of the robot's components influences the moving mass. %
+
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures}}
+    \input{Figures/codesign_problem.pdf_tex}
+  \end{adjustwidth}
+  \caption{\hl{Parallel-robot synthesis} as a simplified co-design problem in the notation of~\cite{Censi2015}.}
+  \label{fig:codesign_problem}
+\end{figure}
+
+%
+Other quantities could also be added to the diagram, such as the functionality of platform stiffness, which would also be affected by joint and link dimensioning.
+%
+If considered, the functionality of position accuracy would be influenced mainly by the structure implementation.
+In a subsequent optimization, the problem graph is solved by a specific solver, and a \propername{Pareto} diagram of the overall design problem is created from its functionalities (e.g., platform velocity and extra payload) and resources (e.g., mass).
+
+
+The simplified visualization gives a good overview of the problem structure but obscures some dependencies within the problem, e.g., by summing up the payload and various masses. %
+%
+%
+The kinematic structure influences the computation of the full inverse kinematics, inverse dynamics, and cut forces, {which are all} required to solve the single design problems.
+Due to the further \emph{high number of optimization variables} within the kinematic-structure design problem, the concrete applicability of \propername{Censi}'s approach to the parallel\hl{-}robot design problem {has not been} investigated further.
+The monotony of the relation between function and resource space would need to be shown to solve the recursive co-design problem with the solvers proposed by \propername{Censi}.
+Instead, a more hierarchical approach is pursued, where the structure-design problem is the starting point, as discussed next.
+
+
+
+\subsection{Combined Structural and Dimensional Synthesis}
+\label{sec:ds_combstructgeomsynth}
+
+The kinematic-structure design problem can be separated into the discrete problem of selecting the structure (\emph{structural synthesis}) and the continuous problem of dimensioning the structure (\emph{dimensional synthesis}).
+As elaborated above, other design problems can only be addressed if an implementation for the structure-design problem is chosen.
+In the \emph{combined synthesis} proposed by \cite{Krefft2006}, a kinematic structure is only selected after all principally suited structures have undergone a dimensional synthesis to evaluate their performance in the specific task requirements.
+For parallel robots, one difficulty lies in a useful pre-selection of structures with general design assumptions, %
+e.g., discussed by \cite{Frindt2001,Krefft2006,Prause2016}.
+The restrictions must be broad enough to ensure that structures with good properties are not excluded too early within the process and narrow enough to reduce the computational effort.
+
+In \cite{Krefft2006}, only the linear and classical Delta robots are compared for illustration in the combined synthesis, and the focus is on methods for the comparison of structures with different actuation, especially the application of \propername{Pareto} optimization.
+In \cite{Prause2016}, the combined synthesis of parallel robots with three translational and no rotational degrees of freedom (3T0R DoFs) uses a filtered list of possible structures focusing on the number of joints and feasibility for construction.
+The optimization uses a single criterion with a weighted sum for multiple objectives and additional kinematics-oriented penalties for violating boundary conditions.
+%
+Therefore, only one solution emerges for each robot in three tasks: handling, positioning, and guidance. 
+The combined synthesis of serial robots in~\cite{Ramirez2018} uses a hierarchical approach for including constraints such as self-collisions within the objective function of the single-objective optimization.
+Similarly, \cite{BaumgaertnerKanFle2023} define their ``kinematic-structure design problem'' as a loop of the ``continuous design problem'' over all (serial) structures.
+
+To summarize, the general idea of a combined synthesis is straightforward but may not be pursued by many robot designers due to the \emph{lack of suitable tools}, as stated \mbox{by \cite{Prause2016} (p. 14)} in 2016.
+The lack of generalized optimization strategies within companies specialized in parallel robots, even for the dimensional synthesis of single architectures, such as the hexapod, was remarked on in 2012 by \cite{Daake2012} (p. 69).
+To the author's best knowledge, this has not changed up to 2024---partly due to the lack of open-source culture within the academic community of robot modeling and design, partly due to the lack of commercial and industrial interest in such a software framework.
+Some publications refer to a specific self-developed software and document its results, but the software remains proprietary.
+Examples are the parallel\hl{-}robot database in \cite{DingCaoCaiKec2015}, the parallel\hl{-}robot design catalog in \cite{StechertFraVie2010}, or the \textsc{Matlab} kinematics analysis tool \textsc{Maps} from \cite{Frindt2001} (p. 105), referenced in \cite{StechertFraVie2010}.
+%
+Some activities were recently started, e.g., a benchmark database for \hl{(serial-) robot} %
+%
+synthesis \cite{MayerKueAlt2022} and published code for optimizing a given parallel-kinematic mechanism \cite{SalunkheMicKumSan2022}.
+%
+
+Many references in the literature handle the optimization of single robot structures, as shown in the next section.
+To perform the combined synthesis based on the underlying ideas, the computational efficiency of the respective tools has to be improved, and steps performed manually have to be carried out automatically since the computational and human capacities are otherwise exceeded.
+Therefore, a fast evaluation of a parameter set is necessary to solve the high-dimensional optimization problems in adequate time.
+
+The \emph{combined structural and dimensional synthesis} proposed in the conclusions of the theses of Frindt \cite{Frindt2001} (p. 123 ff.) %
+%
+and Krefft \cite{Krefft2006} (p. 175 ff.) included several limiting assumptions regarding the robot structure to reduce the complexity.
+Some of these assumptions can now be lifted, facing the increased computational capabilities twenty years after their research.
+Thereby, more unexpected solutions can be found within the synthesis.
+Furthermore, the previous (implicit) limitation of the synthesis to non-redundant robots is a restriction that can be abolished; therefore, functionally redundant structures are considered together with non-redundant structures.
+
+\subsection{Dimensional Synthesis of Kinematic Parameters}
+\label{sec:ds_soa_kinpar}
+
+As stated by \cite{Merlet2006} and other authors, the performance of a \emph{parallel robot} is strongly influenced by its dimensional parameters, which underlines the importance of \emph{dimensional synthesis}.
+It can be interpreted in {a} stricter sense as the optimization of parameters influencing the robot's kinematics and, thereby, only indirectly the robot's dynamics.
+For a parallel robot, the dimensional parameters are the link lengths, base and platform diameters, and tilting angles of the joints \cite{SuDuaZhe2001,Krefft2006,CarboneOttCec2007,Zhang2009,KelaiaiaComZaa2012,Daake2012,Prause2016,BenHamidaLarMliRom2021}.
+Parameters solely influencing the dynamics (like link strength) are excluded from this strict definition.
+Within the leg chains, a perpendicular connection between two joints without skew alignments is assumed in the literature (e.g., \cite{Krefft2006,Prause2016}), which reduces the number of optimization parameters compared to the general serial leg chains, based on \cite{Gogu2008,Ramirez2018}, used in this work.
+
+%
+%
+%
+%
+%
+
+
+Parametric CAD models were used to optimize the link dimensions of \emph{serial} \mbox{\emph{robots}~\cite{TarkianPerOelFen2011,ZhouBai2015,TanLiaFanZha2019}.}
+The approach mixes the optimization of kinematic parameters like link lengths and other design parameters such as material strength and link geometry.
+Furthermore, using CAD models and co-simulations or multidisciplinary design optimization \cite{TarkianPerOelFen2011} is too slow and too detailed for early design steps, which should be rather conceptual, cf.~\cite{VDI2221}.
+%
+The design problem for open-loop structures does not include kinematic constraints that have to be met, and most of the tested parameters lead to valid solutions, which improves the convergence of the optimization.
+%
+
+More efficient implementations are possible with analytic models used in \cite{CarboneOttCec2007} to design serial and \emph{parallel robots}.
+In \cite{Krefft2006}, the kinematic parameters of a Hexa (6-\underline{R}US) parallel robot and other structures are optimized based on analytic models and already existing drives. Similarly, \cite{Kirchner2000} optimizes and compares the hexapod (6-U\underline{P}S), HexaGlide (parallel-rail 6-\underline{P}US), and Linapod (vertical 6-\underline{P}US) by \propername{Jacobian}-based criteria.
+The results show improved workspace performance characteristics relative to the original design.
+In a combined ``task-based'' synthesis, the link lengths and other geometric parameters are optimized for several 3T0R parallel robots in \cite{Prause2016} together with the link strength.
+In \cite{BenHamidaLarMliRom2021}, four different 3T0R robots are optimized and compared.
+Several parallel robots were able to fulfill the reference tasks with no clear dominating solution for all tasks, which leads to the conclusion that optimization has to be performed for each reference task to obtain an optimal robot.
+Other authors perform their dimensional synthesis, e.g., on the linear Delta \cite{StockMil2003,KelaiaiaComZaa2012}, the revolute (conventional) Delta \cite{Miller2004,LaribiRomZeg2007}, a 4-S\underline{P}S \cite{JamwalHusXie2015}, a Par4 structure (parallel-hybrid 3T1R Delta) \cite{LiuHuaMeiZha2012}, the hexapod (6-U\underline{P}S) \cite{SuDuaZhe2001,Daake2012}, or the HexaSlide (6-\underline{P}US)~\cite{RaoRaoSah2005}.%
+
+%
+
+%
+%
+%
+%
+
+
+%
+%
+
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+The \emph{robot's positioning relative to the task} primarily influences the performance of serial robots, which are usually placed beside it.
+Therefore, their dimensional synthesis often includes optimizing the base position \cite{SinglaTriRakDas2010,KivelaeMatPuu2017,Ramirez2018,RomitiIacRuzKas2023,BaumgaertnerKanFle2023}.
+The continuous base-position variables may be discretized for the synthesis of modular robots to adapt to the otherwise purely discrete optimization problem \cite{RomitiIacRuzKas2023}.
+Depending on the problem formulation, the base position may be modeled and optimized as a ``design joint'' with zero motion \cite{BaumgaertnerKanFle2023}.
+For parallel robots, the base positioning is of less relevance due to the centered alignment of the robot above {(or sometimes below)} the task.
+If a synthesis for a given task is performed, only optimization of the vertical base position is performed \cite{Prause2016}.
+If the performance is evaluated for the robot's workspace \cite{Kirchner2000,Krefft2006,Daake2012}, the base position does not have to be considered.
+
+\subsection{Design Optimization: Drive Trains, Link Geometry, and Static Balance}
+\label{sec:ds_soa_despar}
+%
+
+The optimization of design parameters that only influence the dynamics and not the kinematics can be summarized within the \emph{design optimization}.
+%
+The single design problems are referenced in Figure~\ref{fig:codesign_modules}.
+
+For the \emph{optimal selection of drive-train components} (see Figure~\ref{fig:codesign_modules}a) separate from the kinematics parameters, these can be regarded as given. %
+Optimizing the drive train first and then the link lengths like in \cite{ShillerSun1991} is only feasible if the link mass is ignored.
+%
+Common objective functions are the drive-train mass \cite{ChedmailGau1990,PetterssonOel2009,ZhouBaiHan2011}, the trajectory cycle time \cite{TarkianPerOelFen2011}, the predicted gear lifetime \cite{PetterssonAndKru2005}, or monetary costs \cite{PetterssonAndKru2005}.
+%
+Constraints are at least the speed and torque limits of the components \cite {ChedmailGau1990,PetterssonOel2009,ZhouBaiHan2011}.
+It is usually sufficient to regard the inverse rigid-body dynamics without considering electric, thermal, or control effects.
+The extension of the robot simulation within the optimization has been carried out for thermal dynamics in \cite{ChedmailGau1990} and electrical and controller dynamics in \cite{Padilla-GarciaCruRod2015}.
+In contrast to the other design problems, the selection of motors and gears is a discrete optimization problem since a selection from a drive-train catalog is made \cite{PetterssonAndKru2005}.
+
+The \emph{optimization of the parameters of the robot links} (see Figure~\ref{fig:codesign_modules}b), like the engineering design, can be achieved with parameterized CAD models prepared by a designer for the specific robot \cite{TarkianPerOelFen2011,ZhouBai2015} or by using geometric primitives like hollow cylinders \cite{Prause2016,Ramirez2018,WangZhaCheHua2017} for approximations.
+%
+In the latter case, the parameters are, e.g., the diameter and strength of the hollow cylinders.
+Rounded links or links based on Hermite splines require additional parameters, which is disadvantageous for convergence of the optimization compared to straight links  \cite{PastorBobHucGru2021}.
+For CAD optimization, further parameters can, e.g., be the dimensioning and placement of slot holes \cite{ZhouBai2015} and the material strength \cite{TarkianPerOelFen2011}.
+
+The \emph{selection and design of passive joints} for parallel robots (see Figure~\ref{fig:codesign_modules}c) are driven mainly by the kinematics requirement of the kinematic structure.
+Selection from catalogs, as described in \cite{Neugebauer2006} (p. 162 ff.), has no substantial effect on the overall design problem since the joint mass is low relative to the rest of the structure.
+The individual development of joints for specific applications is possible \cite{Otremba2005,SterneckFetSch2023}, but general limits of the design alternatives can already be included as a filter into the joint-design problem.
+Then, a manual joint design can be made after the dimensional synthesis.
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+  %
+  %
+  %
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+%
+
+
+%
+%
+%
+%
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+
+%
+%
+
+%
+%
+%
+%
+
+Some authors optimize kinematic and design parameters within the same optimization, e.g., \cite{ZhouBai2015,Prause2016,WangZhaCheHua2017}.
+Other references only cover design optimization with given kinematic parameters \cite{PetterssonOel2009,TarkianPerOelFen2011}.
+Design parameters are often chosen after the dimensional synthesis is performed or within an iterative but non-automated process, e.g., in \cite{VulliezZegKha2018}.
+A comparison of a single-level and a superior multi-level strategy is investigated, e.g., in \cite{TarkianPerOelFen2011}, where the actuator type is optimized in an outer (global) optimization, and the link strength is optimized in an inner (local) optimization.
+However, the study only covers design and not dimensional variables.
+Hierarchical structuring of a dimensional and then a design optimization in an automated framework is mostly beneficial within a combined synthesis and has not been observed within the references listed here.
+
+
+%
+
+
+
+\subsection{Optimizing Robot Motion Within the Dimensional Synthesis} %
+\label{sec:ds_soa_motionplanning}
+
+If the dimensional synthesis is performed based on a simulated robot motion, optimizing this motion influences the performance evaluation and, thereby, the synthesis result.
+Motion optimization is possible if {a} redundant \hl{DoF is} %
+available (i.e., intrinsic or functional redundancy), if multiple solutions to the inverse-kinematics problem exist (e.g.,~to discard those leading to collisions), or if the motion is subject to parameterization (e.g.,~for point-to-point motion with freedom for the intermediate motion), cf.~\cite{Brandstoetter2016} (p. 54 ff.).
+Many of the references for parallel robots above perform a sampling-based performance evaluation for the complete workspace without a dedicated motion, which is more precise regarding some criteria but time-consuming.
+Therefore, handling robot motion is explicitly addressed in the following.
+
+Some works exploiting \emph{intrinsic redundancy} within the synthesis exist for \emph{serial robots}.
+%
+%
+In \cite{SinglaTriRakDas2010}, intrinsically redundant serial robots with up to ten joints are optimized for cluttered environments using a conjugate-gradient method with a problem formulation based on a \propername{Lagrangian} function.
+As only the end-effector position {with} arbitrary orientation is considered, the cases are also functionally redundant.
+The focus is only on feasible, especially collision-free, solutions, which is ensured by a \emph{point-to-point path planning} based on the %
+probabilistic-roadmap method for a few reference positions.
+
+A \emph{concurrent optimization} of the inverse kinematics for several reference points and the design parameters of a kinematically redundant seven-DoF {serial} manipulator was investigated in \cite{KivelaeMatPuu2017}, methodologically similar to kinematic calibration.
+%
+Constraints from joint or workspace limitations were included by nullspace projection of one redundant DoF, not considering the additional functional redundancy of the investigated drilling task.
+A five-DoF arm was optimized similarly for a 3T2R task by \cite{WhitmanCho2018}, where collisions and pose errors were used as optimization constraints.
+In \cite{BaumgaertnerKanFle2023}, the polynomial parameters of a collocated trajectory are optimized together with the design variables for a serial milling robot with three to six DoFs.
+The seven design variables modeled as virtual joints and the joint configuration of a 21-DoF hyper-redundant robot are optimized by sampling the design variables along the reference trajectories by a task-priority IK algorithm in~\cite{GinnanteSimCarLeb2023}, extending the similar approach without redundancy from \cite{MaaroofDedAyd2022}.
+The second step is to validate the candidate designs for the reference tasks.
+The deduction of design optimality by averaging locally optimal parameters seems questionable, at least for a transfer to parallel robots.
+The position and orientation error of the 3T0R task with arbitrary rotation is used as a scalar weighted-sum objective.
+The inability of the concurrent approach, discussed in this paragraph, to incorporate multiple IK solutions is admitted in the summary of \cite{WhitmanCho2018}.
+
+The {concurrent} optimization is explicitly rejected {due to the high number of variables} in \cite{RussoRaiDonAxi2021} for their \emph{two-level optimization} of the design parameters and the poses of a four-DoF robot.
+The pose error for 16 reference points is taken as a {common} objective in both levels, which is necessary due to the 3T2R task definition with a scalar inequality constraint on the tilting orientation.
+The IK with joint constraints in a non-redundant case is solved in~\cite{PatelSob2015a} by a lower-level particle swarm optimization to find all IK solutions.
+For {the synthesis of} modular serial robots with five and six DoFs, \cite{RomitiIacRuzKas2023} use %
+%
+a \emph{two-stage approach} with a lower-level optimization of a quasi-static objective for independent robot postures for each sampled reference point of a 3T2R task.
+In \cite{WanDinYaoWu2018}, multiple circle trajectories were used within the dimensional synthesis of a seven-DoF serial manipulator, {taking} a {\underline{c}}losed-{\underline{l}}oop clamping weighted least-norm approach for the {\underline{i}}nverse {\underline{k}}inematics as a variant of CLIK. %
+The redundant \hl{DoF is} %
+only {utilized} for avoiding joint limits, and due to the pseudoinverse damping for stability near singularities (without avoiding them), the resulting trajectory tracking error has to be considered as an objective for the upper-level particle swarm optimization for the synthesis.
+Allowing tracking errors in this and other references complicates comparing multiple structures as {fewer} performance-oriented objectives can be optimized.
+
+Some references cover a more general case of optimizing robot \emph{trajectory motion} within a dimensional synthesis.
+In \cite{Dinev2023}, this is regarded as a co-design problem using the mathematical description from the field of \emph{bilevel optimization} \cite{SinhaMalDeb2017}.
+The co-design formulation in \cite{Dinev2023} relates to the robot design and its motion, which are solved by a gradient-based optimization approach applied to an optimal-control dynamic motion planner.
+The problem strongly arises in the synthesis of legged robots handled and referenced there since gait trajectories are dependent on the leg kinematics, whereas, for the design of fixed-base manipulators, a reference task-space trajectory or pose can be assumed as given.
+Similarly, in \cite{SpielbergAraSunTed2017}, the states (joint positions, velocities, contact forces) of different legged robots are optimized at discretized knot points for dynamics integration together with the design parameters using analytic derivatives of objective and constraints.
+
+To summarize, although some of the synthesis examples from the literature are for functionally redundant parallel robots (e.g., parallel\hl{-}robot machine tools \cite{Zhang2009} (p. 147 ff.)), the author is not aware of any explicit exploitation of \emph{functional redundancy} within the \emph{parallel}\hl{-}robot synthesis.
+
+%
+\subsection{Methods for Optimization}
+\label{sec:ds_soa_optim}
+%
+
+
+The comparison of multiple parallel robots (whether two different structures or two sets of parameters for one structure) should be performed using \emph{multiple criteria} \cite{Merlet2006}, representing all robot requirements.
+Using a single objective (SO) poses the problem of selecting a compromise solution \cite{Krefft2006} (p. 112) and \cite{JamwalHusXie2015}.
+Combining multiple criteria within a weighted sum suitable for SO optimization raises the question of defining the weights \cite{VulliezZegKha2018}.
+A multi-objective (MO) border solution may be obtained by SO optimization when limit values for secondary objectives are known and are taken as constraints. SO optimization leads to feasible results for the dimensional synthesis of parallel robots in some cases, as shown by \cite{SuDuaZhe2001}, \cite{Zhang2009} (p. 139 ff.) and \cite{Prause2016} %
+%
+with a genetic algorithm (GA), and by \cite{XuLi2009,YunLi2011,WangZhaCheHua2017} with the particle swarm optimization (PSO). %
+In \cite{JamwalHusXie2015}, SO results were found to be infeasible, and an MO optimization was performed for the design problem of a parallel\hl{-}robot platform for ankle rehabilitation.
+Mainly, genetic algorithms were employed for \emph{multi-objective optimization}, such as the strength \propername{Pareto} evolutionary algorithm \cite{Krefft2006,KelaiaiaComZaa2012} or the nondominated sorting genetic algorithm \cite{LaraMolinaRosDum2010,JamwalHusXie2015}.
+Some authors do not specify their MO-GA variant, such as \cite{VulliezZegKha2018}, only describe it \cite{Kirchner2000} (p. 85 ff.) or refer to the \textsc{Matlab} implementation \cite{MatlabGOT}, like \cite{BenHamidaLarMliRom2021}.
+\emph{MO-PSO} has only been used more recently \cite{WangZha2017,SunLia2018,QiSunSon2018,LianWanWan2019}. %
+%
+
+
+If (one of) the initial guess(es) for the kinematic parameters already leads to a valid solution, \emph{gradient-based optimization methods} like SQP can also lead to good solutions \cite{LouZhaHuaChe2013}, as reported by \cite{CeccarelliLan2004} for seven parameters of a serial robot, by \cite{CarboneOttCec2007} for optimization of a parallel robot with six parameters, or by \cite{RaoRaoSah2005} for seven parameters of a HexaSlide.
+In \cite{Daake2012} (p. 78 ff.), the optimization of a hexapod with a steepest-ascent hill-climbing algorithm was performed based on a single workspace criterion.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+For \emph{problems of higher dimension and without manually provided initial solutions}, like in the combined synthesis of parallel robots, these approaches are not likely to be functional in generality, especially for finding optima far away from the initial value \cite{LouZhaHuaChe2013}.
+Therefore, \emph{evolutionary algorithms} such as the GA \emph{are more feasible for the dimensional-synthesis problem} \cite{Krefft2006} (pp. 112 f., 141).
+%
+%
+Another argument for population-based methods like the GA is their ability to support multiple objectives~\cite{KivelaeMatPuu2017}, in contrast to gradient-based methods, designed mainly for SO problems.
+%
+Other methods used in the context of parallel robots are ant colony optimization, the artificial bee colony algorithm, and differential evolution \cite{YangYeLi2022}, {or a combination of local (gradient-free \propername{Nelder--Mead} simplex) and global search \cite{SalunkheMicKumSan2022}.}
+%
+
+%
+%
+
+\emph{Particle swarm optimization} is reported to have better results than genetic algorithms for constrained nonlinear optimization problems \cite{HassanCohDeVen2005}, such as dimensional synthesis.
+A general introduction and comparison of PSO and GA is given by \cite{HassanCohDeVen2005}---and by \cite{YangYeLi2022} {in} the context of parallel\hl{-}robot dimensional synthesis.
+Both algorithms are population-based and perform an optimization of a variable by evaluating a fitness function, which may be subject to constraints.
+The optimization variable is called particle (PSO) or gene (GA) and is usually multi-dimensional.
+So is the fitness function if an MO (\propername{Pareto}) optimization is performed.
+An improvement of PSO over GA for parallel\hl{-}robot dimensional synthesis was, e.g., recognized by \cite{YunLi2011,LouZhaHuaChe2013}.
+%
+%
+%
+%
+%
+One reason for better results of PSO is that not only do the parameters of the current iteration carry information but past iterations are also taken into account to generate a new set of parameters \cite{CoelloPulLec2004}.
+Furthermore, {PSO} is easier to implement and parameterize \cite{SunLia2018}.
+Avoiding the GA's selection step allows for gradually improving all particles \cite{WangZhaCheHua2017}.
+
+Constraint handling \cite{Mezura-MontesCoe2011,Jordehi2015} is central to the validity of the robot synthesis and the convergence of the PSO.
+From the existing constraint-handling strategies, the static-penalty approach is the simplest one. 
+It adds a \emph{constraint-violation penalty} term to the \emph{objective function}, producing the \emph{fitness function}.
+The penalty is static w.r.t. iteration number but can vary by the degree of violation or kind of constraint violated.
+This approach is already feasible for the dimensional synthesis.
+Other strategies not pursued in this work are, e.g., the exterior penalty, which continues the computation of constraint-violating particles, or the dynamic penalty, which varies with the iteration number.
+
+
+
+%
+%
+%
+%
+%
+%
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+Only for parallel robots of low complexity does a (partly) \emph{manual optimization} of the robot parameters by a user seem promising to provide feasible results.
+The general requirement for an assistive design tool is an 
+``interactive speed'' with a reaction time of at most a minute, better seconds \cite{Dinev2023}.
+For instance, the graphical \hl{mechanism-analysis} tool of \cite{PetuyaMacAltPin2014} supports manual iterations of parallel\hl{-}robot parameters by a pre- and postprocessor, which is sufficient for educational purposes of creating academic examples.
+The complexity of the optimization problem requires, in most cases, a more time-consuming, non-interactive optimization, as discussed above.
+A gradient-based optimization has the potential to be sufficiently fast as a basis for an interactive tool, as shown by \cite{Dinev2023} for mobile robots.
+Applying an approach with \emph{symbolic} gradients, e.g., via CasADi \cite{AnderssonGilHorRaw2019}, is hindered by the many discontinuous or complex objectives, cf.~\cite{SalunkheMicKumSan2022}, due to the maximum function that needs numeric evaluation.
+%
+%
+%
+This leaves only numeric derivatives, which can be expensive and inaccurate \cite{SpielbergAraSunTed2017}.
+Moreover, due to the much stronger influence of constraints on the parallel\hl{-}robot synthesis and the associated tendency of local optima \cite{Kirchner2000} (p. 83), the gradient-based approach is not further pursued in favor of particle swarm optimization.
+
+
+\subsection{Summary of Existing Works {and Contributions}}
+
+
+The examples from the state of the art on parallel\hl{-}robot dimensional synthesis \mbox{(Section~\ref{sec:ds_soa_kinpar})} show that good solutions can be found despite the optimization problem's high complexity.
+However, all authors except \cite{Prause2016,BenHamidaLarMliRom2021} perform an optimization of only one pre-selected structure (Section~\ref{sec:ds_combstructgeomsynth}).
+For \hl{single-robot} optimization, manual preparation is performed by carefully selecting initial values, parameter limits, and kinematic, dynamic, and stiffness models.
+A combination of dimensional synthesis and design optimization (Sections~\ref{sec:ds_codesign} and~\ref{sec:ds_soa_despar}) for parallel robots is performed by \cite{Prause2016,WangZhaCheHua2017} for one design sub-problem.
+Otherwise, only a few authors followed this approach and only for serial robots.
+The optimization of the robot's motion (Section~\ref{sec:ds_soa_motionplanning}) is only occasionally performed, not for parallel robots, and mainly for avoiding constraints or without systematic evaluation of the interplay of objectives.
+Paramount for the success of the optimization is a feasible structuring of the problem and a selection and configuration of the optimization algorithm (Section~\ref{sec:ds_soa_optim}). %
+
+The research gap is addressed by the \emph{contributions} of this paper: a framework for the combined structural and dimensional synthesis of parallel robots.
+
+\begin{enumerate}
+  \item {It includes design optimization---for the first time in parallel\hl{-}robot synthesis in a bilevel (cascaded) optimization of two nested evolutionary algorithms.} %
+  \item {For the first time, the resolution of functional redundancy is included in the synthesis of parallel robots---likewise by bilevel optimization but also using a classical algorithm.}
+  \item {The complete implementation using \textsc{Matlab} is provided as open \hl{source} %
+    %
+    \cite{GitHub_StructDimSynth}.}
+  \item {Two case studies show the applicability to specific robot tasks with different degrees of freedom, next to three other case studies that were already published: \cite{SchapplerJahRaaOrt2022,SterneckFetSch2023,MohammadSeeSch2024}.}
+  \item {The framework is validated against simulative results from the literature.}
+\end{enumerate}

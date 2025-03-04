@@ -1,0 +1,104 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'PKM_kinematics.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{510.23622047bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.2)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{PKM_kinematics.pdf}}%
+    \put(0.03138947,0.03347567){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$q_{i,1}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{PKM_kinematics.pdf}}%
+    \put(0.21513846,0.03738451){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{0}$\end{tabular}}}}%
+    \put(0.15388667,0.10141467){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{C}_i}$\end{tabular}}}}%
+    \put(0.22896654,0.10529452){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{B}_i}$\end{tabular}}}}%
+    \put(0.28590282,0.16459246){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{D}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{PKM_kinematics.pdf}}%
+    \put(0.10551124,0.04594796){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{A}_i}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{PKM_kinematics.pdf}}%
+    \put(0.14170963,0.16200442){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$q_{i,n_i}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{PKM_kinematics.pdf}}%
+    \put(0.02089482,0.10460148){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$q_{i,2}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{PKM_kinematics.pdf}}%
+    \put(0.32016307,0.10301233){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{x}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{PKM_kinematics.pdf}}%
+    \put(0.21347067,0.15820324){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\vecRes_i$\end{tabular}}}}%
+    \put(0.01912359,0.15313244){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{PKM_kinematics.pdf}}%
+    \put(0.57212508,0.00995734){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$q_{1,1}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{PKM_kinematics.pdf}}%
+    \put(0.7499944,0.0373847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{0}$\end{tabular}}}}%
+    \put(0.8979289,0.17456706){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{D}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{PKM_kinematics.pdf}}%
+    \put(0.6403672,0.04300824){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{A}_1}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{PKM_kinematics.pdf}}%
+    \put(0.55575078,0.10460186){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$q_{1,2}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{PKM_kinematics.pdf}}%
+    \put(0.84660702,0.17163461){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\vecResR_1$\end{tabular}}}}%
+    \put(0.55397957,0.15313254){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{PKM_kinematics.pdf}}%
+    \put(0.76921415,0.17282623){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{E}_1}$\end{tabular}}}}%
+    \put(0.69359814,0.10962022){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$q_{1,n_1}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{PKM_kinematics.pdf}}%
+    \put(0.67571795,0.07532267){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{B}_1}{\overset{!}{=}}\ks{\indks{C}_1}$\end{tabular}}}}%
+    \put(0.78805466,0.10896756){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{B}_2}$\end{tabular}}}}%
+    \put(0.94805417,0.11752183){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\ks{\indks{C}_2}$\end{tabular}}}}%
+    \put(0.0046494,0.00792244){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}(\textbf{a})\end{tabular}}}}%
+    \put(0.51273776,0.00792244){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}(\textbf{b})\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{PKM_kinematics.pdf}}%
+    \put(0.88075548,0.09217071){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\vecRes_2$\end{tabular}}}}%
+    \put(0.00627724,0.16111798){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}any leg chain\end{tabular}}}}%
+    \put(0.41787476,0.17021102){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}moving platform\end{tabular}}}}%
+    \put(0.48506388,0.1371849){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}first leg chain\end{tabular}}}}%
+    \put(0.83145387,0.05692174){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}following\end{tabular}}}}%
+    \put(0.83162612,0.03464221){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}leg chain\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{PKM_kinematics.pdf}}%
+  \end{picture}%
+\endgroup%

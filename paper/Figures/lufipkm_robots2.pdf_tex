@@ -1,0 +1,96 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'lufipkm_robots2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{518.74015748bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.31147541)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{lufipkm_robots2.pdf}}%
+    \put(0.00662152,1.05868438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6PRRRRR4V2GxPxA1}\end{tabular}}}}%
+    \put(0.00631089,1.02377314){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{a}) 6-\underline{P}{R}{U}{U} (C-R)\end{tabular}}}}%
+    \put(0.19247148,1.05868438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6PRRRRR4V3GxPxA1}\end{tabular}}}}%
+    \put(0.41098052,1.05868438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6PRRRRR6GxPxA1}\end{tabular}}}}%
+    \put(0.63554527,1.05868438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6PRRRRR6V2GxPxA1}\end{tabular}}}}%
+    \put(0.19216086,1.02377314){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{b}) 6-\underline{P}{R}{R}{R}{U} (V-R)\end{tabular}}}}%
+    \put(0.4106699,1.02377314){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{c}) 6-\underline{P}{R}{R}{R}{R}{R} (C-T)\end{tabular}}}}%
+    \put(0.63523464,1.02377314){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{d}) 6-\underline{P}{R}{R}{S} (V-V)\end{tabular}}}}%
+    \put(0.84310818,1.02377314){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{e}) 6-\underline{P}{U}{S} (V-V)\end{tabular}}}}%
+    \put(0.01175264,0.72528403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RPRRRR10V5GxPxA2}\end{tabular}}}}%
+    \put(0.01144202,0.69615603){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{f}) 6-{R}\underline{P}{U}{U} (R-R)\end{tabular}}}}%
+    \put(0.19760259,0.72528403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RPRRRR10V6GxPxA2}\end{tabular}}}}%
+    \put(0.41611164,0.72528403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RPRRRR12V4GxPxA2}\end{tabular}}}}%
+    \put(0.63489315,0.72528403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RPRRRR12V5GxPxA2}\end{tabular}}}}%
+    \put(0.82252534,0.72528403){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR12V4GxPxA3}\end{tabular}}}}%
+    \put(0.19729197,0.69615603){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{g}) 6-{R}\underline{P}{R}{R}{U} (C-R)\end{tabular}}}}%
+    \put(0.45917534,0.69615603){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{h}) 6-{R}\underline{P}{R}{R}{R}{R} (C-c)\end{tabular}}}}%
+    \put(0.64614901,0.69615603){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{i}) 6-{R}\underline{P}{R}{S} (C-V)\end{tabular}}}}%
+    \put(0.01381808,0.38985596){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR12V5GxPxA3}\end{tabular}}}}%
+    \put(0.01350746,0.36072796){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{k}) 6-{U}\underline{P}{R}{U} (C-T)\end{tabular}}}}%
+    \put(0.21701778,0.38985596){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR12V6GxPxA3}\end{tabular}}}}%
+    \put(0.50203411,0.38985596){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR14V5GxPxA3_appendix}\end{tabular}}}}%
+    \put(0.80178097,0.38985596){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR14V6GxPxA3_appendix}\end{tabular}}}}%
+    \put(0.00791436,0.06021114){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR14V7GxPxA3}\end{tabular}}}}%
+    \put(0.21670715,0.36072796){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{l}) 6-{R}{R}\underline{P}{R}{R}{R} (V-T)\end{tabular}}}}%
+    \put(0.50172349,0.36072796){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{m}) 6-{R}{R}\underline{P}{S} (T-v)\end{tabular}}}}%
+    \put(0.80147034,0.36072796){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{n}) 6-{U}\underline{P}{S} (T-V)\end{tabular}}}}%
+    \put(0.00760373,0.02819152){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{o}) 6-{R}{R}\underline{P}{R}{R}{R} (R-R)\end{tabular}}}}%
+    \put(0.26414988,0.06021114){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR4V5GxPxA3}\end{tabular}}}}%
+    \put(0.26383924,0.02819152){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{p}) 6-{R}{R}\underline{P}{R}{U} (T-T)\end{tabular}}}}%
+    \put(0.53385682,0.06021114){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR4V6GxPxA3}\end{tabular}}}}%
+    \put(0.78995695,0.06021114){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6RRPRRR5V6GxPxA3}\end{tabular}}}}%
+    \put(0.5335462,0.02819152){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{q}) 6-{U}\underline{P}{R}{U} (T-T)\end{tabular}}}}%
+    \put(0.78964632,0.02819152){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{r}) 6-{U}\underline{P}{U}{R} (R-T)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{lufipkm_robots2.pdf}}%
+    \put(0.82221471,0.69615603){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{j}) 6-{R}{R}\underline{P}{R}{U} (V-T)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{lufipkm_robots2.pdf}}%
+    \put(0.84341881,1.05868438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P6PRRRRR6V4GxPxA1}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

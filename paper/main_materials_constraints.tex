@@ -1,0 +1,99 @@
+
+%
+%
+%
+
+
+\subsubsection{Constraints}
+\label{sec:ds_constraints}
+
+The constraints are implemented based on the degree of violation $\rho$ of physical values and the saturation and scaling of (\ref{equ:fnorm}). The penalties $v_i$ are ordered from severe to minor violations of the robots' plausibility by spanning a wide (arbitrary) range of orders of magnitudes from 0 (perfect) over $10^3$ (worst still feasible value) to $10^{14}$ (already the parameters are infeasible).
+
+In implementing the optimization algorithm, limits on the optimization variables $\bm{p}$ can only be set directly on the variable and not on the values derived from them.
+Therefore, more complex parameter limits are manually included as a first stage of constraints:
+\begin{enumerate}
+  \item \label{itm:constr_param_inclination} The inclination angle $\gamma_\mathrm{b}$ and $\gamma_\mathrm{p}$ in a conical (c) alignment of base or platform joints should differ about a minimal value of, e.g., \SI{5}{\degree} from the radial (r, \SI{0}{\degree}) or vertical alignment (v, $\pm{}$\SI{90}{\degree}). %
+  \item \label{itm:constr_param_radius} Since the joint position in the pairwise alignment of coupling joints is dependent on two parameters $r_\mathrm{b}$ and $d_\mathrm{b}$, %
+  the effective radius (as the distance of the coupling joints $A_i$ to the center) of the base or platform has to be computed from both.
+  \item \label{itm:constr_param_jointdist} The \propername{Denavit}--\propername{Hartenberg} parameters $a_i$ and $d_i$ express the distance between two joints. A minimal joint distance can be required to take the mechanical designs into account.
+  \item \label{itm:constr_param_chainlength} The length of the leg chain is determined from the $a_{i,\text{DH}}$ and $d_{i,\text{DH}}$ parameters and the elongation of prismatic joints within the chain. A maximum length can be demanded to ensure the feasibility of the design.
+\end{enumerate}
+
+After %
+%
+handling the above indirect parameter limits, the geometric plausibility is~checked
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item \label{itm:constr_geom1} by leg lengths $l_\text{leg}$ matching the base and platform {radii} and
+  \item \label{itm:constr_geom2} by checking if all platform-coupling points $\vec{r}_{\point{B}_i}$ can be reached by all the leg chains for all reference points $\bm{x}_{\mathrm{ref},j}$.
+\end{enumerate}
+%
+\hl{The} %
+%
+required leg length for constraint~\ref*{itm:constr_geom1} is $l_{\text{req}}{=}|r_\mathrm{p} {-} r_\mathrm{b}|$.
+The missing leg length results in $l_\text{tooshort} {=} l_{\text{req}} {-} l_\text{leg}$. 
+If positive, the constraint is violated and normalized to $\rho{=}l_\text{tooshort}/l_\text{leg}$, which is then scaled and saturated via $f_\mathrm{norm}$ to obtain the penalty $v_\mathrm{leglength}$.
+For constraint~\ref*{itm:constr_geom2}, the required minimum length of the leg chains is $l_{\text{req}}{=}\mathrm{max}_{i,j}||\vec{r}_{\point{B}_i}(\bm{x}_{\mathrm{ref},j}){-}\vec{r}_{\point{A}_i}||$ for connecting base and platform (see Figure~\ref{fig:kinematic_constraints}) with the same way of obtaining the penalty $v_\mathrm{leglength2}$. 
+%
+The example shows that computing constraint~\ref*{itm:constr_geom1} requires less computational effort than constraint~\ref*{itm:constr_geom2}, as the latter includes coordinate transformation from the rotational component of the mobile platform's pose variable $\bm{x}_{\mathrm{ref},j}$.
+
+
+%
+Then, the reference points are checked to ensure the prescribed workspace can be reached.
+This avoids completely discretizing the workspace volume, which is too \mbox{time-consuming}. %
+%
+\begin{enumerate}
+  \setcounter{enumi}{6}
+  \item \label{itm:constr_ik_succ} The inverse-kinematics problem is solved for all reference points $\bm{x}_{\mathrm{ref},j}$ using the methods from \cite{SchapplerTapOrt2019c}. {Failure leads to a constraint violation according to the index of the failing point. This is carried out by assigning $\vecRes=10^6$ to the kinematic constraints of failed or not computed points, which is far above the threshold of $10^{-8}$ for the success of the inverse kinematics implemented via Newton Raphson. {In} this way, penalizing IK results depending on their violation of the kinematic constraints is possible. The violation term then is $\rho=\mathrm{avg}_j |\vecRes_j|$, applied component-wise.}
+  \item \label{itm:constr_ik_sing} If the resulting IK solution is a singular configuration, this is counted as a constraint violation. First, leg\hl{-}chain singularities (type I) and then parallel singularities (type II) are considered.
+  \item \label{itm:constr_ik_jac} Next, a constraint on the \propername{Jacobian} condition number is checked for all points.
+  \item \label{itm:constr_jointrange} The range of revolute and prismatic joint coordinates is tested against technical limits, which can be obtained as upper limits for plausible values from data sheets, e.g.,~for universal or spherical joints. For rotatory joint DoFs, the $2\pi$-periodicity has to be regarded using tools from directional statistics (of non-Euclidean spaces) and circular distributions for calculating the range of angles.
+  \item \label{itm:constr_jointlim} If absolute values for joint coordinates are already known, e.g., when optimizing the base position of an existing robot, the joint coordinates are checked against these~limits.
+  \item \label{itm:constr_prismaticbase} If base-mounted prismatic joints are aligned within the base plane, the robot's allowed base diameter is checked against the necessary length and position of the guide rails of these joints, obtained from the range of prismatic-joint coordinates and assuming leg\hl{-}chain symmetry.
+  \item \label{itm:constr_prismaticcylinder} If a prismatic joint exists within the structure, a lift cylinder consisting of an outer cylinder and a push rod is assumed for technical realization. The joint\hl{-}coordinate limits define the length of the rod and outer cylinder. If the outer cylinder needs to start beyond the previous joint, this is infeasible for technical realization and penalized. The check is performed for each leg separately and for a symmetric design based on all legs' prismatic-joint coordinates.
+  \item \label{itm:constr_selfcoll} A self-collision of the robot structure leads to a constraint violation with a penalty obtained from the collision bodies' penetration depth, using a simplified geometric model with spheres and capsules. %
+  \item \label{itm:constr_installspace} A violation of the allowed installation space is counted as a less severe constraint violation since the robot works if regarded solely. The maximal distance of any part of the robot to the allowed volume is taken for the penalty. %
+  \item \label{itm:constr_workspacecoll} A collision with an obstacle object within the workspace is counted as another constraint since this is less severe than the self-collision by the same argumentation.
+\end{enumerate}
+%
+Not %
+%
+all of these constraints must be checked for all tasks, such as \ref*{itm:constr_jointlim}, \ref*{itm:constr_installspace}, or \ref*{itm:constr_workspacecoll}.
+The limits for constraint~\ref*{itm:constr_jointrange} or thresholds for constraints~\ref*{itm:constr_ik_jac} and \ref*{itm:constr_prismaticbase} can be set relatively high to obtain a more extensive set of results in the first iterations of the synthesis and can then be~tightened.
+
+%
+The reference trajectory is evaluated in the next step using the differential inverse kinematics and the initial joint configuration(s) from the previous step.
+%
+\begin{enumerate}
+  \setcounter{enumi}{16}
+  \item \label{itm:constr_iktraj} The failure of the differential IK creates a penalty resulting from the progress achieved.
+  \item \label{itm:constr_sing_traj} Singularities of types I and II are checked, similar to constraint \ref*{itm:constr_ik_sing}.
+  \item \label{itm:constr_inconsistent_traj} An inconsistency within the acceleration, velocity, or position between the leg chains can result from errors in the robot models or the check of infeasible kinematic structures within the structural synthesis (performed with the dimensional-synthesis framework) and produces a penalty.
+  \item \label{itm:constr_parasitic} A parasitic motion is an end-effector velocity component in an undesired degree of freedom for a robot with reduced mobility, which leads to a penalty.
+  \item \label{itm:constr_jointrange_traj} The range of joint coordinates from constraint~\ref*{itm:constr_jointrange} is checked for each leg chain and for symmetric robots for all leg chains together, assuming a symmetric construction.
+  \item \label{itm:constr_prismaticcylinder_traj} The feasibility of the lift cylinders for the prismatic joints from constraint~\ref*{itm:constr_prismaticcylinder} is rechecked for the joint configurations within the trajectory.
+  \item \label{itm:constr_velo} Limits on the velocity and the accelerations of active joints are checked. The limits result from plausibility considerations or may be obtained from data sheets.
+  \item \label{itm:constr_jump} If the differential IK algorithm leads to a flipping configuration, this is detected by using correlations---if it is not already discovered by the consistency check of constraint~\ref*{itm:constr_inconsistent_traj}.
+  \item \label{itm:constr_collinstspc_traj} Finally, self-collisions, installation space violations, and workspace collisions are checked, similar to constraints~\ref*{itm:constr_selfcoll}--\ref*{itm:constr_workspacecoll}.
+\end{enumerate}
+%
+Some %
+%
+constraints above, like \ref*{itm:constr_inconsistent_traj} or \ref*{itm:constr_parasitic}, are only relevant within a \emph{structural synthesis}, which can also be performed numerically with the dimensional synthesis. %
+%
+In the structural synthesis, many of the constraints that are designed to lead to more feasible solutions (such as joint limits and self-collisions) can be omitted, and only constraints regarding the mathematical solution of the inverse kinematics have to be regarded, such as \ref*{itm:constr_ik_succ}, \ref*{itm:constr_ik_sing}, \ref*{itm:constr_iktraj}, and~\ref*{itm:constr_sing_traj}.
+
+\textls[-15]{If all the constraints above for the trajectory are met, further constraints are investigated:}
+\begin{enumerate}
+  \setcounter{enumi}{25}
+  \item \label{itm:constr_jac_traj} The threshold for the condition number is checked, similar to constraint~\ref*{itm:constr_ik_jac}.
+  \item \label{itm:constr_desopt} A design optimization is performed after success in the constraints above, elaborated in Section~\ref{sec:dimsynth_desopt}. A penalty is given if no valid solution can be found within the design optimization. %
+  \newpage %
+  \item \label{itm:constr_materialstress} After computation of the inverse dynamics, the internal forces (see \cite{SchapplerOrt2020}), and the eventual design optimization, exceeding the material's yield strength with a given safety factor results in a penalty depending on the material-stress violation.
+  \item \label{itm:constr_obj} Limits on the physical values of the performance criteria, such as stiffness (objective~\ref{itm:obj_stiffness} of the next section), precision (objective~\ref{itm:obj_poserr}), or actuator force (objective~\ref{itm:obj_maxactforce}), are checked and lead to a penalty corresponding to the relative degree of limit violation.
+\end{enumerate}
+
+
+Further details on the specific implementation of the constraints are omitted for brevity. 
+They can be obtained from the open-source implementation \cite{GitHub_StructDimSynth} within the files \texttt{cds\_constraints.m}, \texttt{cds\_constraints\_traj.m} and \texttt{cds\_fitness.m}.
+{A validation of the concept of hierarchical constraints  by means of computation time is given in Figure~\ref{fig:computation_time} in Appendix~\ref{sec:app_lufipkm} for the case study from Section~\ref{sec:eval_water}.}

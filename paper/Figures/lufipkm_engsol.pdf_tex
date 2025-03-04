@@ -1,0 +1,79 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'lufipkm_engsol.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{518.74015748bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.49180328)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{lufipkm_engsol.pdf}}%
+    \put(0.65883674,0.34099066){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}\SI{21.5}{\degree}\end{tabular}}}}%
+    \put(0.75713311,0.43927044){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}\SI{31}{\degree}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{lufipkm_engsol.pdf}}%
+    \put(0.05410319,0.03807376){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ks{2_\textit{i}}$\end{tabular}}}}%
+    \put(0.80950984,0.0071349){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{f}) base\end{tabular}}}}%
+    \put(0.57088798,0.46174622){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{e}) platform\end{tabular}}}}%
+    \put(0.05895907,0.00715928){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{a}) leg chain\end{tabular}}}}%
+    \put(0.38611397,0.05124091){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{d}) hexapod\end{tabular}}}}%
+    \put(0.17946293,0.46660846){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{b}) spherical-joint\end{tabular}}}}%
+    \put(0.20978345,0.29944622){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}R joint\end{tabular}}}}%
+    \put(0.09571983,0.29944622){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U joint\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{lufipkm_engsol.pdf}}%
+    \put(0.0901016,0.25150632){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}electric lifting\end{tabular}}}}%
+    \put(0.08949525,0.22186316){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}cylinder\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{lufipkm_engsol.pdf}}%
+    \put(0.22432636,0.00715928){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{c}) universal joint\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{lufipkm_engsol.pdf}}%
+    \put(0.18556642,0.43782829){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}assembly\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{lufipkm_engsol.pdf}}%
+    \put(0.11192602,0.44943234){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}$\ks{6_\textit{i}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{lufipkm_engsol.pdf}}%
+  \end{picture}%
+\endgroup%

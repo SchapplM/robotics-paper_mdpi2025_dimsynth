@@ -1,0 +1,102 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'optimization_flowchart_desopt_plin.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{464.88188976bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.36585366)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.54133894,0.24120666){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{\varPhi}_{\mathrm{a}}(\bm{q}{,}\dot{\bm{q}}{,}\ddot{\bm{q}}{,}\bm{p})$\end{tabular}}}}%
+    \put(0.53632307,0.29973654){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}inverse-dynamics\end{tabular}}}}%
+    \put(0.53739315,0.26767467){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}regressor matrix\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.76206817,0.19467664){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}design\end{tabular}}}}%
+    \put(0.76206817,0.16903872){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}optimization\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.73260455,0.30285352){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{\varPhi}_{\mathrm{a}}(t)$\end{tabular}}}}%
+    \put(0.73945935,0.26152937){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{p}_{\mathrm{dyn}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.90321366,0.17454289){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{\tau}_\mathrm{a}(t)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.01138427,0.16923398){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}inverse\end{tabular}}}}%
+    \put(0.01138427,0.14020683){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}kinematics\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.2007212,0.16077963){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}inverse\end{tabular}}}}%
+    \put(0.2007212,0.13895473){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}dynamics\end{tabular}}}}%
+    \put(0.03046396,0.06251266){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{x}(t)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.1552887,0.05973452){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}design\end{tabular}}}}%
+    \put(0.1552887,0.03753802){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}optimization\end{tabular}}}}%
+    \put(0.19938727,0.11638525){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{\tau}_\mathrm{a}(\bm{q}{,}\dot{\bm{q}}{,}\ddot{\bm{q}}{,}\bm{p}{,}\bm{p}_{\mathrm{dyn}})$\end{tabular}}}}%
+    \put(0.39424398,0.16074591){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{\tau}_\mathrm{a}(t)$\end{tabular}}}}%
+    \put(0.01511265,0.20904984){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{p}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.01149269,0.11728906){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{q}{=}\bm{g}(\bm{x}{,}\bm{p})$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.14796892,0.1601927){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{q}(t)$\end{tabular}}}}%
+    \put(0.14865439,0.1011721){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{p}_{\mathrm{dyn}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.11412951,0.25417115){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}optimization of  kinematics\end{tabular}}}}%
+    \put(0.11453804,0.22666857){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}parameters $\bm{p}$ (dim. synthesis)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.45947305,0.16077963){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}objective of\end{tabular}}}}%
+    \put(0.45953675,0.11143639){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}synthesis\end{tabular}}}}%
+    \put(0.45944122,0.13593638){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}dimensional\end{tabular}}}}%
+    \put(0.00929108,0.01589336){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}(\textbf{a}) original\end{tabular}}}}%
+    \put(0.77713899,0.08377016){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}(\textbf{b}) replacement\end{tabular}}}}%
+    \put(0.69175306,0.0556691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}by using the regressor form\end{tabular}}}}%
+    \put(0.80797917,0.24120666){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{\tau}_\mathrm{a}{=}\bm{\varPhi}_{\mathrm{a}}\bm{p}_{\mathrm{dyn}}$\end{tabular}}}}%
+    \put(0.80114139,0.29973654){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}inverse-dynamics\end{tabular}}}}%
+    \put(0.80221147,0.26767467){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}regressor form\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{optimization_flowchart_desopt_plin.pdf}}%
+    \put(0.48901727,0.2779921){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\bm{q}(t)$\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

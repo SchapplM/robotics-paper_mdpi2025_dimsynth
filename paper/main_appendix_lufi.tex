@@ -1,0 +1,265 @@
+%
+%
+%
+\label{sec:app_lufipkm}
+
+In the following, further results for the high-payload robot within the naval testbed are shown, as initially discussed in Section~\ref{sec:eval_water}.
+%
+The \propername{Pareto} diagram for collision distance versus material stress from Figure~\ref{fig:lufipkm_pareto_materialstresscolldist_34joints} showing parallel robots with three- and four-joint leg chains is extended in Figure~\ref{fig:lufipkm_pareto_materialstresscolldist_56joints} for the cases with leg chains with five and six joints.
+
+\vspace{2pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures/}}
+    \includegraphics{Figures/lufipkm_pareto_materialstress_colldist_groups_materialstresscolldist_56joints.pdf}
+  \end{adjustwidth}
+  \caption[Naval-testbed task: \propername{Pareto} fronts for the design-oriented objectives with fixed-dimension lightweight links without link design optimization]{\propername{Pareto} fronts for the design-oriented objectives for chains with five and six joints and fixed-dimension lightweight links without link design optimization.}
+  \label{fig:lufipkm_pareto_materialstresscolldist_56joints}
+\end{figure}
+
+The \propername{Pareto} diagrams for the drive-train objectives velocity and force are separated into revolute joints in Figure~\ref{fig:lufipkm_pareto_motordiagram_prismatic} and prismatic joints in Figure~\ref{fig:lufipkm_pareto_motordiagram_revolute} since the units are different.
+However, the required rated power of 1--2 kW for many structures is similar for both actuation types.
+The stronger link dimensioning, visible in Figure~\ref{fig:lufipkm_pareto_linkdiam_colldist}, can partly explain the markers above the ideal hyperbola.
+Assumptions regarding transmission ratios (by gear pitch of a spindle or radius of a belt disk), which would allow a unit conversion between rotational and translational quantities, are not included in the synthesis framework.
+
+\vspace{3pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \includegraphics{Figures/lufipkm_pareto_linkdiam_colldist_groups_linkdiam_vs_coll_nolegend.pdf}
+  \end{adjustwidth}
+  \caption{\propername{Pareto} fronts for the resulting link dimensioning of the results above together with the collision distance as third optimization objective. Only Pareto-dominant particles in these two criteria are shown. The legend is identical to that of Figures~\ref{fig:lufipkm_pareto_motordiagram_prismatic} and~\ref{fig:lufipkm_pareto_motordiagram_revolute}.}
+  \label{fig:lufipkm_pareto_linkdiam_colldist}
+\end{figure}
+
+
+
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \includegraphics{Figures/lufipkm_pareto_actforce_actvelo_groups_motordiagram_prismatic.pdf}
+  \end{adjustwidth}
+  \caption{\propername{Pareto} fronts for the actuator-oriented objectives for prismatic actuation.}
+  \label{fig:lufipkm_pareto_motordiagram_prismatic}
+\end{figure}
+
+\vspace{-6pt}
+\begin{figure}[H] 
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \includegraphics{Figures/lufipkm_pareto_actforce_actvelo_groups_motordiagram_revolute.pdf}
+  \end{adjustwidth}
+  \caption{\propername{Pareto} fronts for the actuator-oriented objectives for revolute actuation.}
+  \label{fig:lufipkm_pareto_motordiagram_revolute}
+\end{figure}
+
+\vspace{-6pt}
+\begin{figure}[H] 
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{overpic}
+      {Figures/lufipkm_compare_GA_vs_PSO.pdf}
+      \put(0,0){\textbf{(a)}}
+      \put(34,0){\textbf{(b)}}
+      \put(67,0){\textbf{(c)}}
+    \end{overpic}
+  \end{adjustwidth}
+  \caption{Comparison of particle swarm optimization (blue) and genetic algorithm (red) for the same settings as Figures~\ref{fig:lufipkm_pareto_motordiagram_prismatic} and~\ref{fig:lufipkm_pareto_motordiagram_revolute} for three different parallel robots (\textbf{a}--\textbf{c}). Each independent repetition has its own marker. The optimal solution after several iterations (from Figures~\ref{fig:lufipkm_pareto_motordiagram_prismatic} and~\ref{fig:lufipkm_pareto_motordiagram_revolute}) is marked in green for reference. Identical markers were thinned out to improve visibility.}
+  \label{fig:lufipkm_ga_vs_pso}
+\end{figure}
+
+
+
+The same drive-train objectives are used for an evaluation of the optimization algorithm.
+The synthesis was performed with the multi-objective genetic algorithm and particle swarm optimization with  a random initial population without prior results, set up equally for both.
+Default values of the algorithms \cite{Martinez2019,MatlabGOT} were used with 200 individuals and a time limit of eight hours of computation time on the same partition of an Intel Xeon computing cluster \cite{LUISCLUSTER} with \textsc{Matlab} version 2024b.
+The experiment was repeated five times with random seeds.
+The results are depicted in Figure~\ref{fig:lufipkm_ga_vs_pso} for the 6-U\underline{P}S, 6-\underline{R}US, and 6-\underline{P}US.
+The genetic algorithm shows a worse exploration and performance than the PSO, which clearly dominates the GA's results.
+For this reason, only the PSO is used within the~paper.
+
+
+The feasibility of the proposed concept of hierarchical constraints from Section~\ref{sec:ds_optscheme} is evaluated based on the computation times of the single particles of the synthesis above.
+All successful parallel robots (187 structures with different chains and coupling-joint alignments) were included with a total of 1.2 %
+%
+million particles.
+A box plot of the computation times over the resulting fitness value (increasing from left to right) is depicted in Figure~\ref{fig:computation_time}.
+The fitness values correspond to the constraints from Section~\ref{sec:ds_constraints} that were violated and led to the abortion.
+The targeted increasing relation of computation time and validity is evident in the first constraints \ref{itm:constr_param_inclination}--\ref{itm:constr_ik_jac} that account for the plausibility by only checking parameters (\SI{10}{\milli\second} in median) or reference points (up to \SI{5}{\second} in median).
+An abortion at the trajectory-related constraints \ref{itm:constr_iktraj}--\ref{itm:constr_jac_traj} (which includes computing all previous constraints) exhibits a required time of 5--20 s.
+Reaching the design optimization (constraint~\ref{itm:constr_desopt}) takes about \SI{100}{\second}. The outliers mainly result from structures with many assembly modes (due to multi-joint leg chains) that are all checked.
+%
+Better handling of this aspect may present a possibility for increasing efficiency in the future.
+The evaluation has to be regarded rather qualitatively, as different robots are combined in the box plots, which presents a bias and explains the low median time of the ``success'' case of only \SI{40}{\second}. %
+
+\vspace{-2pt}
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \input{Figures/calctime_vs_fval.tex}
+  \end{adjustwidth}
+  \caption{Computation
+    time of the fitness function (logarithmic scale) in relation to the number of the violated constraint (from Section~\ref{sec:ds_constraints}) that led to abortion. The class ``chainlength'' comes from checking if the length of a leg chain that includes a prismatic joint exceeds the maximum allowed length. Outlier markers were thinned out (193 of 97 k left over) to increase visibility of the data. Duplicate constraints result from multiple similar checks, e.g., for different Jacobian matrices in constraint~\ref*{itm:constr_ik_jac}.}
+  \label{fig:computation_time}
+\end{figure}
+
+
+One parameterization is chosen for each of the valid parallel robots from the \propername{Pareto} diagrams.
+The selection is based on the \propername{Pareto} diagram of collision distance vs. actuator power in Figure~\ref{fig:lufipkm_pareto_power_mass_groups}. 
+Both criteria are normalized to their best-achieved values (for all structures), and the best particle for equal weighting is chosen to illustrate the results' appearance.
+The performance values and kinematic parameters of these reference solutions are summarized in Table~\ref{tab:lufipkm_results_pris} for prismatic and Table~\ref{tab:lufipkm_results_rev} for revolute actuation.
+Kinematic sketches are given in Figures~\ref{fig:lufipkm_robots2}--\ref{fig:lufipkm_robots4}.
+
+\begin{table}[H]
+  \caption{Summary
+    of one typical particle for each robot with \emph{prismatic actuation}, visualized in Figures~\ref{fig:lufipkm_robots2} and \ref{fig:lufipkm_robots3}. Abbreviations: ``coll.'' (collision distance), ``velo.'' (actuator velocity), ``cond.'' (largest \propername{Jacobian} condition number), $n$ (number of optimization variables), $r_\mathrm{b}$ (base radius), $d_\mathrm{b}$ (base-joint pair distance), $\gamma_\mathrm{b}$ (base-joint inclination), $r_\mathrm{p}$ (platform radius), $d_\mathrm{p}$ (platform-joint pair distance), $e_\mathrm{link}$ (material strength of the links), $d_\mathrm{link}$ (diameter of the links), ``Eng. Sol.'' engineering solution. Continued horizontally in Table~\ref{tab:lufipkm_results_pris_dh}.}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \label{tab:lufipkm_results_pris}
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{5}{c}{\textbf{Performance}} & \multicolumn{8}{c}{\textbf{Kinematic and Design Parameters}} \\
+      \midrule
+      & \multicolumn{1}{r}{coll.} & \multicolumn{1}{r}{power} & \multicolumn{1}{r}{force} & \multicolumn{1}{r}{velo.} & \multicolumn{1}{r}{cond.} &  \multicolumn{1}{c}{$n$} &
+      \multicolumn{1}{c}{$r_\mathrm{b}$} & \multicolumn{1}{c}{$d_\mathrm{b}$} & \multicolumn{1}{c}{$\gamma_\mathrm{b}$} & \multicolumn{1}{c}{$r_\mathrm{p}$}& \multicolumn{1}{c}{$d_\mathrm{p}$} & \multicolumn{1}{c}{$e_\mathrm{link}$} & \multicolumn{1}{c}{$d_\mathrm{link}$} \\
+      & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{kW} & \multicolumn{1}{c}{kN} & \multicolumn{1}{c}{m/s} & \multicolumn{1}{c}{} & & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} \\
+      \midrule %
+      \input{Tables/lufipkm_tab_details_prismatic.tex}\\ %
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures/}}
+    \input{./Figures/lufipkm_robots2.pdf_tex}
+  \end{adjustwidth}
+  \vspace{-9pt}
+  \caption{Visualization %
+    %
+    of the results with \emph{prismatic actuation} from Table~\ref{tab:lufipkm_results_pris} with corresponding marker from Figures~\ref{fig:lufipkm_pareto_power_mass_groups} and \ref{fig:lufipkm_pareto_motordiagram_prismatic}---part 1.}
+  \label{fig:lufipkm_robots2}
+\end{figure}
+
+
+\begin{figure}[H] %
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures/}}
+    \input{./Figures/lufipkm_robots3.pdf_tex}
+  \end{adjustwidth}
+  \caption[Naval-testbed task: Visualization of the results with prismatic actuation (part~2)]{Visualization of the results with \emph{prismatic actuation} from Table~\ref{tab:lufipkm_results_pris} with corresponding marker from Figures~\ref{fig:lufipkm_pareto_power_mass_groups} and \ref{fig:lufipkm_pareto_motordiagram_prismatic}---part 2}
+  \label{fig:lufipkm_robots3}
+\end{figure}
+
+The kinematic complexity of the solutions remains manageable for the structures with three or four joints per chain.
+For some structures with five and six joints, like \hyperref[restabrow:P6RRRPRR9V10GxPxA4]{6-{R}{R}{R}\underline{P}{R}{R}} (Figure~\ref{fig:lufipkm_robots3}j), feasible solutions exist with enough space between components for design and assembly.
+The same holds for \hyperref[restabrow:P6RRRPRR9V6GxPxA4]{6-{R}{R}{R}\underline{P}{U}} (Figure~\ref{fig:lufipkm_robots3}k); however, the small angle between a joint axis and a link complicates the mechanical design (visible by the relation of the $d$ and $a$ parameters in Table~\ref{tab:lufipkm_results_pris_dh}).
+
+\newpage
+The necessary stronger dimensioning of structures with longer levers (e.g., \hyperrefl{restabrow:P6RPRRRR12V4GxPxA2}{6-{R}\underline{P}{R}{R}{R}{R}}, \hyperrefl{restabrow:P6RRPRRR12V6GxPxA3}{6-{R}{R}\underline{P}{R}{R}{R}}, \hyperrefl{restabrow:P6RRPRRR7V6GxPxA3}{6-{R}{R}\underline{P}{U}{R}}), mentioned in Section~\ref{sec:eval_lufi_results}, can be observed by the higher values in Table~\ref{tab:lufipkm_results_pris} for material strength {$e_\mathrm{link}$} and link diameter $d_\mathrm{link}$ resulting from the \mbox{design~optimization}.
+
+
+\begin{table}[H]
+  \caption{Leg %
+    %
+    chain kinematic optimization parameters for results of Table~\ref{tab:lufipkm_results_pris}, using modified DH notation. Fixed structural parameters are highlighted in light gray color.}
+  \label{tab:lufipkm_results_pris_dh}
+  \setlength\tabcolsep{3.0pt}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{PR}}
+      & \multicolumn{17}{c}{\textbf{Leg-Chain Kinematic Parameters}} \\
+      \midrule
+      &  \multicolumn{1}{c}{$d_{1}$} & \multicolumn{1}{c}{$\alpha_{2}$} &		\multicolumn{1}{c}{$a_{2}$} & \multicolumn{1}{c}{$\theta_{2}$} & \multicolumn{1}{c}{$d_{2}$}
+      & \multicolumn{1}{c}{$\alpha_{3}$} & \multicolumn{1}{c}{$a_{3}$} &  \multicolumn{1}{c}{$\theta_{3}$}& \multicolumn{1}{c}{$d_{3}$} 
+      & \multicolumn{1}{c}{$\alpha_{4}$} & \multicolumn{1}{c}{$a_{4}$}  & \multicolumn{1}{c}{$\theta_{4}$} & \multicolumn{1}{c}{$d_{4}$} &
+      \multicolumn{1}{c}{$a_{5}$} & \multicolumn{1}{c}{$d_{5}$} &
+      \multicolumn{1}{c}{$a_{6}$} & \multicolumn{1}{c}{$d_{6}$} \\						
+      & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg}& \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm}  \\
+      \midrule %
+      \input{Tables/lufipkm_tab_details_prismatic_dh.tex}\\ %
+      \bottomrule
+      %
+      %
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+\newpage
+Fewer results with \emph{revolute actuation} are available due to the lower number of possible combinations %
+and their lower success rate.
+In total, nine robots with revolute actuation fulfill the kinematic requirements (self-collision free, in installation space) when using lightweight limbs: five in Figure~\ref{fig:lufipkm_pareto_materialstresscolldist_34joints} and four in Figure~\ref{fig:lufipkm_pareto_materialstresscolldist_56joints}.
+Due to the high material stress, the strong required dimensioning leads partly to self-collisions and partly still does not lead to valid material stress (for 70 out of 926 investigated variants).
+For prismatic actuation, this is only the case for 85 out of 4944 variants.
+
+
+
+\begin{figure}[H]
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \graphicspath{{Figures/}}
+    \input{./Figures/lufipkm_robots4.pdf_tex}
+  \end{adjustwidth}
+  \caption{\hl{Visualization} %
+    %
+    of the results with \emph{revolute actuation} from Table~\ref{tab:lufipkm_results_rev} with corresponding marker from Figures~\ref{fig:lufipkm_pareto_power_mass_groups} and \ref{fig:lufipkm_pareto_motordiagram_revolute}.}
+  \label{fig:lufipkm_robots4}
+\end{figure}
+
+The eight remaining structures are shown in Figure~\ref{fig:lufipkm_robots4} and Table~\ref{tab:lufipkm_results_rev}.
+All of them require a significantly stronger link design than the robots with prismatic actuation from \mbox{Table~\ref{tab:lufipkm_results_pris}}.
+The structures with an actuated second joint (\hyperref[restabrow:P6RRRRRR10V3GxPxA2]{6-{R}\underline{R}{R}{S}}, \hyperref[restabrow:P6RRRRRR5V3GxPxA2]{6-{R}\underline{R}{R}{R}{U}}, and \hyperref[restabrow:P6RRRRRR6V3GxPxA2]{6-{R}\underline{R}{R}{U}{R}}) are not suitable for realization since the moving mass and volume of a motor of up to \SI{2.1}{\kilo\watt} rated power will likely lead to self-collisions and degrade dynamic performance criteria in the selected base-joint alignment (pairwise-conical, tangential, or radial), cf. Figure~\ref{fig:lufipkm_robots4}a,d,f.
+The motor selection was excluded from the synthesis and design optimization to focus on the link design.
+The Hexa robot in Figure~\ref{fig:lufipkm_robots4}b presents the classical design already reported in the literature \cite{Frindt2001}, which has been found without prior detailed knowledge within the synthesis algorithm and could be constructed and realized with moderate effort, provided joints for the given high material stresses are available.
+The other structures could at least be built in theory; however, their increased complexity is not countered by any advantages, giving them the character of an academic example.
+
+\begin{table}[H]
+  \caption{Summary of the naval-testbed results (part 2 of Table~\ref{tab:lufipkm_results_pris}) for structures with \emph{revolute actuation}, continued horizontally in Table~\ref{tab:lufipkm_results_rev_dh}).}
+  \label{tab:lufipkm_results_rev}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{Robot}}
+      & \multicolumn{5}{c}{\textbf{Performance}} & \multicolumn{8}{c}{\textbf{Kinematic and Design Parameters}} \\
+      \midrule
+      & \multicolumn{1}{r}{coll.} & \multicolumn{1}{r}{power} & \multicolumn{1}{r}{torque} & \multicolumn{1}{r}{velo.} & \multicolumn{1}{r}{cond.} &  \multicolumn{1}{c}{$n$} &
+      \multicolumn{1}{c}{$r_\mathrm{b}$} & \multicolumn{1}{c}{$d_\mathrm{b}$} & \multicolumn{1}{c}{$\gamma_\mathrm{b}$} & \multicolumn{1}{c}{$r_\mathrm{p}$}& \multicolumn{1}{c}{$d_\mathrm{p}$} & \multicolumn{1}{c}{$e_\mathrm{link}$} & \multicolumn{1}{c}{$d_\mathrm{link}$} \\
+      & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{kW} & \multicolumn{1}{c}{Nm} & \multicolumn{1}{c}{deg/s} & \multicolumn{1}{c}{} & & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} \\
+      \midrule %
+      \input{Tables/lufipkm_tab_details_revolute.tex}\\
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}
+
+\vspace{-12pt}
+\begin{table}[H]
+  \centering
+  \caption[Naval-testbed task: Leg chain kinematic parameter values for results with revolute actuation]{Leg chain kinematic optimization parameters for results of Table~\ref{tab:lufipkm_results_rev}, using modified DH notation}
+  \label{tab:lufipkm_results_rev_dh}
+  \begin{adjustwidth}{-\extralength}{0cm}
+    \centering
+    \begin{tabularx}{\fulllength}{lRRRRRRRRRRRRRR} %
+      \toprule
+      \multicolumn{1}{c}{\textbf{PR}}
+      & \multicolumn{14}{c}{\textbf{Leg-Chain Kinematic Parameters}} \\
+      \midrule
+      &  \multicolumn{1}{c}{$d_{1}$} & \multicolumn{1}{c}{$\alpha_{2}$} &		\multicolumn{1}{c}{$a_{2}$} & \multicolumn{1}{c}{$d_{2}$}
+      & \multicolumn{1}{c}{$\alpha_{3}$} & \multicolumn{1}{c}{$a_{3}$} & \multicolumn{1}{c}{$d_{3}$} 
+      & \multicolumn{1}{c}{$\alpha_{4}$} & \multicolumn{1}{c}{$a_{4}$} & \multicolumn{1}{c}{$d_{4}$} &
+      \multicolumn{1}{c}{$a_{5}$} & \multicolumn{1}{c}{$d_{5}$} &
+      \multicolumn{1}{c}{$a_{6}$} & \multicolumn{1}{c}{$d_{6}$} \\						
+      & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{deg} & \multicolumn{1}{c}{mm}& \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm} & \multicolumn{1}{c}{mm}  \\
+      \midrule %
+      \input{Tables/lufipkm_tab_details_revolute_dh.tex}\\ %
+      \bottomrule
+    \end{tabularx}
+  \end{adjustwidth}
+\end{table}

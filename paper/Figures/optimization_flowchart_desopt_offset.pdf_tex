@@ -1,0 +1,100 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'optimization_flowchart_desopt_offset.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{464.88188976bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.21341463)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.02567581,0.12840997){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}geometry\end{tabular}}}}%
+    \put(0.02082051,0.10044587){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}plausible?\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.32452301,0.13113685){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}joint limits\end{tabular}}}}%
+    \put(0.32956267,0.10490118){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}complied?\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.14092698,0.12800811){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{yes}\end{tabular}}}}%
+    \put(0.68107564,0.11277428){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}collision\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.18519414,0.12879387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IK for\end{tabular}}}}%
+    \put(0.18461796,0.10056099){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ref. pts.\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.6959,0.08876805){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}free?\end{tabular}}}}%
+    \put(0.69820475,0.1390112){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}self-\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.14345035,0.18218918){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}repeat\end{tabular}}}}%
+    \put(0.17627119,0.16097233){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}for\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.03679428,0.18877257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}start\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.90613735,0.13687356){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}all init.\end{tabular}}}}%
+    \put(0.90928226,0.11281734){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}values\end{tabular}}}}%
+    \put(0.07226551,0.0587225){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{no}\end{tabular}}}}%
+    \put(0.45344879,0.13065853){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{yes}\end{tabular}}}}%
+    \put(0.79339685,0.13065853){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{yes}\end{tabular}}}}%
+    \put(0.39622454,0.17911611){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{no}\end{tabular}}}}%
+    \put(0.73006516,0.17911611){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{no}\end{tabular}}}}%
+    \put(0.22615517,0.18218918){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}assembly\end{tabular}}}}%
+    \put(0.22566584,0.16097233){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}modes\end{tabular}}}}%
+    \put(0.91058709,0.08704151){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}done?\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.02637169,0.01583831){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}return penalty\end{tabular}}}}%
+    \put(0.94410347,0.17755195){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\small{no}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.54156537,0.01583831){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}continue with trajectory IK\end{tabular}}}}%
+    \put(0.82464728,0.11059063){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\dots\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.50243176,0.13108643){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}optimize\end{tabular}}}}%
+    \put(0.50133794,0.09973354){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}DH offset\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{optimization_flowchart_desopt_offset.pdf}}%
+    \put(0.2264882,0.01583831){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}return penalty/objective\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{optimization_flowchart_desopt_offset.pdf}}%
+  \end{picture}%
+\endgroup%

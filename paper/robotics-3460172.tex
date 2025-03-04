@@ -1,0 +1,534 @@
+%
+%
+
+%
+%
+
+%
+\documentclass[robotics,article,accept,pdftex,oneauthor]{Definitions/mdpi} 
+%
+%
+
+%
+%
+
+%
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+
+%
+%
+%
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+%
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+\externaleditor{ Swaminath Venkateswaran, Jong-Hyeon Park } %
+\datereceived{18 January 2025} 
+\daterevised{24 February 2025} %
+\dateaccepted{25 February 2025} 
+\datepublished{ } 
+%
+%
+\hreflink{https://doi.org/} %
+%
+%
+%
+%
+
+%
+%
+%
+
+
+%
+%
+%
+\usepackage{overpic}
+\usepackage{wrapfig}
+\usepackage{pgfplots} %
+\usepackage{bm}
+%
+\usepackage{makecell} %
+\usepackage[per-mode=symbol]{siunitx} %
+\renewcommand{\hl}[1]{#1}
+
+%
+\newif\ifgrammarly
+%
+
+\ifgrammarly
+  \usepackage[none]{hyphenat} %
+  \usepackage[nomarkers,notables]{endfloat} %
+  \usepackage{endnotes} %
+  \renewcommand{\footnote}{\endnote}
+\fi
+
+
+%
+%
+%
+
+%
+%
+\Title{Dimensional Synthesis of Parallel Robots Using Bilevel Optimization for Design Optimization and Resolution of Functional Redundancy}
+
+%
+\TitleCitation{Dimensional Synthesis of Parallel Robots Using Bilevel Optimization for Design Optimization and Redundancy Resolution}
+
+%
+\newcommand{\orcidauthorA}{0000-0001-7952-7363} %
+%
+
+%
+\Author{Moritz Schappler
+\orcidA{}}
+
+%
+
+%
+\AuthorNames{Moritz Schappler}
+
+%
+%
+%
+%
+
+%
+%
+%
+
+%
+%
+\isAPAStyle{%
+       \AuthorCitation{Schappler, M.}
+         }{%
+        \isChicagoStyle{%
+        \AuthorCitation{Moritz Schappler.}
+        }{
+        \AuthorCitation{Schappler, M.}
+        }
+}
+
+%
+\address[1]{%
+Institute of Mechatronic Systems, Leibniz University Hannover, 30823 Garbsen, Germany;  moritz.schappler@imes.uni-hannover.de}
+
+%
+%
+
+%
+%
+%
+%
+
+%
+
+%
+
+%
+\abstract{%
+%
+Parallel-kinematic machines or parallel robots have only been established in a few applications where their advantage over serial kinematics due to their high payload capacity, stiffness, or dynamics with their limited workspace-to-installation-space ratio pays out.
+However, some applications still have not yet been sufficiently or satisfactorily automated in which parallel robots could be advantageous.
+%
+As their performance is much more dependent on their complex dimensioning, an automated design tool---not existing yet---is required to optimize the parameterization of parallel robots for applications. Combined structural and dimensional synthesis considers all principally possible kinematic structures and performs a separate dimensioning for each to obtain the best task-specific structure. However, this makes the method computationally demanding.
+The proposed computationally efficient approach for dimensional synthesis extends multi-objective particle swarm optimization with hierarchical constraints.
+A cascaded (bilevel) optimization includes the design optimization of components and the redundancy resolution for tasks with rotational symmetry, like milling.
+%
+Two case studies for different end-effector degrees of freedom demonstrate the broad applicability of the combined structural and dimensional synthesis for symmetric parallel robots with rigid links and serial-kinematic leg chains.
+%
+The framework produces many possible task-optimal structures despite numerous constraints and can be applied to other problems \hl{as an open-source} \textsc{Matlab} toolbox. %
+%
+%
+}
+
+%
+\keyword{parallel robot; parallel-kinematic machine; dimensional synthesis; bilevel optimization; constraint handling; design optimization; redundancy resolution} %
+
+
+%
+%
+%
+%
+
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+%
+%
+
+%
+%
+%
+
+%
+%
+%
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\dvec}[1]{\dot{\boldsymbol{#1}}}
+\newcommand{\ddvec}[1]{\ddot{\boldsymbol{#1}}}
+\newcommand{\transp}{\mathrm{T}}
+\newcommand{\transpose}{\transp}	
+\newcommand{\ind}[1]{\mathrm{#1}}	%
+\newcommand{\propername}[1]{#1} %
+\DeclareMathOperator*{\argmin}{argmin}
+\newcommand{\point}[1]{\mathrm{#1}}
+\newcommand{\indks}[1]{\mathrm{#1}} %
+\newcommand{\ks}[1]{(\ind{CS})_{#1}} %
+\newcommand{\rovec}[2]{{_{(#1)}\vec{r}_{{#2}}}}
+\newcommand{\rotmat}[2]{{^{#1\!}\vec{R}}_{#2}}
+\newcommand{\ortvek}[4]{{ }_{(#1)}{\boldsymbol{#2}}^{#3}_{#4} }
+
+\newcommand{\vecRes}[0]{\vec{\delta}} %
+\newcommand{\vecResR}[0]{\vec{\psi}} %
+
+%
+\newcommand{\refl}[1]{\hypersetup{linkcolor=black}\ref{#1}\hypersetup{linkcolor=[RGB]{0 128 128}}} %
+\newcommand{\hyperrefl}[2]{\hypersetup{linkcolor=black}\hyperref[#1]{#2}\hypersetup{linkcolor=[RGB]{0 128 128}}} %
+
+\input{./Structural_Synthesis/3T0R_pkmnumberdef.tex}
+\input{./Structural_Synthesis/3T1R_pkmnumberdef.tex}
+\input{./Structural_Synthesis/3T2R_pkmnumberdef.tex}
+\input{./Structural_Synthesis/3T3R_pkmnumberdef.tex}
+
+
+
+%
+\begin{document}
+
+%
+
+\section{Introduction}
+
+\input{main_generalintro.tex}
+
+\section{Related Work}
+
+\input{main_intro.tex}
+
+
+%
+\section{Materials and Methods}
+
+\input{main_materials.tex}
+
+
+%
+%
+
+\input{main_results_lufi.tex}
+
+\input{main_results_handling.tex}
+
+%
+\section{Discussion}
+\label{sec:discussion}
+
+%
+
+
+%
+
+%
+The results obtained can answer the paper's \emph{research question}: ``How should the optimization problem of the dimensional synthesis be structured if functional redundancy and design optimization are considered?''
+%
+Solving the problem by nested optimization loops is shown to be feasible due to the reduced number of optimization variables in the single steps.
+By this, the most efficient method can be used at each stage of the optimization.
+Design optimization and redundancy resolution should be executed consecutively as far as the problem interconnections allow, which holds for the selected evaluation examples. 
+%
+
+
+
+%
+
+
+
+Within this paper, the optimization framework for the dimensional synthesis of parallel robots is explained in detail, focusing on several aspects, {such as a complete description of the optimization problem for later reference in terms of variables, objectives and constraints,} design optimization, and redundancy resolution.
+{A comprehensive overview of the literature on dimensional synthesis provides applicable approaches that are further developed for the requirements of this paper.}
+%
+{The concept of} hierarchical constraints with continuous penalties {presents a general contribution to the state of the art on nonlinear optimization.}
+{The field of dimensional synthesis is furthered by promoting} multi-objective particle swarm optimization {with a bilevel strategy} and using the dynamics regressor form for the design optimization.
+The extensions lead to improved computational efficiency in contrast to existing methods, {making the combined synthesis practically possible.}
+
+{Further gains in efficiency are possible} in the non-redundant case by using analytic solutions instead of the general numeric iterative approach for solving the inverse-kinematics problem.
+{However, this has not yet been implemented} for the parallel\hl{-}robot database due to the large {number} and variety of structures. %
+On the other hand, the iterative solution to the inverse-kinematics problem is necessary to perform gradient-descent optimization in the case of functional redundancy, which is used to generate more valid and generally better solutions for dimensional synthesis. %
+
+Several limiting assumptions from the literature regarding included robot structures in the synthesis have been lifted; some more prevent a completely comprehensive robot synthesis.
+%
+%
+The approach of permutational synthesis is also promising for \emph{non-symmetric alignments of coupling joints} for parallel robots with identical leg chains. 
+The complexity of the optimization for \emph{non-symmetric parallel robots} (i.e., with different leg chains) should be subject to further investigation, as the robots' performance {(especially in non-symmetric tasks)} may be further improved, as already shown in the literature for some manually designed structures. 
+In principle, the proposed framework would be efficient enough to increase the number of structures by one order of magnitude.
+Still, the complexity of non-symmetric robots in a geometric permutation could be more extensive than that. %
+For such numbers of structures, the optimization algorithm has to be improved by, e.g., exchanging parameter values between different structures, corresponding to sub-populations in the particle-swarm optimization, and more efficient reuse of previous results of other use cases. 
+Realizing this would require multiple iterative runs of the optimization or synchronization of the currently independent parallel optimizations.
+
+Another direct application of the developed optimization scheme can be found by lifting the restriction of fully parallel robots by allowing \emph{more than one active joint per leg chain} and reducing the number of legs. 
+This step could, in principle, \emph{combine some advantages of serial and parallel robots}, provided that the dimensioning is optimal. 
+For instance, the workspace could be larger than that of a parallel robot of comparable size while still being more energy efficient than serial robots by low moving masses.
+Concepts for manipulators of this type already exist, but their design was optimized manually or only for one structure.
+%
+Exploring this relation to both sides presents an interesting research question that requires a \emph{drive-train optimization}, which has not yet been implemented in the proposed framework and would require corresponding component databases or scaling methods already available in the literature.
+Serial robots are principally supported by the framework---in the theoretical framework as well as in the implementation.
+
+
+%
+\section{Conclusions}
+\label{sec:conclusions}
+
+The ambition of fast computation regarding the large number of structural permutations from a previous structural synthesis characterizes the proposed algorithm extensions for the \emph{dimensional synthesis}.
+Compliance with this goal can already be seen by the application within structural synthesis, where several hundred to thousand iterations must be performed for each of the thousands of structural permutations.
+The proposed concept of \emph{hierarchical constraints} with \emph{continuous penalties} and \emph{early abortion} has not {yet} been explicitly demonstrated within dimensional synthesis.
+In combination with particle swarm optimization, also uncommon in the literature on robot synthesis, fast convergence and good exploration were achieved simultaneously despite the high number of optimization variables.
+Additions to the framework regarding reusing results for initial values, also across similar structures, further improved the computational efficiency, which is crucial to solving a task-specific synthesis problem.
+Incorporating \emph{design optimization} into the concept was possible by separating independent optimization problems efficiently. %
+\emph{Functional redundancy} was integrated similarly, again by following the principle of bilevel optimization, which can be termed nested or \emph{cascaded optimization}. %
+
+%
+%
+%
+%
+%
+%
+%
+
+The ability of the combined structural and dimensional synthesis to generalize on practical problems is shown in two case studies.
+%
+%
+The examples show how to transfer technical requirements to the parameters of the synthesis framework and, used as a template, simplify solving new problems.
+
+
+%
+\vspace{6pt} 
+
+%
+%
+%
+
+%
+%
+%
+
+%
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+%
+%
+
+\funding{This
+research is based on works that received funding from the Deutsche Forschungsgemeinschaft (DFG) under grant number 341489206. Computation for the case studies was performed on the computing cluster of LUH funded by DFG (project number~INST~187/592-1~FUGG).}
+
+%
+
+%
+
+%
+\dataavailability{
+\hl{The original data presented in the study are openly available in the research data repository of the Leibniz Universität Hannover} at \url{https://doi.org/10.25835/00p7zgvk} for Section~\ref{sec:eval_water} and \url{https://doi.org/10.25835/76g8d6a8} for Section~\ref{sec:app_handlingpkm}.
+%
+The framework described in Section~\ref{sec:materials} is published open-source \hl{at} %
+%
+\url{https://github.com/SchapplM/robsynth-structdimsynth} and the case studies of this paper (including figures and tables) can be reproduced by the \textsc{Matlab} code provided in \url{https://github.com/SchapplM/robotics-paper_mdpi2025_dimsynth}.
+ } 
+
+
+\acknowledgments{The
+ author thanks the following persons for proof-reading earlier versions of the manuscript: Tobias Ortmaier (Sections~\ref{sec:relatedwork}--\ref{sec:conclusions}), Tim-David Job (Sections~\ref{sec:relatedwork} and \ref{sec:materials}), Tim-Lukas Habich (Sections~\ref{sec:relatedwork} and \ref{sec:eval_handlingfreerotation}--\ref{sec:conclusions}, Appendix \ref{sec:app_handlingpkm}), Tim Sterneck (Section~\ref{sec:eval_water}, Appendix \ref{sec:app_lufipkm}), and Jannik Fettin (Section~\ref{sec:eval_water}, Appendix \ref{sec:app_lufipkm}).
+Contributions to the case study of Section~\ref{sec:eval_water}: The collection %
+of requirements and computation of external forces in Section~\ref{sec:eval_lufi_task} was carried out majorly by Jannik Fettin in collaboration with Jannik Meyer (LuFI). The prototype realization of Section~\ref{sec:eval_lufi_engsol} was performed by Jannik Fettin in cooperation with Tim Sterneck (Institute for Mechatronic Systems, IMES.)
+}
+
+\conflictsofinterest{The author declares no conflicts of interest. The funders had no role in the design of the study, in the collection, analyses, or interpretation of data, in the writing of the manuscript, or in the decision to publish the results.} 
+
+%
+%
+
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+3T0R & three translations and no rotation (also for 3T1R, 3T2R, and 3T3R)\\
+C & cylindrical joint\\
+CAD & computer-aided design\\
+DH & Denavit--Hartenberg\\
+DoFs & degrees of freedom\\
+GA & genetic algorithm\\
+IK & inverse kinematics\\
+MOO & multi-objective optimization\\
+P & prismatic joint\\
+PR & parallel robot\\
+PSO & particle swarm optimization\\
+R & revolute joint\\
+S & spherical joint\\
+SOO & single-objective optimization \\
+U & universal joint
+\end{tabular}
+}
+
+%
+%
+\appendixtitles{yes} %
+\appendixstart
+\appendix
+%
+%
+%
+
+%
+%
+%
+
+%
+
+\section[\appendixname~\thesection]{Further Results for the Case Study of Section~\ref{sec:eval_water}}
+\setcounter{figure}{0} %
+\setcounter{table}{0}
+
+\input{main_appendix_lufi.tex}
+
+
+
+\section[\appendixname~\thesection]{Further Results for the Case Study of Section~\ref{sec:eval_handlingfreerotation}}
+%
+%
+%
+
+\input{main_appendix_handling.tex}
+
+\clearpage %
+
+
+
+\ifgrammarly
+	\theendnotes %
+	\newpage
+\fi
+
+%
+%
+\begin{adjustwidth}{-\extralength}{0cm}
+%
+%
+
+\reftitle{References}
+
+%
+%
+
+%
+%
+%
+\externalbibliography{yes}
+\bibliography{references_3460172}
+
+
+
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+%
+%
+%
+
+%
+%
+%
+%
+%
+%
+%
+%
+\PublishersNote{}
+%
+\end{adjustwidth}
+%
+\end{document}

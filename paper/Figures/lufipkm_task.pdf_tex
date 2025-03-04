@@ -1,0 +1,100 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'lufipkm_task.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{464.88188976bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.26829268)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{lufipkm_task.pdf}}%
+    \put(0.54799866,0.08430546){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{0.4}{\metre}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{lufipkm_task.pdf}}%
+    \put(0.66311687,0.02077345){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\bm{w}_{\mathrm{ext}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{lufipkm_task.pdf}}%
+    \put(0.10970134,0.02574297){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{2.2}{\metre}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{lufipkm_task.pdf}}%
+    \put(0.08150635,0.10498959){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{1.0}{\metre}\end{tabular}}}}%
+    \put(0.37878004,0.24399334){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}base\end{tabular}}}}%
+    \put(0.37772132,0.21816114){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}frame\end{tabular}}}}%
+    \put(0.37880525,0.18146031){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}parallel\end{tabular}}}}%
+    \put(0.3785532,0.15175936){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}robot\end{tabular}}}}%
+    \put(0.37745667,0.10558114){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ship hull\end{tabular}}}}%
+    \put(0.37850278,0.07873219){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}model\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{lufipkm_task.pdf}}%
+    \put(0.37850278,0.03936805){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}water\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{lufipkm_task.pdf}}%
+    \put(0.1304359,0.24043627){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{1.6}{\metre}\end{tabular}}}}%
+    \put(0.15359311,0.21270817){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{0.2}{\metre}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{lufipkm_task.pdf}}%
+    \put(0.23618782,0.13871533){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}install.\end{tabular}}}}%
+    \put(0.23646166,0.11946004){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}space\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{lufipkm_task.pdf}}%
+    \put(0.01238201,0.00794173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(a)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{lufipkm_task.pdf}}%
+    \put(0.17991402,0.08802861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}work-\end{tabular}}}}%
+    \put(0.18018787,0.06877332){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}space\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{lufipkm_task.pdf}}%
+    \put(0.21939645,0.17740557){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{0.2}{\metre}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{lufipkm_task.pdf}}%
+    \put(0.73116163,0.16337353){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{0.48}{\metre}\end{tabular}}}}%
+    \put(0.95012023,0.17822805){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(c)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{lufipkm_task.pdf}}%
+    \put(0.74932108,0.11059174){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ks{\indks{E}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{lufipkm_task.pdf}}%
+    \put(0.87727672,0.09760851){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\ks{\indks{P}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{lufipkm_task.pdf}}%
+    \put(0.0101993,0.23342514){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{1.5}{\metre}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{lufipkm_task.pdf}}%
+    \put(0.87913541,0.00794173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{(b)}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{lufipkm_task.pdf}}%
+    \put(0.87042357,0.05815739){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\SI{2.1}{\metre}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{lufipkm_task.pdf}}%
+  \end{picture}%
+\endgroup%

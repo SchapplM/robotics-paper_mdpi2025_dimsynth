@@ -1,0 +1,36 @@
+TextFix;TextLink;GroupName;GroupNum;NumberMain;NumberVar;CouplingOnly;TextCoupling
+PR 1.1 (3-\underline{\`P}{\`R}{\`R}{\`R});PR\,\ref{restabrow:P3PRRR1}.\ref{restabrow:P3PRRR1GxPxA1};P3PRRR1G;1;1;1;c-m;3-\underline{P}{R}{R}{R}, c-m
+PR 3.2 (3-\underline{P}{R}{R}{U});PR\,\ref{restabrow:P3PRRRR3}.\ref{restabrow:P3PRRRR3V1GxPxA1};P3PRRRR3V1G;3;3;2;c-t;3-\underline{P}{R}{R}{U}, c-t
+PR 4.1 (3-\underline{\`P}{\`R}{\`R}{\'R}{\'R});PR\,\ref{restabrow:P3PRRRR4}.\ref{restabrow:P3PRRRR4GxPxA1};P3PRRRR4G;4;4;1;v-t;3-\underline{P}{R}{R}{R}{R}, v-t
+PR 4.2 (3-\underline{P}{R}{U}{R});PR\,\ref{restabrow:P3PRRRR4}.\ref{restabrow:P3PRRRR4V1GxPxA1};P3PRRRR4V1G;5;4;2;v-r;3-\underline{P}{R}{U}{R}, v-r
+PR 5.1 (3-\underline{P}{\`R}{\`R}{\'R}{\'R});PR\,\ref{restabrow:P3PRRRR6}.\ref{restabrow:P3PRRRR6GxPxA1};P3PRRRR6G;6;5;1;t-v;3-\underline{P}{R}{R}{R}{R}, t-v
+PR 5.2 (3-\underline{P}{R}{U}{R});PR\,\ref{restabrow:P3PRRRR6}.\ref{restabrow:P3PRRRR6V1GxPxA1};P3PRRRR6V1G;7;5;2;v-v;3-\underline{P}{R}{U}{R}, v-v
+PR 6.1 (3-\underline{P}{R}{\`R}{\`R}{\`R});PR\,\ref{restabrow:P3PRRRR7}.\ref{restabrow:P3PRRRR7GxPxA1};P3PRRRR7G;8;6;1;c-c;3-\underline{P}{R}{R}{R}{R}, c-c
+PR 6.2 (3-\underline{P}{U}{R}{R});PR\,\ref{restabrow:P3PRRRR7}.\ref{restabrow:P3PRRRR7V1GxPxA1};P3PRRRR7V1G;9;6;2;r-c;3-\underline{P}{U}{R}{R}, r-c
+PR 7.1 (3-\underline{\`P}{\`R}{\'R}{\'R}{\`R});PR\,\ref{restabrow:P3PRRRR8}.\ref{restabrow:P3PRRRR8GxPxA1};P3PRRRR8G;10;7;1;r-t;3-\underline{P}{R}{R}{R}{R}, r-t
+PR 7.2 (3-\underline{P}{U}{U});PR\,\ref{restabrow:P3PRRRR8}.\ref{restabrow:P3PRRRR8V1GxPxA1};P3PRRRR8V1G;11;7;2;t-r;3-\underline{P}{U}{U}, t-r
+PR 7.3 (3-\underline{P}{R}{R}{U});PR\,\ref{restabrow:P3PRRRR8}.\ref{restabrow:P3PRRRR8V2GxPxA1};P3PRRRR8V2G;12;7;3;c-t;3-\underline{P}{R}{R}{U}, c-t
+PR 10.3 (3-{R}\underline{P}{R}{U});PR\,\ref{restabrow:P3RPRRR12}.\ref{restabrow:P3RPRRR12V2GxPxA2};P3RPRRR12V2G;13;10;3;t-t;3-{R}\underline{P}{R}{U}, t-t
+PR 10.4 (3-{\`R}\underline{P}{\'R}{\'R}{\`R});PR\,\ref{restabrow:P3RPRRR12}.\ref{restabrow:P3RPRRR12V3GxPxA2};P3RPRRR12V3G;14;10;4;r-r;3-{R}\underline{P}{R}{R}{R}, r-r
+PR 12.2 (3-{R}\underline{\`P}{\`R}{\`R}{\`R});PR\,\ref{restabrow:P3RPRRR2}.\ref{restabrow:P3RPRRR2V1GxPxA2};P3RPRRR2V1G;15;12;2;t-c;3-{R}\underline{P}{R}{R}{R}, t-c
+PR 13.3 (3-{R}\underline{P}{R}{U});PR\,\ref{restabrow:P3RPRRR6}.\ref{restabrow:P3RPRRR6V2GxPxA2};P3RPRRR6V2G;16;13;3;v-v;3-{R}\underline{P}{R}{U}, v-v
+PR 13.4 (3-{\`R}\underline{\`P}{\'R}{\'R}{\`R});PR\,\ref{restabrow:P3RPRRR6}.\ref{restabrow:P3RPRRR6V3GxPxA2};P3RPRRR6V3G;17;13;4;v-v;3-{R}\underline{P}{R}{R}{R}, v-v
+PR 15.3 (3-{R}\underline{P}{U}{R});PR\,\ref{restabrow:P3RPRRR8}.\ref{restabrow:P3RPRRR8V2GxPxA2};P3RPRRR8V2G;18;15;3;r-v;3-{R}\underline{P}{U}{R}, r-v
+PR 15.4 (3-{\`R}\underline{P}{\`R}{\'R}{\'R});PR\,\ref{restabrow:P3RPRRR8}.\ref{restabrow:P3RPRRR8V3GxPxA2};P3RPRRR8V3G;19;15;4;r-v;3-{R}\underline{P}{R}{R}{R}, r-v
+PR 16.3 (3-{R}\underline{P}{R}{U});PR\,\ref{restabrow:P3RPRRR9}.\ref{restabrow:P3RPRRR9V2GxPxA2};P3RPRRR9V2G;20;16;3;t-t;3-{R}\underline{P}{R}{U}, t-t
+PR 16.4 (3-{\`R}\underline{\'P}{\'R}{\'R}{\`R});PR\,\ref{restabrow:P3RPRRR9}.\ref{restabrow:P3RPRRR9V3GxPxA2};P3RPRRR9V3G;21;16;4;t-t;3-{R}\underline{P}{R}{R}{R}, t-t
+PR 19.4 (3-{U}\underline{P}{U});PR\,\ref{restabrow:P3RRPRR12}.\ref{restabrow:P3RRPRR12V3GxPxA3};P3RRPRR12V3G;22;19;4;v-v;3-{U}\underline{P}{U}, v-v
+PR 19.5 (3-{R}{R}\underline{P}{U});PR\,\ref{restabrow:P3RRPRR12}.\ref{restabrow:P3RRPRR12V4GxPxA3};P3RRPRR12V4G;23;19;5;v-v;3-{R}{R}\underline{P}{U}, v-v
+PR 19.6 (3-{\`R}{\'R}\underline{P}{\'R}{\`R});PR\,\ref{restabrow:P3RRPRR12}.\ref{restabrow:P3RRPRR12V5GxPxA3};P3RRPRR12V5G;24;19;6;v-v;3-{R}{R}\underline{P}{R}{R}, v-v
+PR 22.2 (3-{\`R}{\`R}\underline{\`P}{\'R}{\'R});PR\,\ref{restabrow:P3RRPRR4}.\ref{restabrow:P3RRPRR4V1GxPxA3};P3RRPRR4V1G;25;22;2;t-c;3-{R}{R}\underline{P}{R}{R}, t-c
+PR 23.2 (3-{\`R}{\`R}\underline{\'P}{\'R}{\'R});PR\,\ref{restabrow:P3RRPRR5}.\ref{restabrow:P3RRPRR5V1GxPxA3};P3RRPRR5V1G;26;23;2;t-v;3-{R}{R}\underline{P}{R}{R}, t-v
+PR 5.2 (4-\underline{P}{R}{U}{R});PR\,\ref{restabrow:P4PRRRR6}.\ref{restabrow:P4PRRRR6V1GxPxA1};P4PRRRR6V1G;38;5;2;t-v;4-\underline{P}{R}{U}{R}, t-v
+PR 15.3 (4-{R}\underline{P}{U}{R});PR\,\ref{restabrow:P4RPRRR8}.\ref{restabrow:P4RPRRR8V2GxPxA2};P4RPRRR8V2G;39;15;3;t-v;4-{R}\underline{P}{U}{R}, t-v
+PR 15.4 (4-{\`R}\underline{P}{\`R}{\'R}{\'R});PR\,\ref{restabrow:P4RPRRR8}.\ref{restabrow:P4RPRRR8V3GxPxA2};P4RPRRR8V3G;40;15;4;p-v;4-{R}\underline{P}{R}{R}{R}, p-v
+PR 19.5 (4-{R}{R}\underline{P}{U});PR\,\ref{restabrow:P4RRPRR12}.\ref{restabrow:P4RRPRR12V4GxPxA3};P4RRPRR12V4G;41;19;5;v-v;4-{R}{R}\underline{P}{U}, v-v
+PR 19.6 (4-{\`R}{\'R}\underline{P}{\'R}{\`R});PR\,\ref{restabrow:P4RRPRR12}.\ref{restabrow:P4RRPRR12V5GxPxA3};P4RRPRR12V5G;42;19;6;v-v;4-{R}{R}\underline{P}{R}{R}, v-v
+3-\underline{C}RR (PR 1.1);3-\underline{C}RR (PR 1.1);3-\underline{C}RR (PR 1.1);NaN;NaN;NaN;TODO;TODO
+3-\underline{P}UU (PR 7.2);3-\underline{P}UU (PR 7.2);3-\underline{P}UU (PR 7.2);NaN;NaN;NaN;TODO;TODO
+3-\underline{C}RU (PR 7.3);3-\underline{C}RU (PR 7.3);3-\underline{C}RU (PR 7.3);NaN;NaN;NaN;TODO;TODO
+3-\underline{C}UR (PR 4.2);3-\underline{C}UR (PR 4.2);3-\underline{C}UR (PR 4.2);NaN;NaN;NaN;TODO;TODO
+3-U\underline{P}U (PR 19.4);3-U\underline{P}U (PR 19.4);3-U\underline{P}U (PR 19.4);NaN;NaN;NaN;TODO;TODO

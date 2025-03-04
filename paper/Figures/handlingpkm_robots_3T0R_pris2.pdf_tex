@@ -1,0 +1,84 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'handlingpkm_robots_3T0R_pris2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{518.74015748bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.20218579)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{handlingpkm_robots_3T0R_pris2.pdf}}%
+    \put(0.00484289,0.84145278){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RPRRR6V2GxPxA2}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{handlingpkm_robots_3T0R_pris2.pdf}}%
+    \put(0.0019519,0.80694629){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{a}) 3-{R}\underline{P}{R}{U}\end{tabular}}}}%
+    \put(0.25440766,0.84145278){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RPRRR6V3GxPxA2}\end{tabular}}}}%
+    \put(0.28902949,0.80694629){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{b}) 3-{\`R}\underline{\`P}{\'R}{\'R}{\`R}\end{tabular}}}}%
+    \put(0.69749728,0.85238447){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{c}) 3-{R}\underline{P}{U}{R}\end{tabular}}}}%
+    \put(0.76374877,0.8966146){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RPRRR8V2GxPxA2} \end{tabular}}}}%
+    \put(0.02537358,0.45581218){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RPRRR8V3GxPxA2}\end{tabular}}}}%
+    \put(0.02248259,0.42708894){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{d}) 3-{\`R}\underline{P}{\`R}{\'R}{\'R}\end{tabular}}}}%
+    \put(0.26343913,0.49340326){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RPRRR9V2GxPxA2}\end{tabular}}}}%
+    \put(0.2775905,0.46670791){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{e}) 3-{R}\underline{P}{R}{U}\end{tabular}}}}%
+    \put(0.50987488,0.38699781){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{f}) 3-{\`R}\underline{\'P}{\'R}{\'R}{\`R}\end{tabular}}}}%
+    \put(0.55983644,0.47383342){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RPRRR9V3GxPxA2}\end{tabular}}}}%
+    \put(0.57516806,0.41230477){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} \end{tabular}}}}%
+    \put(0.8836877,0.52922792){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RRPRR12V3GxPxA3}\end{tabular}}}}%
+    \put(0.88079674,0.48026332){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{g}) 3-{U}\underline{P}{U}\end{tabular}}}}%
+    \put(0.00346504,0.04218856){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RRPRR12V4GxPxA3}\end{tabular}}}}%
+    \put(0.00315441,0.00768207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{h}) 3-{R}{R}\underline{P}{U}\end{tabular}}}}%
+    \put(0.84291415,0.04218856){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RRPRR5V1GxPxA3}\end{tabular}}}}%
+    \put(0.84002309,0.00768207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{k}) 3-{\`R}{\`R}\underline{\'P}{\'R}{\'R}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{handlingpkm_robots_3T0R_pris2.pdf}}%
+    \put(0.2481967,0.00768207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{i}) 3-{\`R}{\'R}\underline{P}{\'R}{\`R}\end{tabular}}}}%
+    \put(0.47837043,0.04223374){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RRPRR4V1GxPxA3}\end{tabular}}}}%
+    \put(0.47547942,0.00768207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(\textbf{j}) 3-{\`R}{\`R}\underline{\`P}{\'R}{\'R}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{handlingpkm_robots_3T0R_pris2.pdf}}%
+    \put(0.1791084,0.04218856){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\label{restabrow:P3RRPRR12V5GxPxA3}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

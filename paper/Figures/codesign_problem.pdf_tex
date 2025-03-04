@@ -1,0 +1,112 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'codesign_problem.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{464.88188976bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.33536585)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{codesign_problem.pdf}}%
+    \put(0.35907685,0.19198057){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}structure\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{codesign_problem.pdf}}%
+    \put(0.68684519,0.28972644){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}joints\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{codesign_problem.pdf}}%
+    \put(0.66120128,0.1863889){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}drive train\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{codesign_problem.pdf}}%
+    \put(0.68207815,0.08647188){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}links\end{tabular}}}}%
+    \put(0.48362282,0.28598106){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}joint range\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{codesign_problem.pdf}}%
+    \put(0.48086086,0.21081369){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}actuator velocity\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{codesign_problem.pdf}}%
+    \put(0.47994523,0.16318923){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}actuator torque\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{codesign_problem.pdf}}%
+    \put(0.48132548,0.08075964){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}load bearing\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{codesign_problem.pdf}}%
+    \put(0.16270789,0.21498824){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}platform velocity\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{codesign_problem.pdf}}%
+    \put(0.15634256,0.16460634){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}platform payload\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{codesign_problem.pdf}}%
+    \put(0.12645654,0.14077835){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{codesign_problem.pdf}}%
+    \put(0.00122949,0.1594742){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}extra\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{codesign_problem.pdf}}%
+    \put(0.88215692,0.16420763){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{codesign_problem.pdf}}%
+    \put(0.33219867,0.02729952){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}moving parts' mass\end{tabular}}}}%
+    \put(0.00174575,0.12328168){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}payload\end{tabular}}}}%
+    \put(0.83288816,0.08131442){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}link\end{tabular}}}}%
+    \put(0.82986399,0.04839716){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0.83646523,0.28339219){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}joint\end{tabular}}}}%
+    \put(0.82982639,0.24877276){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0.81136829,0.18561974){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}drive\end{tabular}}}}%
+    \put(0.80572001,0.14368809){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{codesign_problem.pdf}}%
+    \put(0.23783884,0.14393576){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{codesign_problem.pdf}}%
+    \put(0.61050302,0.27093082){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{codesign_problem.pdf}}%
+    \put(0.61050301,0.195736){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{codesign_problem.pdf}}%
+    \put(0.61050301,0.14299999){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{codesign_problem.pdf}}%
+    \put(0.61050302,0.06666815){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{codesign_problem.pdf}}%
+    \put(0.81426161,0.2710887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{codesign_problem.pdf}}%
+    \put(0.81426161,0.16783555){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{codesign_problem.pdf}}%
+    \put(0.81426159,0.06667088){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{codesign_problem.pdf}}%
+    \put(0.2567617,0.01262461){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\succcurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{codesign_problem.pdf}}%
+    \put(0.94359348,0.17634288){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{codesign_problem.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,97 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'comb_struct_dim_synth.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{524.40944882bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.3027027)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.01012353,0.17554267){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}robot task\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{comb_struct_dim_synth.pdf}}%
+    \put(0.29403473,0.17554267){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}database from\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{comb_struct_dim_synth.pdf}}%
+    \put(0.29403473,0.15068994){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}structural\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{comb_struct_dim_synth.pdf}}%
+    \put(0.57064519,0.17554267){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}dimensional\end{tabular}}}}%
+    \put(0.57064519,0.14862977){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}synthesis:\end{tabular}}}}%
+    \put(0.79664099,0.17570301){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}comparison and\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{comb_struct_dim_synth.pdf}}%
+    \put(0.79664099,0.15008658){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}selection: case studies\end{tabular}}}}%
+    \put(0.00987772,0.14544986){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}DoFs: $a$T$b$R\end{tabular}}}}%
+    \put(0.01004532,0.11776004){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}trajectory $\bm{x}(t)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{comb_struct_dim_synth.pdf}}%
+    \put(0.76317409,0.14312522){\color[rgb]{0,0,0}\rotatebox{-90.851328}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}.\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{comb_struct_dim_synth.pdf}}%
+    \put(0.47765932,0.17992763){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{9.99999905}\smash{\begin{tabular}[t]{l}all\end{tabular}}}}%
+    \put(0.45612901,0.14772176){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{9.99999905}\smash{\begin{tabular}[t]{l}structures\end{tabular}}}}%
+    \put(0.7631741,0.1355746){\color[rgb]{0,0,0}\rotatebox{-90.851328}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}.\end{tabular}}}}}%
+    \put(0.7631741,0.12802305){\color[rgb]{0,0,0}\rotatebox{-90.851328}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}.\end{tabular}}}}}%
+    \put(0.57064519,0.11954795){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}Section~\ref{sec:materials}\end{tabular}}}}%
+    \put(0.29403471,0.12240831){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}synthesis\end{tabular}}}}%
+    \put(0.79664099,0.11185534){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}Sections~\ref{sec:eval_water} and \ref{sec:eval_handlingfreerotation}\end{tabular}}}}%
+    \put(0.15281512,0.18219432){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l} $a$ translations\end{tabular}}}}%
+    \put(0.15281512,0.14659829){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l} $b$ rotations\end{tabular}}}}%
+    \put(0.47106736,0.11434828){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l} $\bm{x}(t)$\end{tabular}}}}%
+    \put(0.71664829,0.18534891){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{9.99999905}\smash{\begin{tabular}[t]{l}results\end{tabular}}}}%
+    \put(0.57709185,0.04546686){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}redundancy\end{tabular}}}}%
+    \put(0.31241138,0.04546686){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}design optimi-\end{tabular}}}}%
+    \put(0.53962229,0.01746028){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}resolution: Section~\ref{sec:ds_soa_motionplanning}\end{tabular}}}}%
+    \put(0.82029901,0.04546686){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}optimization\end{tabular}}}}%
+    \put(0.79389655,0.01746028){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}methods: Section~\ref{sec:ds_soa_optim}\end{tabular}}}}%
+    \put(0.29743918,0.01746028){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}zation: Section~\ref{sec:ds_soa_despar}\end{tabular}}}}%
+    \put(0.3270813,0.2743401){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}kinematics\end{tabular}}}}%
+    \put(0.29723746,0.24709414){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}model: Section~\ref{sec:ds_parrob_preliminaries}\end{tabular}}}}%
+    \put(0.80289355,0.27507707){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}opt. kinematics\end{tabular}}}}%
+    \put(0.78944092,0.24748521){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}parameters: Section~\ref{sec:ds_soa_kinpar}\end{tabular}}}}%
+    \put(0.55659232,0.27507791){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}robot synthesis: \end{tabular}}}}%
+    \put(0.56388847,0.24709498){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{10}\smash{\begin{tabular}[t]{l}Sections~\ref{sec:ds_soa_design}--\ref{sec:ds_combstructgeomsynth}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{comb_struct_dim_synth.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,151 @@
+%
+%
+%
+
+Despite a research history of more than three decades and potential theoretical advantages~\cite{Merlet2006}, \emph{parallel robots} %
+have not been successful in the market yet except for single examples~\cite{RussoZhaLiuXie2024}.
+Parallel robots can, in principle, encounter some disadvantages of serial robots, especially regarding dynamics, accuracy, moving mass, and related energy consumption.
+Since many problems
+%
+of fundamental research have already been solved \cite{BriotBur2023,ShaoZhaCar2023,RussoZhaLiuXie2024}, the still high and increasing publication activity on rigid parallel robots can be attributed to reaching broader (yet non-commercial) applications. \emph{Further research on their optimal design is required}, as optimal and task-specific design is essential for the deployment of parallel robots to provide new and improved automation of tasks.
+%
+%
+This paper \emph{contributes} to that field by \emph{combining methods} for structural and dimensional synthesis (Section~\ref{sec:previouswork_parrob}), resolution of functional redundancy (Section~\ref{sec:previouswork_taskred}), and design optimization (Section~\ref{sec:previouswork_desopt}) in one \emph{framework} based on the concept of \emph{bilevel optimization}. There, two optimization problems are nested into each other, which holds for engineering design problems \cite{SinhaMalDeb2017}, such as robot synthesis.
+
+\subsection{Structural and Dimensional Synthesis of Parallel Robots}
+\label{sec:previouswork_parrob}
+
+%
+%
+%
+%
+%
+
+The systematic \emph{structural synthesis} of parallel robots (for finding the number and alignments of joints and kinematic chains called legs) was driven by mathematical formulations such as screw theory \cite{KongGos2007}, the theory of linear transformations \cite{Gogu2008}, and other concepts to take into account the higher complexity of parallel over serial robots.
+The importance of the \emph{dimensional synthesis} (for determining numerical values for the parameters) was highlighted by several authors, e.g., \cite{Frindt2001} (p. 124), \cite{Krefft2006} (p. 175), and \cite{Merlet2006} (p. 25), as being at least as important for the robot performance as the structural synthesis. This distinguishes parallel from serial robots, where the dimensioning is much more intuitive. Specific further studies on dimensional synthesis have been performed for single parallel robots, e.g., \cite{Kirchner2000,StockMil2003,RaoRaoSah2005,Krefft2006,CarboneOttCec2007,KelaiaiaComZaa2012,Miller2004,LaribiRomZeg2007,LiuHuaMeiZha2012,Daake2012,JamwalHusXie2015}.
+Many more references could extend the non-exhaustive list since proper dimensioning is necessary for all \hl{parallel-robot prototypes}. %
+The concept of \emph{combined structural and dimensional synthesis} optimizes multiple structures simultaneously and only then selects the best structure. 
+This was first realized by \cite{Krefft2006,Kirchner2000} in a basic example of a few non-redundant parallel robots. The concept was only pursued systematically by a few others, such as \cite{Prause2016} for three-DoF parallel robots, \emph{leaving aspects like functional redundancy uncovered}.
+
+%
+
+
+%
+
+\subsection{Functional Redundancy}
+\label{sec:previouswork_taskred}
+%
+
+%
+%
+The operational space is the physical motion space of the robot end effector, and the task space is the sub-set coordinate space to define a robot task. 
+These spaces are congruent for most but not all tasks \cite{SciaviccoSicVilOri2009} (p. 88).
+Many \emph{industrially relevant tasks} %
+like welding, milling, or drilling only require five degrees of freedom (DoF) in their task space, while one coordinate of the six-DoF operational space can be set arbitrarily, resulting in \emph{functional redundancy}.
+%
+The aspect was mainly investigated for serial robots. %
+For parallel robots, kinematic models are more complex and the minimal coordinates are already the operational-space coordinates; therefore, fewer publications use dedicated models \cite{SchapplerTapOrt2019c} but rather incorporate the aspect into existing models by gradient-descent \cite{AgarwalNasBan2016} or within an overlying optimization \cite{MerletPerDan2000,OenWan2007,CorinaldiAngCal2016,SantosSil2017,GaoCheGaoXia2019,Schappler2023_ICINCOLNEE}, which can become computationally expensive.
+
+Functional redundancy has not yet been considered explicitly \emph{as part of the dimensional synthesis} of parallel robots.
+In the structural synthesis, no dedicated consideration is necessary since the operational space has to be regarded there. 
+Tasks or manipulators with five degrees of freedom are missing in the relevant works on \emph{combined synthesis}, e.g., in \cite{Krefft2006,Prause2016,Ramirez2018}. 
+%
+%
+Functional (or task) redundancy may look counter-intuitive for task-specific robots at first.
+Including this in the synthesis is motivated by many parallel robots having six end-effector degrees of freedom. 
+In contrast, five DoFs are difficult to realize. %
+Excluding functionally redundant robots from the synthesis \emph{would strongly limit the combined-synthesis approach for these most relevant tasks.}
+As shown in the literature, \emph{exploiting functional redundancy is critical for the performance and feasibility of robots in these tasks.}
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+\subsection{Design Optimization}
+\label{sec:previouswork_desopt}
+%
+
+%
+Lifting the structural assumptions from the literature requires a more detailed look at those non-kinematic parameters of parallel robots subject to \emph{design optimization}.
+Higher internal bending moments of multi-joint leg chains may require stronger dimensioning of limbs, which increases self-collisions. 
+Required high actuator torques may lead to bulky motors that can not be integrated into the construction anymore. 
+Static compensation springs may reduce the latter effect if they are well designed, eventually favored by a specific kinematic structure.
+Including these aspects is \emph{necessary for a robust comparison of one kinematic structure to another} and is investigated together with the other facets.
+
+%
+\subsection{Motivation and Structure of the Paper}
+\label{sec:previouswork_summmary}
+%
+
+%
+  %
+%
+%
+
+Methods for the \emph{combined structural and dimensional synthesis} of serial and parallel robots have been proposed and provide \emph{well-argued advantages over a classical two-stage synthesis.}
+Furthermore, many methods exist for the resolution of functional redundancy.
+%
+%
+%
+However, the two concepts have yet to be combined even though \emph{tasks enabling functional redundancy are the most industrially relevant type of task.}
+Moreover, design optimization is mainly covered for serial rather than parallel robots.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+By missing tools for systematic optimization, the performance of parallel robots cannot be fully exploited, and \emph{industrial tasks may be realized in a sub-optimal way or not at all if no robot exists for them yet.}
+
+%
+The overall workflow of the combined robot synthesis is summarized in Figure~\ref{fig:comb_struct_dim_synth}. %
+%
+Next; the single aspects are elaborated in more detail in comparison to existing works in Section~\ref{sec:relatedwork}.
+The materials and methods to encounter the gaps in the literature are the subject of Section~\ref{sec:materials}, followed by results in the form of two case studies in Sections~\ref{sec:eval_water} and~\ref{sec:eval_handlingfreerotation} and a discussion and conclusions in Sections~\ref{sec:discussion} and~\ref{sec:conclusions}.
+
+%
+%
+
+%
+%
+%
+
+
+%
+
+
+%
+%
+%
+%
+%
+%
+%
+%
+
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \graphicspath{{./Figures/}}
+  \input{./Figures/comb_struct_dim_synth.pdf_tex}
+\end{adjustwidth}
+\caption{\hl{Overview} %
+  %
+  %
+  %
+  of the procedure for combined structural and dimensional synthesis, which structures the paper. Abbreviations: \hl{degree of freedom (DoF)}; optimal (opt.)} %
+\label{fig:comb_struct_dim_synth}
+\end{figure} 
+

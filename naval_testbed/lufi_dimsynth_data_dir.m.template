@@ -1,0 +1,11 @@
+% Return the directory of the dimensional synthesis' results
+% This file has to be adapted by the user and saved without the .template extension
+
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2025-03
+% (C) Institut für Mechatronische Systeme, Leibniz Universität Hannover
+
+function datadir = lufi_dimsynth_data_dir()
+% This path is relative to the project directory of the paper's author.
+% Make this path matching to the downloaded synthesis results.
+datadir = fullfile(fileparts(which('robsynth_projektablage_path.m')), ...
+  '06_Publikationen', '2025_MDPI_Maßsynthese', 'Ergebnisse_Maßsynthese');

@@ -1,0 +1,100 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e410, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'codesign_problem_spring.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{464.88188976bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.23170732)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{codesign_problem_spring.pdf}}%
+    \put(0.66120125,0.17630253){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}drive train\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{codesign_problem_spring.pdf}}%
+    \put(0.68207811,0.07638552){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}springs\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{codesign_problem_spring.pdf}}%
+    \put(0.4670387,0.20072732){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}actuator velocity\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{codesign_problem_spring.pdf}}%
+    \put(0.4670387,0.14982004){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}actuator torque\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{codesign_problem_spring.pdf}}%
+    \put(0.46669839,0.07067327){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}spring torque\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{codesign_problem_spring.pdf}}%
+    \put(0.88215687,0.15412126){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{codesign_problem_spring.pdf}}%
+    \put(0.81998161,0.07122806){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}spring\end{tabular}}}}%
+    \put(0.82986394,0.0383108){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0.81136824,0.17553337){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}drive\end{tabular}}}}%
+    \put(0.80571997,0.13360173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{codesign_problem_spring.pdf}}%
+    \put(0.61050298,0.18564964){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{codesign_problem_spring.pdf}}%
+    \put(0.61050298,0.13291362){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{codesign_problem_spring.pdf}}%
+    \put(0.61050298,0.05713293){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{codesign_problem_spring.pdf}}%
+    \put(0.80458169,0.15774919){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{codesign_problem_spring.pdf}}%
+    \put(0.80458169,0.0565846){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{codesign_problem_spring.pdf}}%
+    \put(0.94359343,0.16625651){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}mass\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{codesign_problem_spring.pdf}}%
+    \put(0.4367097,0.12611988){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}+\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{codesign_problem_spring.pdf}}%
+    \put(0.30035169,0.14982004){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}total torque\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{codesign_problem_spring.pdf}}%
+    \put(0.13609802,0.18606539){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}structure\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{codesign_problem_spring.pdf}}%
+    \put(0.36527844,0.13248308){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\tiny{$\preccurlyeq$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{codesign_problem_spring.pdf}}%
+    \put(0.01466103,0.20496447){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}velocity\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{codesign_problem_spring.pdf}}%
+    \put(0.00829571,0.15458257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}payload\end{tabular}}}}%
+    \put(0.29138485,0.01349592){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}drive- and spring-design problem\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{codesign_problem_spring.pdf}}%
+  \end{picture}%
+\endgroup%
