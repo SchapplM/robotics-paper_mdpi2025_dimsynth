@@ -104,7 +104,7 @@ for i = I(:)'
     erg = load(resfile);
   else % Siehe eval_existing_design.m
     existingdesign_resname = sprintf('detail_result_PrauseChaCor2015_%s_%s', ...
-      existingdesignsuffix_all{i-size(RobotGroups,1)}, 'default');
+      existingdesignsuffix_all{i-size(RobotGroups,1)}, 'default_collcheck1_config1');
     erg = load(fullfile(datadir, sprintf('%s.mat', existingdesign_resname)));
     erg.RobName = erg.R.mdlname;
     GroupName = erg.RobName;
