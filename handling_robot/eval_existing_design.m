@@ -136,7 +136,7 @@ elseif strcmp(usr_robot_selection, 'UPU')
 else
   error('Fall nicht berücksichtigt')
 end
-assert(all(~isnan(pval)), 'pval enthält NaN');
+assert(all(~isnan(pval)), sprintf('pval enthält NaN: {%s}', disp_array(vn(isnan(pval)))));
 pval_phys_test = cds_update_robot_parameters(R, Set_i, Structure, pval);
 fprintf('Daten des Roboters:\n');
 fprintf('Gestell-Radius: %1.3fmm\n', 1e3*R.DesPar.base_par(1));

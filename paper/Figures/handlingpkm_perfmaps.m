@@ -15,8 +15,8 @@ usr_save_fig = true;
 for i_usr_fig = 1:3
 usr_figselection = usr_fig_all{i_usr_fig};
 usr_xaxis = 'samples'; % Optionen: time, normalized, samples
-colorlimit_all = [];
 for i_cases = [1 2 4]
+colorlimit_all = []; % für jedes Zielkriterium gibt es ein Bild. Dafür die Farbskalen der Subplots merken
 if i_cases == 1
   usr_pm_criterion = 'positionerror';
 elseif i_cases ==2
@@ -84,10 +84,17 @@ for i = 1:size(RobotGroups,1)
     continue % Wähle nur eine einzige PKM aus
   end
   fprintf('Zeichne Redundanzkarte für PKM-Gruppe %d/%d (%s)\n', i, size(RobotGroups,1), GroupName);
-  resfile = fullfile(datadir, sprintf('detail_result_group_%s_%s.mat', ...
-    GroupName, usr_figselection1)); % es gibt nur eine IK-Zielfunktion. Nicht mehr im Dateinamen vermerkt
+  filename = sprintf('detail_result_group_%s_%s.mat', GroupName, usr_figselection1);
+  resfile = fullfile(datadir, filename); % es gibt nur eine IK-Zielfunktion. Nicht mehr im Dateinamen vermerkt
   if ~exist(resfile, 'file')
-    warning('Ergebnis für Gruppe existiert nicht. select_eval_robot_examples ausführen!');
+    if contains(usr_figselection1, 'revolute') && any(GroupName(3:end)=='R')
+      % keine Warnung.
+    elseif contains(usr_figselection1, 'prismatic') && ~any(GroupName(3:end)=='P')
+      % keine Warnung.
+    else
+      warning(['Ergebnis für Gruppe %s existiert nicht in %s. ' ...
+        'select_eval_robot_examples ausführen!'], GroupName, filename);
+    end
     continue
   end
   erg = load(resfile);
@@ -451,7 +458,7 @@ for i = 1:size(RobotGroups,1)
     'abort_thresh_h', abort_thresh_h, ...
     'markermindist', markermindist, ...
     'reference', pm_refmode, 'wn', wn_perfmap));
-  colorlimit_all = [colorlimit_all; colorlimit];
+  colorlimit_all = [colorlimit_all; colorlimit]; %#ok<AGROW>
   if all(~isnan(colorlimit))
     if Hdl_all.cb.Limits(1) < colorlimit(1) || Hdl_all.cb.Limits(2) > colorlimit(2)
       error(['Plot (%1.2e...%1.2e) übersteigt die manuell gewählte ' ...
@@ -598,8 +605,7 @@ elseif strcmp(usr_pm_criterion, 'actforce')
   if strcmp(usr_figselection1, 'default_prismatic')
     set(cbhdl, 'Ticks', 5:5:20); % siehe oben bei colorlimit
   else
-%     set(cbhdl, 'Ticks', 10:10:50);
-    warning('colorticks nicht definiert');
+    % colorticks nicht definiert (nehme Standardwerte)
   end
 elseif strcmp(usr_pm_criterion, 'cond_jac')
   set(cbhdl, 'Ticks', [1e1, 1e2, 1e3, 1e4, 1e5], 'TickLabels', ...

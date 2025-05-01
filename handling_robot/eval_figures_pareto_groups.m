@@ -208,7 +208,14 @@ for i = 1:size(RobotGroups,1)
 %     if ic == 0 || all( ~all(repmat(RobotGroups.KinematicsNumber(i,:), i-1, 1) ...
 %          == RobotGroups.KinematicsNumber(1:i-1,:),2) )
     I_prev_plot = find(RobotGroups.ResultsFound(1:i-1) > 0);
-    if all( RobotGroups.KinematicsNumber(i,1) ~= RobotGroups.KinematicsNumber(I_prev_plot,1) ) || ...
+    I_4FG = contains(RobotGroups.GroupName, 'P4');
+    KinNumTmp = 1000*I_4FG + RobotGroups.KinematicsNumber(:,1);
+    if any(I_4FG(i)) && any(ChainShortName=='P')
+      % Sonderfall: Alle 3T1R-PKM mit Schubgelenk sollen die gleiche Farbe (c)
+      % haben. Dadurch Konsistenz der Farben zu publiziertem MDPI-Paper.
+      % (nach Fehlerkorrektur und Datenbank-Aktualisierung im April 2025 haben sich die Farben geändert)
+      if ~strcmp(color, 'c') && ~usr_loadmarkers, error('Unerwartete Farbe'); end
+    elseif all( KinNumTmp(i) ~= KinNumTmp(I_prev_plot) ) || ...
         ic == 0 % Ist notwendig, falls erste Kinematiken übersprungen werden
       ic = ic+1; % Farbe aktualisieren, wenn neue Haupt-Nummer genommen wird
       fprintf('PKM-Nummer %d.%d: Neue Farbe Nr. %d\n', RobotGroups.KinematicsNumber(i,1), ...
